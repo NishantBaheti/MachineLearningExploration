@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Classification &mdash; Machine Learning Explorations 1.0.0 documentation</title>
+  <title>Breast Cancer Analytical Modelling &mdash; Machine Learning Explorations 1.0.0 documentation</title>
   
 
   
@@ -93,14 +93,17 @@
 <li class="toctree-l1"><a class="reference internal" href="plot_learning_curve.html">Plotting Learning Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BostonDataModelling.html">Boston Data Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BreastCancerPreprocessingAnalysis.html">Breast Cancer Preprocessing Analysis</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Classification</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ensemble-methods">Ensemble Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#svm">SVM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#classification-report">Classification Report</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Breast Cancer Analytical Modelling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#classification">Classification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ensemble-methods">Ensemble Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#svm">SVM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classification-report">Classification Report</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#clustering">Clustering</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#evaluation">Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clustering">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evaluation">Evaluation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ChurnClassificationModelling.html">Churn Classification Modelling</a></li>
@@ -157,7 +160,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Classification</li>
+      <li>Breast Cancer Analytical Modelling</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -176,7 +179,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+  <div class="section" id="breast-cancer-analytical-modelling">
+<h1>Breast Cancer Analytical Modelling<a class="headerlink" href="#breast-cancer-analytical-modelling" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -205,7 +210,7 @@
 </pre></div>
 </div>
 <div class="section" id="classification">
-<h1>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h1>
+<h2>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Nearest Neighbors Algorithm</span>
 <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
 
@@ -240,7 +245,7 @@
 </pre></div>
 </div>
 <div class="section" id="ensemble-methods">
-<h2>Ensemble Methods<a class="headerlink" href="#ensemble-methods" title="Permalink to this headline">¶</a></h2>
+<h3>Ensemble Methods<a class="headerlink" href="#ensemble-methods" title="Permalink to this headline">¶</a></h3>
 <p>Ensemble methods combine predictions of other learning algorithms, to
 improve the generalization.</p>
 <p>Ensemble methods are two types:</p>
@@ -270,7 +275,7 @@ Tree Boosting</p></li>
 </div>
 </div>
 <div class="section" id="svm">
-<h2>SVM<a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h2>
+<h3>SVM<a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h3>
 <p>Support Vector Machines (SVMs) separates data points based on decision
 planes, which separates objects belonging to different classes in a
 higher dimensional space.</p>
@@ -322,7 +327,7 @@ higher dimensional space.</p>
 </div>
 </div>
 <div class="section" id="classification-report">
-<h2>Classification Report<a class="headerlink" href="#classification-report" title="Permalink to this headline">¶</a></h2>
+<h3>Classification Report<a class="headerlink" href="#classification-report" title="Permalink to this headline">¶</a></h3>
 <p>Need to provide both prediction and test data</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yPred</span> <span class="o">=</span> <span class="n">svmModel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xTest</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">yTest</span><span class="p">,</span> <span class="n">yPred</span><span class="p">))</span>
@@ -341,7 +346,7 @@ higher dimensional space.</p>
 </div>
 </div>
 <div class="section" id="clustering">
-<h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
+<h2>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h2>
 <p>Clustering is one of the unsupervised learning technique.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">technique</span> <span class="ow">is</span> <span class="n">typically</span> <span class="n">used</span> <span class="n">to</span> <span class="n">group</span> <span class="n">data</span> <span class="n">points</span> <span class="n">into</span> <span class="n">clusters</span> <span class="n">based</span> <span class="n">on</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">algorithm</span><span class="o">.</span>
 
@@ -383,7 +388,7 @@ lower dimensional space.</p></li>
 </li>
 </ul>
 <div class="section" id="evaluation">
-<h2>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h2>
+<h3>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h3>
 <p>A clustering algorithm is majorly evaluated using the following scores:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Homogeneity</span><span class="p">:</span> <span class="n">Evaluates</span> <span class="k">if</span> <span class="n">each</span> <span class="n">cluster</span> <span class="n">contains</span> <span class="n">only</span> <span class="n">members</span> <span class="n">of</span> <span class="n">a</span> <span class="n">single</span> <span class="n">class</span><span class="o">.</span>
 
@@ -407,7 +412,7 @@ lower dimensional space.</p></li>
   <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="_images/BreastCancerModellingAnalysis_13_1.svg" src="_images/BreastCancerModellingAnalysis_13_1.svg" /><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<img alt="_images/BreastCancerModellingAnalysis_14_1.svg" src="_images/BreastCancerModellingAnalysis_14_1.svg" /><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
 
 
 <span class="n">kMeansCluster</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -426,7 +431,7 @@ lower dimensional space.</p></li>
   <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="_images/BreastCancerModellingAnalysis_14_1.svg" src="_images/BreastCancerModellingAnalysis_14_1.svg" /><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+<img alt="_images/BreastCancerModellingAnalysis_15_1.svg" src="_images/BreastCancerModellingAnalysis_15_1.svg" /><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
 
 <span class="n">agClustering</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">agModel</span> <span class="o">=</span> <span class="n">agClustering</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trainDataTocluster</span><span class="p">)</span>
@@ -444,7 +449,7 @@ lower dimensional space.</p></li>
   <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="_images/BreastCancerModellingAnalysis_15_1.svg" src="_images/BreastCancerModellingAnalysis_15_1.svg" /><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+<img alt="_images/BreastCancerModellingAnalysis_16_1.svg" src="_images/BreastCancerModellingAnalysis_16_1.svg" /><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
 
 <span class="n">dbscanClustering</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span> <span class="mf">1.5</span> <span class="p">,</span><span class="n">min_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">dbscanModel</span> <span class="o">=</span> <span class="n">dbscanClustering</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trainDataTocluster</span><span class="p">)</span>
@@ -462,10 +467,11 @@ lower dimensional space.</p></li>
   <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="_images/BreastCancerModellingAnalysis_16_1.svg" src="_images/BreastCancerModellingAnalysis_16_1.svg" /><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.cluster import MeanShift</span>
+<img alt="_images/BreastCancerModellingAnalysis_17_1.svg" src="_images/BreastCancerModellingAnalysis_17_1.svg" /><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.cluster import MeanShift</span>
 <span class="c1"># from sklearn.cluster import AffinityPropagation</span>
 <span class="c1"># from sklearn.cluster import spectral_clustering</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>

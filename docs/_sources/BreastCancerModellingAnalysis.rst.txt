@@ -1,3 +1,6 @@
+Breast Cancer Analytical Modelling
+==================================
+
 .. code:: ipython3
 
     import numpy as np 
@@ -269,7 +272,7 @@ A clustering algorithm is majorly evaluated using the following scores:
 
 
 
-.. image:: BreastCancerModellingAnalysis_files/BreastCancerModellingAnalysis_13_1.svg
+.. image:: BreastCancerModellingAnalysis_files/BreastCancerModellingAnalysis_14_1.svg
 
 
 .. code:: ipython3
@@ -296,7 +299,7 @@ A clustering algorithm is majorly evaluated using the following scores:
 
 
 
-.. image:: BreastCancerModellingAnalysis_files/BreastCancerModellingAnalysis_14_1.svg
+.. image:: BreastCancerModellingAnalysis_files/BreastCancerModellingAnalysis_15_1.svg
 
 
 .. code:: ipython3
@@ -322,7 +325,7 @@ A clustering algorithm is majorly evaluated using the following scores:
 
 
 
-.. image:: BreastCancerModellingAnalysis_files/BreastCancerModellingAnalysis_15_1.svg
+.. image:: BreastCancerModellingAnalysis_files/BreastCancerModellingAnalysis_16_1.svg
 
 
 .. code:: ipython3
@@ -348,7 +351,7 @@ A clustering algorithm is majorly evaluated using the following scores:
 
 
 
-.. image:: BreastCancerModellingAnalysis_files/BreastCancerModellingAnalysis_16_1.svg
+.. image:: BreastCancerModellingAnalysis_files/BreastCancerModellingAnalysis_17_1.svg
 
 
 .. code:: ipython3
