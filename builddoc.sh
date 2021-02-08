@@ -4,10 +4,10 @@ docs_dir_name="docs"
 sphinx_dir_path="$curr_dir/$sphinx_dir_name"
 list_of_contents_in_curr_dir=$(ls)
 
-# echo $list_of_contents_in_curr_dir
 rm -rf "$sphinx_dir_path/"*"_files/"
+
 for content in $list_of_contents_in_curr_dir
-do
+do 
     if [ -d $content ];then
         if [[ $content == $sphinx_dir_name ]] || [[ $content == $docs_dir_name ]];then
             echo "*----------- Skipping for $content "
@@ -21,7 +21,7 @@ do
     else
         echo "$content is not a directory"
     fi
-done 
+done
 
 sphinx-build -b html $sphinx_dir_name $docs_dir_name
 
