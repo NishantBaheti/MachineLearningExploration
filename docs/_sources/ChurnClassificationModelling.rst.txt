@@ -1,0 +1,1094 @@
+Churn Classification Modelling
+==============================
+
+.. code:: ipython3
+
+    import numpy as np 
+    import pandas as pd 
+    import matplotlib.pyplot as plt 
+    
+    %matplotlib inline
+
+.. code:: ipython3
+
+    df = pd.read_csv("./dataset/churn.csv")
+
+.. code:: ipython3
+
+    df.head()
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>State</th>
+          <th>Account Length</th>
+          <th>Area Code</th>
+          <th>Phone</th>
+          <th>Int'l Plan</th>
+          <th>VMail Plan</th>
+          <th>VMail Message</th>
+          <th>Day Mins</th>
+          <th>Day Calls</th>
+          <th>Day Charge</th>
+          <th>...</th>
+          <th>Eve Calls</th>
+          <th>Eve Charge</th>
+          <th>Night Mins</th>
+          <th>Night Calls</th>
+          <th>Night Charge</th>
+          <th>Intl Mins</th>
+          <th>Intl Calls</th>
+          <th>Intl Charge</th>
+          <th>CustServ Calls</th>
+          <th>Churn?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>KS</td>
+          <td>128</td>
+          <td>415</td>
+          <td>382-4657</td>
+          <td>no</td>
+          <td>yes</td>
+          <td>25</td>
+          <td>265.1</td>
+          <td>110</td>
+          <td>45.07</td>
+          <td>...</td>
+          <td>99</td>
+          <td>16.78</td>
+          <td>244.7</td>
+          <td>91</td>
+          <td>11.01</td>
+          <td>10.0</td>
+          <td>3</td>
+          <td>2.70</td>
+          <td>1</td>
+          <td>False.</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>OH</td>
+          <td>107</td>
+          <td>415</td>
+          <td>371-7191</td>
+          <td>no</td>
+          <td>yes</td>
+          <td>26</td>
+          <td>161.6</td>
+          <td>123</td>
+          <td>27.47</td>
+          <td>...</td>
+          <td>103</td>
+          <td>16.62</td>
+          <td>254.4</td>
+          <td>103</td>
+          <td>11.45</td>
+          <td>13.7</td>
+          <td>3</td>
+          <td>3.70</td>
+          <td>1</td>
+          <td>False.</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>NJ</td>
+          <td>137</td>
+          <td>415</td>
+          <td>358-1921</td>
+          <td>no</td>
+          <td>no</td>
+          <td>0</td>
+          <td>243.4</td>
+          <td>114</td>
+          <td>41.38</td>
+          <td>...</td>
+          <td>110</td>
+          <td>10.30</td>
+          <td>162.6</td>
+          <td>104</td>
+          <td>7.32</td>
+          <td>12.2</td>
+          <td>5</td>
+          <td>3.29</td>
+          <td>0</td>
+          <td>False.</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>OH</td>
+          <td>84</td>
+          <td>408</td>
+          <td>375-9999</td>
+          <td>yes</td>
+          <td>no</td>
+          <td>0</td>
+          <td>299.4</td>
+          <td>71</td>
+          <td>50.90</td>
+          <td>...</td>
+          <td>88</td>
+          <td>5.26</td>
+          <td>196.9</td>
+          <td>89</td>
+          <td>8.86</td>
+          <td>6.6</td>
+          <td>7</td>
+          <td>1.78</td>
+          <td>2</td>
+          <td>False.</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>OK</td>
+          <td>75</td>
+          <td>415</td>
+          <td>330-6626</td>
+          <td>yes</td>
+          <td>no</td>
+          <td>0</td>
+          <td>166.7</td>
+          <td>113</td>
+          <td>28.34</td>
+          <td>...</td>
+          <td>122</td>
+          <td>12.61</td>
+          <td>186.9</td>
+          <td>121</td>
+          <td>8.41</td>
+          <td>10.1</td>
+          <td>3</td>
+          <td>2.73</td>
+          <td>3</td>
+          <td>False.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>5 rows × 21 columns</p>
+    </div>
+
+
+
+.. code:: ipython3
+
+    df.info()
+
+
+.. parsed-literal::
+
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 3333 entries, 0 to 3332
+    Data columns (total 21 columns):
+     #   Column          Non-Null Count  Dtype  
+    ---  ------          --------------  -----  
+     0   State           3333 non-null   object 
+     1   Account Length  3333 non-null   int64  
+     2   Area Code       3333 non-null   int64  
+     3   Phone           3333 non-null   object 
+     4   Int'l Plan      3333 non-null   object 
+     5   VMail Plan      3333 non-null   object 
+     6   VMail Message   3333 non-null   int64  
+     7   Day Mins        3333 non-null   float64
+     8   Day Calls       3333 non-null   int64  
+     9   Day Charge      3333 non-null   float64
+     10  Eve Mins        3333 non-null   float64
+     11  Eve Calls       3333 non-null   int64  
+     12  Eve Charge      3333 non-null   float64
+     13  Night Mins      3333 non-null   float64
+     14  Night Calls     3333 non-null   int64  
+     15  Night Charge    3333 non-null   float64
+     16  Intl Mins       3333 non-null   float64
+     17  Intl Calls      3333 non-null   int64  
+     18  Intl Charge     3333 non-null   float64
+     19  CustServ Calls  3333 non-null   int64  
+     20  Churn?          3333 non-null   object 
+    dtypes: float64(8), int64(8), object(5)
+    memory usage: 546.9+ KB
+
+
+.. code:: ipython3
+
+    df.describe()
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Account Length</th>
+          <th>Area Code</th>
+          <th>VMail Message</th>
+          <th>Day Mins</th>
+          <th>Day Calls</th>
+          <th>Day Charge</th>
+          <th>Eve Mins</th>
+          <th>Eve Calls</th>
+          <th>Eve Charge</th>
+          <th>Night Mins</th>
+          <th>Night Calls</th>
+          <th>Night Charge</th>
+          <th>Intl Mins</th>
+          <th>Intl Calls</th>
+          <th>Intl Charge</th>
+          <th>CustServ Calls</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>count</th>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+          <td>3333.000000</td>
+        </tr>
+        <tr>
+          <th>mean</th>
+          <td>101.064806</td>
+          <td>437.182418</td>
+          <td>8.099010</td>
+          <td>179.775098</td>
+          <td>100.435644</td>
+          <td>30.562307</td>
+          <td>200.980348</td>
+          <td>100.114311</td>
+          <td>17.083540</td>
+          <td>200.872037</td>
+          <td>100.107711</td>
+          <td>9.039325</td>
+          <td>10.237294</td>
+          <td>4.479448</td>
+          <td>2.764581</td>
+          <td>1.562856</td>
+        </tr>
+        <tr>
+          <th>std</th>
+          <td>39.822106</td>
+          <td>42.371290</td>
+          <td>13.688365</td>
+          <td>54.467389</td>
+          <td>20.069084</td>
+          <td>9.259435</td>
+          <td>50.713844</td>
+          <td>19.922625</td>
+          <td>4.310668</td>
+          <td>50.573847</td>
+          <td>19.568609</td>
+          <td>2.275873</td>
+          <td>2.791840</td>
+          <td>2.461214</td>
+          <td>0.753773</td>
+          <td>1.315491</td>
+        </tr>
+        <tr>
+          <th>min</th>
+          <td>1.000000</td>
+          <td>408.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>23.200000</td>
+          <td>33.000000</td>
+          <td>1.040000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+        </tr>
+        <tr>
+          <th>25%</th>
+          <td>74.000000</td>
+          <td>408.000000</td>
+          <td>0.000000</td>
+          <td>143.700000</td>
+          <td>87.000000</td>
+          <td>24.430000</td>
+          <td>166.600000</td>
+          <td>87.000000</td>
+          <td>14.160000</td>
+          <td>167.000000</td>
+          <td>87.000000</td>
+          <td>7.520000</td>
+          <td>8.500000</td>
+          <td>3.000000</td>
+          <td>2.300000</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>50%</th>
+          <td>101.000000</td>
+          <td>415.000000</td>
+          <td>0.000000</td>
+          <td>179.400000</td>
+          <td>101.000000</td>
+          <td>30.500000</td>
+          <td>201.400000</td>
+          <td>100.000000</td>
+          <td>17.120000</td>
+          <td>201.200000</td>
+          <td>100.000000</td>
+          <td>9.050000</td>
+          <td>10.300000</td>
+          <td>4.000000</td>
+          <td>2.780000</td>
+          <td>1.000000</td>
+        </tr>
+        <tr>
+          <th>75%</th>
+          <td>127.000000</td>
+          <td>510.000000</td>
+          <td>20.000000</td>
+          <td>216.400000</td>
+          <td>114.000000</td>
+          <td>36.790000</td>
+          <td>235.300000</td>
+          <td>114.000000</td>
+          <td>20.000000</td>
+          <td>235.300000</td>
+          <td>113.000000</td>
+          <td>10.590000</td>
+          <td>12.100000</td>
+          <td>6.000000</td>
+          <td>3.270000</td>
+          <td>2.000000</td>
+        </tr>
+        <tr>
+          <th>max</th>
+          <td>243.000000</td>
+          <td>510.000000</td>
+          <td>51.000000</td>
+          <td>350.800000</td>
+          <td>165.000000</td>
+          <td>59.640000</td>
+          <td>363.700000</td>
+          <td>170.000000</td>
+          <td>30.910000</td>
+          <td>395.000000</td>
+          <td>175.000000</td>
+          <td>17.770000</td>
+          <td>20.000000</td>
+          <td>20.000000</td>
+          <td>5.400000</td>
+          <td>9.000000</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+.. code:: ipython3
+
+    targetMatrix = df['Churn?']
+
+.. code:: ipython3
+
+    targetMatrix.value_counts()
+
+
+
+
+.. parsed-literal::
+
+    False.    2850
+    True.      483
+    Name: Churn?, dtype: int64
+
+
+
+.. code:: ipython3
+
+    df.columns
+
+
+
+
+.. parsed-literal::
+
+    Index(['State', 'Account Length', 'Area Code', 'Phone', 'Int'l Plan',
+           'VMail Plan', 'VMail Message', 'Day Mins', 'Day Calls', 'Day Charge',
+           'Eve Mins', 'Eve Calls', 'Eve Charge', 'Night Mins', 'Night Calls',
+           'Night Charge', 'Intl Mins', 'Intl Calls', 'Intl Charge',
+           'CustServ Calls', 'Churn?'],
+          dtype='object')
+
+
+
+.. code:: ipython3
+
+    featureMatrix = df.drop(['Phone','Churn?'],axis=1)
+
+.. code:: ipython3
+
+    featureMatrix[['Int\'l Plan','VMail Plan']] = featureMatrix[['Int\'l Plan','VMail Plan'] ]== 'yes'
+
+.. code:: ipython3
+
+    from sklearn.preprocessing import OneHotEncoder
+    
+    ohe = OneHotEncoder()
+    
+    oheFit = ohe.fit(featureMatrix['State'].values.reshape(-1,1))
+    
+    oheResult = oheFit.transform(featureMatrix['State'].values.reshape(-1,1)).toarray()
+    
+    stateDf = pd.DataFrame(oheResult,columns=oheFit.get_feature_names())
+
+.. code:: ipython3
+
+    featureMatrix = featureMatrix.drop(['State'],axis=1)
+
+.. code:: ipython3
+
+    featureMatrix = featureMatrix.join(stateDf)
+
+.. code:: ipython3
+
+    featureMatrix
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Account Length</th>
+          <th>Area Code</th>
+          <th>Int'l Plan</th>
+          <th>VMail Plan</th>
+          <th>VMail Message</th>
+          <th>Day Mins</th>
+          <th>Day Calls</th>
+          <th>Day Charge</th>
+          <th>Eve Mins</th>
+          <th>Eve Calls</th>
+          <th>...</th>
+          <th>x0_SD</th>
+          <th>x0_TN</th>
+          <th>x0_TX</th>
+          <th>x0_UT</th>
+          <th>x0_VA</th>
+          <th>x0_VT</th>
+          <th>x0_WA</th>
+          <th>x0_WI</th>
+          <th>x0_WV</th>
+          <th>x0_WY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>128</td>
+          <td>415</td>
+          <td>False</td>
+          <td>True</td>
+          <td>25</td>
+          <td>265.1</td>
+          <td>110</td>
+          <td>45.07</td>
+          <td>197.4</td>
+          <td>99</td>
+          <td>...</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>107</td>
+          <td>415</td>
+          <td>False</td>
+          <td>True</td>
+          <td>26</td>
+          <td>161.6</td>
+          <td>123</td>
+          <td>27.47</td>
+          <td>195.5</td>
+          <td>103</td>
+          <td>...</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>137</td>
+          <td>415</td>
+          <td>False</td>
+          <td>False</td>
+          <td>0</td>
+          <td>243.4</td>
+          <td>114</td>
+          <td>41.38</td>
+          <td>121.2</td>
+          <td>110</td>
+          <td>...</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>84</td>
+          <td>408</td>
+          <td>True</td>
+          <td>False</td>
+          <td>0</td>
+          <td>299.4</td>
+          <td>71</td>
+          <td>50.90</td>
+          <td>61.9</td>
+          <td>88</td>
+          <td>...</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>75</td>
+          <td>415</td>
+          <td>True</td>
+          <td>False</td>
+          <td>0</td>
+          <td>166.7</td>
+          <td>113</td>
+          <td>28.34</td>
+          <td>148.3</td>
+          <td>122</td>
+          <td>...</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>...</th>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+        </tr>
+        <tr>
+          <th>3328</th>
+          <td>192</td>
+          <td>415</td>
+          <td>False</td>
+          <td>True</td>
+          <td>36</td>
+          <td>156.2</td>
+          <td>77</td>
+          <td>26.55</td>
+          <td>215.5</td>
+          <td>126</td>
+          <td>...</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>3329</th>
+          <td>68</td>
+          <td>415</td>
+          <td>False</td>
+          <td>False</td>
+          <td>0</td>
+          <td>231.1</td>
+          <td>57</td>
+          <td>39.29</td>
+          <td>153.4</td>
+          <td>55</td>
+          <td>...</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>3330</th>
+          <td>28</td>
+          <td>510</td>
+          <td>False</td>
+          <td>False</td>
+          <td>0</td>
+          <td>180.8</td>
+          <td>109</td>
+          <td>30.74</td>
+          <td>288.8</td>
+          <td>58</td>
+          <td>...</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>3331</th>
+          <td>184</td>
+          <td>510</td>
+          <td>True</td>
+          <td>False</td>
+          <td>0</td>
+          <td>213.8</td>
+          <td>105</td>
+          <td>36.35</td>
+          <td>159.6</td>
+          <td>84</td>
+          <td>...</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>3332</th>
+          <td>74</td>
+          <td>415</td>
+          <td>False</td>
+          <td>True</td>
+          <td>25</td>
+          <td>234.4</td>
+          <td>113</td>
+          <td>39.85</td>
+          <td>265.9</td>
+          <td>82</td>
+          <td>...</td>
+          <td>0.0</td>
+          <td>1.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>3333 rows × 69 columns</p>
+    </div>
+
+
+
+.. code:: ipython3
+
+    from sklearn.impute import SimpleImputer
+    #Missing values replaced by mean
+    imputer =SimpleImputer(missing_values=np.nan,strategy='mean',fill_value=None,verbose=0,copy=True)
+    #Fit to data, then transform it.
+    imputerFit = imputer.fit(featureMatrix)
+    featureMatrix = imputerFit.transform(featureMatrix)
+
+.. code:: ipython3
+
+    featureMatrix
+
+
+
+
+.. parsed-literal::
+
+    array([[128., 415.,   0., ...,   0.,   0.,   0.],
+           [107., 415.,   0., ...,   0.,   0.,   0.],
+           [137., 415.,   0., ...,   0.,   0.,   0.],
+           ...,
+           [ 28., 510.,   0., ...,   0.,   0.,   0.],
+           [184., 510.,   1., ...,   0.,   0.,   0.],
+           [ 74., 415.,   0., ...,   0.,   0.,   0.]])
+
+
+
+.. code:: ipython3
+
+    from sklearn.preprocessing import StandardScaler
+    #Standardize the data by removing the mean and scaling to unit variance
+    scaler = StandardScaler()
+    #Fit to data, then transform it.
+    scalerFit = scaler.fit(featureMatrix)
+    
+    featureMatrix = scalerFit.transform(featureMatrix)
+
+.. code:: ipython3
+
+    featureMatrix
+
+
+
+
+.. parsed-literal::
+
+    array([[ 0.67648946, -0.52360328, -0.32758048, ..., -0.1548003 ,
+            -0.18123975, -0.15378117],
+           [ 0.14906505, -0.52360328, -0.32758048, ..., -0.1548003 ,
+            -0.18123975, -0.15378117],
+           [ 0.9025285 , -0.52360328, -0.32758048, ..., -0.1548003 ,
+            -0.18123975, -0.15378117],
+           ...,
+           [-1.83505538,  1.71881732, -0.32758048, ..., -0.1548003 ,
+            -0.18123975, -0.15378117],
+           [ 2.08295458,  1.71881732,  3.05268496, ..., -0.1548003 ,
+            -0.18123975, -0.15378117],
+           [-0.67974475, -0.52360328, -0.32758048, ..., -0.1548003 ,
+            -0.18123975, -0.15378117]])
+
+
+
+.. code:: ipython3
+
+    seed = 42
+    
+    from sklearn.model_selection import train_test_split
+    
+    xTrain, xTest, yTrain,yTest = train_test_split(featureMatrix,targetMatrix,test_size=0.1,random_state=seed)
+
+Decision Tree Classification
+----------------------------
+
+.. code:: ipython3
+
+    from sklearn.tree import DecisionTreeClassifier
+    
+    dtClassifier = DecisionTreeClassifier(random_state=seed)
+    
+    dtModel = dtClassifier.fit(xTrain,yTrain)
+    
+    yPredictDT = dtModel.predict(xTest)
+    
+    dtScore = dtClassifier.score(xTest,yTest)
+    print("Decision Tree Score :",dtScore)
+
+
+.. parsed-literal::
+
+    Decision Tree Score : 0.9101796407185628
+
+
+Gaussian Naive Bayes
+--------------------
+
+.. code:: ipython3
+
+    from sklearn.naive_bayes import GaussianNB
+    
+    gnbClassifier = GaussianNB()
+    
+    gnbModel = gnbClassifier.fit(xTrain,yTrain)
+    
+    yPredictGNB = gnbModel.predict(xTest)
+    
+    gnbScore = gnbModel.score(xTest,yTest)
+    
+    print("Gaussian Naive Bayes Score :",gnbScore)
+
+
+.. parsed-literal::
+
+    Gaussian Naive Bayes Score : 0.6287425149700598
+
+
+Stochastic Gradient Descent
+---------------------------
+
+.. code:: ipython3
+
+    from sklearn.linear_model import SGDClassifier
+    
+    sgdClassifier = SGDClassifier(loss='modified_huber', shuffle=True,random_state=seed)
+    
+    sgdModel = sgdClassifier.fit(xTrain,yTrain)
+    
+    yPredictSGD = sgdModel.score(xTest,yTest)
+    
+    sgdScore = sgdModel.score(xTest,yTest)
+    print("Stochastic Gradient Descent Classification score :",sgdScore)
+
+
+.. parsed-literal::
+
+    Stochastic Gradient Descent Classification score : 0.8023952095808383
+
+
+Support Vector Machine
+----------------------
+
+.. code:: ipython3
+
+    from sklearn.svm import SVC
+    
+    svClassifier = SVC(kernel="linear", C=0.025,random_state=seed)
+    svModel = svClassifier.fit(xTrain, yTrain)
+    yPredictSV = svClassifier.predict(xTest)
+    
+    svScore = svClassifier.score(xTest, yTest)
+    print('SVM Classifier : ',svScore)
+
+
+.. parsed-literal::
+
+    SVM Classifier :  0.8383233532934131
+
+
+Random Forest
+-------------
+
+.. code:: ipython3
+
+    from sklearn.ensemble import RandomForestClassifier
+    rfClassifier = RandomForestClassifier(max_depth=5, n_estimators=10, max_features=10,random_state=seed)
+    rfModel = rfClassifier.fit(xTrain, yTrain)
+    yPredictRF = rfClassifier.predict(xTest)
+    rfScore = rfClassifier.score(xTest, yTest)
+    print('Random Forest Classifier : ',rfScore)
+
+
+.. parsed-literal::
+
+    Random Forest Classifier :  0.874251497005988
+
+
+Random Forest (Parameter Tuning)
+--------------------------------
+
+.. code:: ipython3
+
+    from sklearn.ensemble import RandomForestClassifier
+    rfClassifier = RandomForestClassifier(max_depth=5, n_estimators=15, max_features=60,random_state=seed)
+    rfModel = rfClassifier.fit(xTrain, yTrain)
+    yPredictRF = rfClassifier.predict(xTest)
+    rfScore = rfClassifier.score(xTest, yTest)
+    print('Random Forest Classifier : ',rfScore)
+
+
+.. parsed-literal::
+
+    Random Forest Classifier :  0.9431137724550899
+
+
+Imbalance in target classes
+---------------------------
+
+-  Some classification problems can exhibit a large imbalance in the
+   distribution of the target classes.
+-  for instance there could be several times more negative samples than
+   positive samples. In such cases it is recommended to use stratified
+   sampling as implemented in StratifiedKFold and StratifiedShuffleSplit
+   to ensure that relative class frequencies is approximately preserved
+   in each train and validation fold.
+
+.. code:: ipython3
+
+    from sklearn.model_selection import StratifiedShuffleSplit
+    
+    sss = StratifiedShuffleSplit(n_splits=1,test_size=0.1,random_state=7)
+    sss.get_n_splits(featureMatrix,targetMatrix)
+    
+    print(sss)
+
+
+.. parsed-literal::
+
+    StratifiedShuffleSplit(n_splits=1, random_state=7, test_size=0.1,
+                train_size=None)
+
+
+.. code:: ipython3
+
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.naive_bayes import GaussianNB
+    from sklearn.ensemble import RandomForestClassifier,AdaBoostClassifier
+    from sklearn.linear_model import SGDClassifier
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.svm import SVC,LinearSVC
+    from sklearn.multiclass import OneVsRestClassifier
+    
+    
+    classifiers = [
+        DecisionTreeClassifier(),
+        GaussianNB(),
+        SGDClassifier(loss='modified_huber', shuffle=True),
+        SVC(kernel="linear", C=0.025),
+        KNeighborsClassifier(),
+        OneVsRestClassifier(LinearSVC()),
+        RandomForestClassifier(max_depth=5, n_estimators=10, max_features=10),
+        AdaBoostClassifier(),
+       ]
+    for clf in classifiers:
+        score=0
+        for train_index, test_index in sss.split(featureMatrix,targetMatrix):
+            X_train, X_test = featureMatrix[train_index], featureMatrix[test_index]
+            y_train, y_test = targetMatrix[train_index], targetMatrix[test_index]
+            clf.fit(X_train, y_train)
+            score=score+clf.score(X_test, y_test)
+        print(clf,score)
+
+
+.. parsed-literal::
+
+    DecisionTreeClassifier() 0.8862275449101796
+    GaussianNB() 0.6137724550898204
+    SGDClassifier(loss='modified_huber') 0.7784431137724551
+    SVC(C=0.025, kernel='linear') 0.8562874251497006
+    KNeighborsClassifier() 0.8592814371257484
+
+
+.. parsed-literal::
+
+    /home/nishant/anaconda3/lib/python3.8/site-packages/sklearn/svm/_base.py:976: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+      warnings.warn("Liblinear failed to converge, increase "
+
+
+.. parsed-literal::
+
+    OneVsRestClassifier(estimator=LinearSVC()) 0.8652694610778443
+    RandomForestClassifier(max_depth=5, max_features=10, n_estimators=10) 0.8862275449101796
+    AdaBoostClassifier() 0.8832335329341318
+

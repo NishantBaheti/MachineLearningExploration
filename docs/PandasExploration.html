@@ -1,0 +1,838 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Pandas Exploration &mdash; Machine Learning Explorations 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Natural Language Processing" href="NLTK.html" />
+    <link rel="prev" title="Iris Data Modelling" href="IrisDataModelling.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Machine Learning Explorations
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Statistics.html">Statisitcs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StatisticalModelling.html">Statistical Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hypothesis.html">Hypothesis Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">Matplotlib Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_learning_curve.html">Plotting Learning Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BostonDataModelling.html">Boston Data Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BreastCancerPreprocessingAnalysis.html">Breast Cancer Preprocessing Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BreastCancerModellingAnalysis.html">Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BreastCancerModellingAnalysis.html#clustering">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ChurnClassificationModelling.html">Churn Classification Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DigitsDataModelling.html">Digits Data Analysis and Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IrisDataModelling.html">Iris Data Modelling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pandas Exploration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#transforming-data">Transforming Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="NLTK.html">Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SpamDataAnalytics.html">Spam Data Analytics</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Machine Learning Explorations</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Pandas Exploration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/PandasExploration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pandas-exploration">
+<h1>Pandas Exploration<a class="headerlink" href="#pandas-exploration" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">featureColumns</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;(cm)&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">featureColumns</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepallength</th>
+      <th>sepalwidth</th>
+      <th>petallength</th>
+      <th>petalwidth</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Single filter</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sepallength&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepallength</th>
+      <th>sepalwidth</th>
+      <th>petallength</th>
+      <th>petalwidth</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>4.6</td>
+      <td>3.4</td>
+      <td>1.4</td>
+      <td>0.3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4.4</td>
+      <td>2.9</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## applying 2 filters</span>
+
+<span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sepallength&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepallength</th>
+      <th>sepalwidth</th>
+      <th>petallength</th>
+      <th>petalwidth</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>4.6</td>
+      <td>3.4</td>
+      <td>1.4</td>
+      <td>0.3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4.4</td>
+      <td>2.9</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="section" id="transforming-data">
+<h2>Transforming Data<a class="headerlink" href="#transforming-data" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;temperature&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">23</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">11</span><span class="p">)),</span>
+    <span class="s1">&#39;thunderstorm&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">150</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">11</span><span class="p">)),</span>
+    <span class="s1">&#39;location&#39;</span> <span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;XXYYXXYYXXY&#39;</span><span class="p">)</span>
+
+<span class="p">})</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temperature</th>
+      <th>thunderstorm</th>
+      <th>location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>37.178703</td>
+      <td>151.250130</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>16.338412</td>
+      <td>148.930679</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>16.614139</td>
+      <td>151.664537</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>35.818557</td>
+      <td>154.044738</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21.598561</td>
+      <td>143.369174</td>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">replaceValues</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;location&#39;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;X&quot;</span> <span class="p">:</span> <span class="s2">&quot;MISSISSIPPI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Y&quot;</span> <span class="p">:</span> <span class="s2">&quot;MANALI&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replaceValues</span><span class="p">,</span><span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temperature</th>
+      <th>thunderstorm</th>
+      <th>location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>37.178703</td>
+      <td>151.250130</td>
+      <td>MISSISSIPPI</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>16.338412</td>
+      <td>148.930679</td>
+      <td>MISSISSIPPI</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>16.614139</td>
+      <td>151.664537</td>
+      <td>MANALI</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>35.818557</td>
+      <td>154.044738</td>
+      <td>MANALI</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21.598561</td>
+      <td>143.369174</td>
+      <td>MISSISSIPPI</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df.location.str.contains(&quot;ISSI&quot;)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;ISSI&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temperature</th>
+      <th>thunderstorm</th>
+      <th>location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>37.178703</td>
+      <td>151.250130</td>
+      <td>MISSISSIPPI</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>16.338412</td>
+      <td>148.930679</td>
+      <td>MISSISSIPPI</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21.598561</td>
+      <td>143.369174</td>
+      <td>MISSISSIPPI</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>29.470110</td>
+      <td>141.694351</td>
+      <td>MISSISSIPPI</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>35.765885</td>
+      <td>144.513669</td>
+      <td>MISSISSIPPI</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>27.894740</td>
+      <td>156.470016</td>
+      <td>MISSISSIPPI</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temperature</th>
+      <th>thunderstorm</th>
+    </tr>
+    <tr>
+      <th>location</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>MANALI</th>
+      <td>29.238917</td>
+      <td>155.537351</td>
+    </tr>
+    <tr>
+      <th>MISSISSIPPI</th>
+      <td>28.041068</td>
+      <td>147.704670</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">serIndex</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span><span class="s1">&#39;s2&#39;</span><span class="p">,</span><span class="s1">&#39;s3&#39;</span><span class="p">,</span><span class="s1">&#39;s4&#39;</span><span class="p">,</span><span class="s1">&#39;s5&#39;</span><span class="p">]</span>
+
+<span class="n">heights_A</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">176.2</span><span class="p">,</span> <span class="mf">158.4</span><span class="p">,</span> <span class="mf">167.6</span><span class="p">,</span> <span class="mf">156.2</span><span class="p">,</span><span class="mf">161.4</span><span class="p">]),</span><span class="n">index</span><span class="o">=</span><span class="n">serIndex</span><span class="p">)</span>
+<span class="n">weights_A</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">85.1</span><span class="p">,</span> <span class="mf">90.2</span><span class="p">,</span> <span class="mf">76.8</span><span class="p">,</span> <span class="mf">80.4</span><span class="p">,</span><span class="mf">78.9</span><span class="p">]),</span><span class="n">index</span><span class="o">=</span><span class="n">serIndex</span><span class="p">)</span>
+
+
+<span class="n">df_A</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">df_A</span><span class="p">[</span><span class="s1">&#39;Student_height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heights_A</span>
+<span class="n">df_A</span><span class="p">[</span><span class="s1">&#39;Student_weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights_A</span>
+
+<span class="n">df_A</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">]</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">165.4</span><span class="p">,</span> <span class="mf">82.7</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">]),</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Student_height&#39;</span><span class="p">,</span> <span class="s1">&#39;Student_weight&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">])</span>
+<span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;s6&#39;</span>
+<span class="n">df_AA</span> <span class="o">=</span> <span class="n">df_A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="c1"># print(df_AA)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+
+<span class="n">heights_B</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">170.0</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">weights_B</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">75.0</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">12.0</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">df_B</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">df_B</span><span class="p">[</span><span class="s1">&#39;Student_height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heights_B</span>
+<span class="n">df_B</span><span class="p">[</span><span class="s1">&#39;Student_weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights_B</span>
+<span class="n">df_B</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;s7&#39;</span><span class="p">,</span><span class="s1">&#39;s8&#39;</span><span class="p">,</span><span class="s1">&#39;s9&#39;</span><span class="p">,</span><span class="s1">&#39;s10&#39;</span><span class="p">,</span><span class="s1">&#39;s11&#39;</span><span class="p">]</span>
+
+<span class="n">df_B</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">]</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_AA</span><span class="p">,</span><span class="n">df_B</span><span class="p">])</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Student_height</th>
+      <th>Student_weight</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>s1</th>
+      <td>176.2</td>
+      <td>85.1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>s2</th>
+      <td>158.4</td>
+      <td>90.2</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>s3</th>
+      <td>167.6</td>
+      <td>76.8</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>s4</th>
+      <td>156.2</td>
+      <td>80.4</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>s5</th>
+      <td>161.4</td>
+      <td>78.9</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>s6</th>
+      <td>165.4</td>
+      <td>82.7</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>s7</th>
+      <td>126.256</td>
+      <td>54.0028</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>s8</th>
+      <td>178.567</td>
+      <td>79.1122</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>s9</th>
+      <td>198.826</td>
+      <td>88.8364</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>s10</th>
+      <td>163.689</td>
+      <td>71.9708</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>s11</th>
+      <td>194.533</td>
+      <td>86.7758</td>
+      <td>M</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">89.2</span><span class="p">,</span> <span class="mf">76.4</span><span class="p">,</span> <span class="mf">98.2</span><span class="p">,</span> <span class="mf">75.9</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">))</span>
+
+<span class="s1">&#39;b&#39;</span> <span class="ow">in</span> <span class="n">s</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="NLTK.html" class="btn btn-neutral float-right" title="Natural Language Processing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="IrisDataModelling.html" class="btn btn-neutral float-left" title="Iris Data Modelling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Nishant Baheti.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
