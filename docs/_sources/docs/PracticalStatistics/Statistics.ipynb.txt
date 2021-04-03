@@ -395,7 +395,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Probability Distributions \n",
+    "# Probability Distributions \n",
     "\n",
     "        Discrete Probability Distribution \n",
     "                    |\n",
@@ -425,7 +425,7 @@
     "Commonly used methods are described below.\n",
     "\n",
     "- pdf / pmf : Probability distribution function (continuous) or probability mass function (discrete).\n",
-    "- cdf : Cumulative distribution function.\n",
+    "- cdf : Cumulative distribution function. \n",
     "- sf : Survival function (1 – cdf).\n",
     "- rvs : Creating random samples from a distribution."
    ]

@@ -96,8 +96,21 @@
 <li class="toctree-l3"><a class="reference internal" href="#Random-Sampling">Random Sampling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Random-Seeding">Random Seeding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Random-Variable">Random Variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Probability-Distributions">Probability Distributions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Random-Distributions">Random Distributions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Probability-Distributions">Probability Distributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Notes">Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Normal-Distribution">Normal Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Uniform-Distribution">Uniform Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Chi-squared-Distribution">Chi-squared Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#F-Distribution">F Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#T-Distribition">T Distribition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Binomial-Distribution">Binomial Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Multinomial-Distribution">Multinomial Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Poisson-Distribution">Poisson Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Hypergeometric-Distribution">Hypergeometric Distribution</a></li>
 </ul>
 </li>
 </ul>
@@ -794,8 +807,10 @@ array([11, 56])
 <li><p>Random Variable maps to one of the outcomes of the sample space</p></li>
 </ul>
 </div>
+</div>
+</div>
 <div class="section" id="Probability-Distributions">
-<h3>Probability Distributions<a class="headerlink" href="#Probability-Distributions" title="Permalink to this headline">¶</a></h3>
+<h1>Probability Distributions<a class="headerlink" href="#Probability-Distributions" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Discrete</span> <span class="n">Probability</span> <span class="n">Distribution</span>
             <span class="o">|</span>
             <span class="n">v</span>
@@ -823,116 +838,281 @@ array([11, 56])
 <td><p>Binomial, Poisson, Hypergeometric, Multinomial, Negative Binomial</p></td>
 </tr>
 <tr class="row-odd"><td><p>Continuous Distribution</p></td>
-<td><p>Normal, Uniform, Chi-Sqaure, F, T</p></td>
+<td><p>Normal(Gaussian), Uniform, Chi-Sqaure, F, T</p></td>
 </tr>
 </tbody>
 </table>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
 </div>
-<div class="section" id="Random-Distributions">
-<h3>Random Distributions<a class="headerlink" href="#Random-Distributions" title="Permalink to this headline">¶</a></h3>
-<p>scipy.stats module provide a lot of methods for created discrete and continuous random variables.</p>
-<p>Commonly used methods are described below.</p>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span><span class="n">uniform</span><span class="p">,</span><span class="n">chi2</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">binom</span><span class="p">,</span><span class="n">multinomial</span><span class="p">,</span><span class="n">poisson</span><span class="p">,</span><span class="n">hypergeom</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
 <ul class="simple">
-<li><p>pdf / pmf : Probability distribution function (continuous) or probability mass function (discrete).</p></li>
+<li><p>Normal (Gaussian)</p></li>
+<li><p>Uniform</p></li>
+<li><p>Chi-Sqaure</p></li>
+<li><p>F</p></li>
+<li><p>T</p></li>
+<li><p>functions</p>
+<ul>
+<li><p>pdf : Probability distribution function</p></li>
 <li><p>cdf : Cumulative distribution function.</p></li>
 <li><p>sf : Survival function (1 – cdf).</p></li>
-<li><p>rvs : Creating random samples from a distribution.</p></li>
+<li><p>rvs : Creating random samples from a distribution.(random variable samples)</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Binomial</p></li>
+<li><p>Multinomial</p></li>
+<li><p>Negative Binomial</p></li>
+<li><p>Poisson</p></li>
+<li><p>Hypergeometric</p></li>
+<li><p>functions</p>
+<ul>
+<li><p>pmf : probability mass function</p></li>
+<li><p>cdf : Cumulative distribution function.</p></li>
+<li><p>rvs : Creating random samples from a distribution.(random variable sample)</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="Notes">
+<h2>Notes<a class="headerlink" href="#Notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">scipy.stats</span> <span class="pre">import</span> <span class="pre">norm,binom</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Random</span> <span class="pre">Distributions</span></code> : scipy.stats module provide a lot of methods for created discrete and continuous random variables.</p></li>
 </ul>
 <ul class="simple">
 <li><p>The following example defines a normal continuous random variable of mean 1.0 and std 2.5.</p></li>
 <li><p>It also estimates probabilities and cumulative probabilities at -1, 0 and 1.</p></li>
 <li><p>The example also generates six random numbers from defined normal distribution.</p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[166]:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="Normal-Distribution">
+<h3>Normal Distribution<a class="headerlink" href="#Normal-Distribution" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">normObj</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span></span><span class="n">norm_dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">normObj</span><span class="o">.</span><span class="n">pdf</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">normObj</span><span class="o">.</span><span class="n">cdf</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">normObj</span><span class="o">.</span><span class="n">rvs</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">norm_dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">norm_dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-57-7fd8e620fe7f&gt;:6: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+  fig.show()
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/PracticalStatistics_Statistics_32_1.png" src="../_images/PracticalStatistics_Statistics_32_1.png" />
+</div>
+</div>
+<p>this one is just to check how rvs works. creating random variable samples.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">norm_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">norm_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-61-ece728578b5d&gt;:4: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+  fig.show()
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/PracticalStatistics_Statistics_34_1.png" src="../_images/PracticalStatistics_Statistics_34_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Uniform-Distribution">
+<h3>Uniform Distribution<a class="headerlink" href="#Uniform-Distribution" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">uniform_dist</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">()</span>
+<span class="n">uniform_dist</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[0.11587662 0.14730806 0.15957691]
-[0.2118554  0.34457826 0.5       ]
-[[-0.40409689 -3.12269376  1.88668613]
- [-0.96516083  0.42031951  1.5199392 ]]
+&lt;scipy.stats._distn_infrastructure.rv_frozen at 0x7f304bb8feb0&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[167]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">normObj</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">normObj</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-65-e4e8057ebbd6&gt;:6: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+  fig.show()
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/PracticalStatistics_Statistics_26_0.png" src="../_images/PracticalStatistics_Statistics_26_0.png" />
+<img alt="../_images/PracticalStatistics_Statistics_37_1.png" src="../_images/PracticalStatistics_Statistics_37_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[168]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">normObj</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-66-0b15cde243fc&gt;:4: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+  fig.show()
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/PracticalStatistics_Statistics_27_0.png" src="../_images/PracticalStatistics_Statistics_27_0.png" />
+<img alt="../_images/PracticalStatistics_Statistics_38_1.png" src="../_images/PracticalStatistics_Statistics_38_1.png" />
 </div>
 </div>
+</div>
+<div class="section" id="Chi-squared-Distribution">
+<h3>Chi-squared Distribution<a class="headerlink" href="#Chi-squared-Distribution" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># chi2_dist = chi2()</span>
+<span class="c1"># chi2_dist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="F-Distribution">
+<h3>F Distribution<a class="headerlink" href="#F-Distribution" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="T-Distribition">
+<h3>T Distribition<a class="headerlink" href="#T-Distribition" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="Binomial-Distribution">
+<h3>Binomial Distribution<a class="headerlink" href="#Binomial-Distribution" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[169]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">## n and p as shape parameters</span>
-<span class="n">binomObj</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">binom_dist</span> <span class="o">=</span> <span class="n">binom</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binomObj</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binomObj</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binom_dist</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binom_dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-73-7b35db4fa428&gt;:7: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+  fig.show()
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/PracticalStatistics_Statistics_28_0.png" src="../_images/PracticalStatistics_Statistics_28_0.png" />
+<img alt="../_images/PracticalStatistics_Statistics_43_1.png" src="../_images/PracticalStatistics_Statistics_43_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[170]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binomObj</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">binom_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -941,9 +1121,27 @@ array([11, 56])
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/PracticalStatistics_Statistics_29_0.png" src="../_images/PracticalStatistics_Statistics_29_0.png" />
+<img alt="../_images/PracticalStatistics_Statistics_44_0.png" src="../_images/PracticalStatistics_Statistics_44_0.png" />
 </div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Multinomial-Distribution">
+<h3>Multinomial Distribution<a class="headerlink" href="#Multinomial-Distribution" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="Poisson-Distribution">
+<h3>Poisson Distribution<a class="headerlink" href="#Poisson-Distribution" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="Hypergeometric-Distribution">
+<h3>Hypergeometric Distribution<a class="headerlink" href="#Hypergeometric-Distribution" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
