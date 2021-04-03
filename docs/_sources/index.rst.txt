@@ -11,6 +11,7 @@ Welcome to Machine Learning Exploration's documentation!
    :caption: Contents:
 
    PracticalStatistics/Statistics
+   PracticalStatistics/z_score
    PracticalStatistics/Hypothesis
    PracticalStatistics/StatisticalModelling
    MatplotlibExploration/visualization
@@ -21,6 +22,7 @@ Welcome to Machine Learning Exploration's documentation!
    BreastCancerAnalysis/plot_learning_curve
    ChurnClassification/ChurnClassificationModelling
    DigitsDataAnalysis/DigitsDataModelling
+   IrisDataAnalysis/IrisDataExploratoryAnalysis
    IrisDataAnalysis/IrisDataModelling
    NaturalLanguageProcessing/NLTK
    SpamDetection/SpamDataAnalytics
