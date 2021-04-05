@@ -16,6 +16,8 @@ Welcome to Machine Learning Exploration's documentation!
    PracticalStatistics/StatisticalModelling
    MatplotlibExploration/visualization
    PandasExploration/PandasExploration
+   LinearRegression/Explore
+   MathExploration/SingularValueDecomposition
    BostonDataAnalysis/BostonDataModelling
    BreastCancerAnalysis/BreastCancerModellingAnalysis
    BreastCancerAnalysis/BreastCancerPreprocessingAnalysis

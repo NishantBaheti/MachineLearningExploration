@@ -1,0 +1,458 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Singular Value Decomposition"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Singular value decomposition takes a rectangular matrix of gene expression data (defined as A, where A is a n x p matrix) in which the n rows represents the genes, and the p columns represents the experimental conditions. The SVD theorem states:\n",
+    "\n",
+    "![svd_formulae](./images/svd_formulae.png)\n",
+    "\n",
+    "\n",
+    "Where the columns of U are the left singular vectors (gene coefficient vectors); S (the same dimensions as A) has singular values and is diagonal (mode amplitudes); and V^T has rows that are the right singular vectors (expression level vectors). The SVD represents an expansion of the original data in a coordinate system where the covariance matrix is diagonal.\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "from scipy.linalg import svd,eig"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### finding SVD values with easy way and assemble"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "arr = np.array([\n",
+    "    [1,2,6,8],\n",
+    "    [3,4,7,9]\n",
+    "])\n",
+    "\n",
+    "U,S,VT = svd(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1 2 6 8]\n",
+      " [3 4 7 9]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(arr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[-0.63398891 -0.77334214]\n",
+      " [-0.77334214  0.63398891]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(U)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[16.04604275  1.58887135]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(S)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[-0.18409619 -0.27180199 -0.57443001 -0.74984161]\n",
+      " [ 0.710331    0.6226252  -0.12721641 -0.30262801]\n",
+      " [-0.42976161  0.36898254  0.64033436 -0.5187762 ]\n",
+      " [-0.52615912  0.63428182 -0.49377936  0.27753396]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(VT)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(2, 2) (2,) (4, 4)\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "print(U.shape,S.shape,VT.shape)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Assemble matrix"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[0. 0. 0. 0.]\n",
+      " [0. 0. 0. 0.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "singular_value_dim = (U.shape[1],VT.shape[0])\n",
+    "singular_value = np.zeros(singular_value_dim)\n",
+    "print(singular_value)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for row in range(singular_value_dim[0]):\n",
+    "    for col in range(singular_value_dim[1]):\n",
+    "        if row < S.shape[0]:\n",
+    "            if row == col:\n",
+    "                singular_value[row][col] = S[row]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[16.04604275  1.58887135]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(S)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[16.04604275  0.          0.          0.        ]\n",
+      " [ 0.          1.58887135  0.          0.        ]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(singular_value)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(2, 2) (2, 4) (4, 4)\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(U.shape,singular_value.shape,VT.shape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[1., 2., 6., 8.],\n",
+       "       [3., 4., 7., 9.]])"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "U @ singular_value @ VT"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Calculating with eigen values and vectors"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- for U\n",
+    "    - calculate A * AT\n",
+    "    - calculate eigen values and vectors\n",
+    "    - U = eigen vectors of A * AT\n",
+    "- for V\n",
+    "    - calculate AT * A\n",
+    "    - calculate eigen values and vectors\n",
+    "    - V = eigen vectors of AT * A"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "aaT = arr @ arr.T\n",
+    "aTa = arr.T @ arr"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "U_values, U = eig(aaT)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "eigen vector for U"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[-0.77334214 -0.63398891]\n",
+      " [ 0.63398891 -0.77334214]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(U)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "eigen value of U"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[  2.52451216+0.j 257.47548784+0.j]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(U_values)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "V_values, V = eig(aTa)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "eigen vector of V"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[-0.18409619 -0.27180199 -0.57443001 -0.74984161]\n",
+      " [ 0.710331    0.6226252  -0.12721641 -0.30262801]\n",
+      " [ 0.64780737 -0.6562097  -0.26508738  0.28189204]\n",
+      " [-0.00734194 -0.10763191  0.80848791 -0.57854021]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(V.T)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "eigen values of V"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[ 2.57475488e+02+0.j  2.52451216e+00+0.j -6.70099921e-16+0.j\n",
+      "  8.89903972e-15+0.j]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(V_values)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- singular value : square root of U values in descending order"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([16.04604275,  1.58887135])"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "singular_val = np.sqrt(U_values.real)\n",
+    "np.sort(singular_val)[::-1]"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.8.3 64-bit ('anaconda3': conda)",
+   "language": "python",
+   "name": "python38364bitanaconda3conda5a21e7c9305747559a413d7622491a2e"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
