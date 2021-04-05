@@ -85,8 +85,9 @@
    "source": [
     "### P Value\n",
     "\n",
-    "- possibility for the `null hypothesis` to be true\n",
+    "- measure of test statistics significance for that `null hypothesis` is true.\n",
     "- like p-value is the probability of observing another mean value that is at least as extreme as the value found from the sample data.(still not clear to me)\n",
+    "- this should mean a test is done for proof of hypothesis, results are observed that if p_value is greater than the significance level( similar observations) then Null Hypothesis is accepted else rejected (not similar observations).\n",
     "\n",
     "\n",
     "| The P-value interpretation table ||\n",
