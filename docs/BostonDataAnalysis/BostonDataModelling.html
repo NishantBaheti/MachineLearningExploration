@@ -13,8 +13,6 @@
 
   
   
-    <link rel="shortcut icon" href="../_static/images/favicon.ico"/>
-  
   
   
 
@@ -35,8 +33,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/faculty.css" type="text/css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Roboto:400,700|Roboto+Mono:400,700&display=swap" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Breast Cancer Analytical Modelling" href="../BreastCancerAnalysis/BreastCancerModellingAnalysis.html" />
@@ -53,23 +49,19 @@
         <div class="wy-side-nav-search" >
           
 
-  
-    <a class="heading heading-extra-margin" href="../index.html">
-      <div class="logo-box logo-box-large">
-        <img class="logo" src="../_static/images/faculty.svg"/>
-      </div>
-      
-        <span class="icon icon-home"> Machine Learning Exploration</span>
-      
-    </a>
-  
+          
+            <a href="../index.html" class="icon icon-home"> Machine Learning Exploration
+          
 
-  
-    
-    
-  
+          
+          </a>
 
-  
+          
+            
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -78,7 +70,7 @@
   </form>
 </div>
 
-
+          
         </div>
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -98,7 +90,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PandasExploration/PandasExploration.html">Pandas Exploration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html">Linear Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-and-Lasso(L1-Regularization)-Regression">Ridge(L2 Regularization) and Lasso(L1 Regularization) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Comparing-Linear,-Lasso,-Ridge-Regression">Comparing Linear, Lasso, Ridge Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/PrincipalComponentAnalysis.html">Principal Component Analysis</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Boston Data Modelling</a></li>
@@ -131,10 +125,6 @@
 
 
       <div class="wy-nav-content">
-
-  
-
-  
         
         <div class="rst-content">
         
@@ -158,10 +148,10 @@
 
   <ul class="wy-breadcrumbs">
     
-  <li class="breadcrumb"><a href="../index.html">Machine Learning Exploration</a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Boston Data Modelling</li>
     
-  <li class="breadcrumb">Boston Data Modelling</li>
-
     
       <li class="wy-breadcrumbs-aside">
         
@@ -426,6 +416,28 @@ div.rendered_html tbody tr:nth-child(odd) {
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <div class="section" id="Boston-Data-Modelling">
 <h1>Boston Data Modelling<a class="headerlink" href="#Boston-Data-Modelling" title="Permalink to this headline">¶</a></h1>
@@ -496,8 +508,6 @@ div.rendered_html tbody tr:hover {
 </footer>
 
         </div>
-
-
       </div>
 
     </section>

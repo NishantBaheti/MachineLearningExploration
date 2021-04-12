@@ -13,8 +13,6 @@
 
   
   
-    <link rel="shortcut icon" href="_static/images/favicon.ico"/>
-  
   
   
 
@@ -35,8 +33,6 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/faculty.css" type="text/css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Roboto:400,700|Roboto+Mono:400,700&display=swap" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Statisitcs" href="PracticalStatistics/Statistics.html" /> 
@@ -52,23 +48,19 @@
         <div class="wy-side-nav-search" >
           
 
-  
-    <a class="heading heading-extra-margin" href="#">
-      <div class="logo-box logo-box-large">
-        <img class="logo" src="_static/images/faculty.svg"/>
-      </div>
-      
-        <span class="icon icon-home"> Machine Learning Exploration</span>
-      
-    </a>
-  
+          
+            <a href="#" class="icon icon-home"> Machine Learning Exploration
+          
 
-  
-    
-    
-  
+          
+          </a>
 
-  
+          
+            
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,7 +69,7 @@
   </form>
 </div>
 
-
+          
         </div>
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -97,7 +89,9 @@
 <li class="toctree-l1"><a class="reference internal" href="MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PandasExploration/PandasExploration.html">Pandas Exploration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LinearRegression/Explore.html">Linear Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LinearRegression/Explore.html#Ridge(L2-Regularization)-and-Lasso(L1-Regularization)-Regression">Ridge(L2 Regularization) and Lasso(L1 Regularization) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearRegression/Explore.html#Comparing-Linear,-Lasso,-Ridge-Regression">Comparing Linear, Lasso, Ridge Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MathExploration/PrincipalComponentAnalysis.html">Principal Component Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BostonDataAnalysis/BostonDataModelling.html">Boston Data Modelling</a></li>
@@ -130,10 +124,6 @@
 
 
       <div class="wy-nav-content">
-
-  
-
-  
         
         <div class="rst-content">
         
@@ -157,10 +147,10 @@
 
   <ul class="wy-breadcrumbs">
     
-  <li class="breadcrumb"><a href="#">Machine Learning Exploration</a> &raquo;</li>
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to Machine Learning Exploration’s documentation!</li>
     
-  <li class="breadcrumb">Welcome to Machine Learning Exploration’s documentation!</li>
-
     
       <li class="wy-breadcrumbs-aside">
         
@@ -178,7 +168,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-machine-learning-exploration-s-documentation">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="welcome-to-machine-learning-exploration-s-documentation">
 <h1>Welcome to Machine Learning Exploration’s documentation!<a class="headerlink" href="#welcome-to-machine-learning-exploration-s-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
@@ -231,12 +245,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="LinearRegression/Explore.html">Linear Regression</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression/Explore.html#Building-linear-regression-model">Building linear regression model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression/Explore.html#Visualizing-fit-line">Visualizing fit line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LinearRegression/Explore.html#Trying-with-two-features">Trying with two features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression/Explore.html#Using-Gradient-Descent">Using Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression/Explore.html#Using-Normal-Equation">Using Normal Equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="LinearRegression/Explore.html#Ridge(L2-Regularization)-and-Lasso(L1-Regularization)-Regression">Ridge(L2 Regularization) and Lasso(L1 Regularization) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearRegression/Explore.html#id1">Using Normal Equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LinearRegression/Explore.html#Comparing-Linear,-Lasso,-Ridge-Regression">Comparing Linear, Lasso, Ridge Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="MathExploration/SingularValueDecomposition.html#finding-SVD-values-with-easy-way-and-assemble">finding SVD values with easy way and assemble</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MathExploration/SingularValueDecomposition.html#Assemble-matrix">Assemble matrix</a></li>
@@ -336,8 +354,6 @@
 </footer>
 
         </div>
-
-
       </div>
 
     </section>
