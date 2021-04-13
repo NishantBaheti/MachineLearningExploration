@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Singular Value Decomposition" href="../MathExploration/SingularValueDecomposition.html" />
-    <link rel="prev" title="Pandas Exploration" href="../PandasExploration/PandasExploration.html" /> 
+    <link rel="next" title="Iris Data Exploratory Analysis" href="../IrisDataAnalysis/IrisDataExploratoryAnalysis.html" />
+    <link rel="prev" title="Principal Component Analysis" href="../MathExploration/PrincipalComponentAnalysis.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,8 +87,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../PracticalStatistics/z_score.html">Z Score</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PracticalStatistics/Hypothesis.html">Hypothesis Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PracticalStatistics/StatisticalModelling.html">Statistical Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PandasExploration/PandasExploration.html">Pandas Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/PrincipalComponentAnalysis.html">Principal Component Analysis</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linear Regression</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Using-Gradient-Descent">Using Gradient Descent</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Gradient-Descent-Alogrithm">Gradient Descent Alogrithm</a></li>
@@ -114,17 +116,24 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Comparing-Linear,-Lasso,-Ridge-Regression">Comparing Linear, Lasso, Ridge Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MathExploration/PrincipalComponentAnalysis.html">Principal Component Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../BostonDataAnalysis/BostonDataModelling.html">Boston Data Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../BreastCancerAnalysis/BreastCancerModellingAnalysis.html">Breast Cancer Analytical Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Comparing-Linear,-Lasso,-Ridge-Regression">Comparing Linear, Lasso, Ridge Regression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linear-regression-model-training">linear regression model training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lasso-regression-model-training">lasso regression model training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ridge-regression-model-training">ridge regression model training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-regression-model-testing-error">linear regression model testing error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ridge-regression-model-testing-error">ridge regression model testing error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lasso-regression-model-testing-error">lasso regression model testing error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training-data-comparison">training data comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-data-comparison">testing data comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#models-comparison">models comparison</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../IrisDataAnalysis/IrisDataExploratoryAnalysis.html">Iris Data Exploratory Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../BreastCancerAnalysis/BreastCancerPreprocessingAnalysis.html">Breast Cancer Preprocessing Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BreastCancerAnalysis/BreastCancerModellingAnalysis.html">Breast Cancer Analytical Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../BreastCancerAnalysis/plot_learning_curve.html">Plotting Learning Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ChurnClassification/ChurnClassificationModelling.html">Churn Classification Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../DigitsDataAnalysis/DigitsDataModelling.html">Digits Data Analysis and Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../IrisDataAnalysis/IrisDataExploratoryAnalysis.html">Iris Data Exploratory Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../IrisDataAnalysis/IrisDataModelling.html">Iris Data Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NaturalLanguageProcessing/NLTK.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SpamDetection/SpamDataAnalytics.html">Spam Data Analytics</a></li>
 </ul>
@@ -1531,6 +1540,8 @@ trained theta value : [[34.27188639 -0.93345136]]
 ((476, 4), (30, 5))
 </pre></div></div>
 </div>
+<div class="section" id="linear-regression-model-training">
+<h2>linear regression model training<a class="headerlink" href="#linear-regression-model-training" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
@@ -1598,6 +1609,9 @@ trained theta value : [[22.69146735  3.53757652 -0.67498011 -1.42074917 -4.91623
 <img alt="../_images/LinearRegression_Explore_51_1.png" src="../_images/LinearRegression_Explore_51_1.png" />
 </div>
 </div>
+</div>
+<div class="section" id="lasso-regression-model-training">
+<h2>lasso regression model training<a class="headerlink" href="#lasso-regression-model-training" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
@@ -1663,6 +1677,9 @@ trained theta value : [[22.68446533  3.52019216 -0.69449328 -1.44777925 -4.93533
 <img alt="../_images/LinearRegression_Explore_53_1.png" src="../_images/LinearRegression_Explore_53_1.png" />
 </div>
 </div>
+</div>
+<div class="section" id="ridge-regression-model-training">
+<h2>ridge regression model training<a class="headerlink" href="#ridge-regression-model-training" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
@@ -1728,6 +1745,9 @@ trained theta value : [[22.53382105  3.53191207 -0.67387799 -1.38887304 -4.87236
 <img alt="../_images/LinearRegression_Explore_55_1.png" src="../_images/LinearRegression_Explore_55_1.png" />
 </div>
 </div>
+</div>
+<div class="section" id="linear-regression-model-testing-error">
+<h2>linear regression model testing error<a class="headerlink" href="#linear-regression-model-testing-error" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
@@ -1747,6 +1767,9 @@ trained theta value : [[22.53382105  3.53191207 -0.67387799 -1.38887304 -4.87236
 MSE : 19.026988523356625 RMSE : 4.361993640911988
 </pre></div></div>
 </div>
+</div>
+<div class="section" id="ridge-regression-model-testing-error">
+<h2>ridge regression model testing error<a class="headerlink" href="#ridge-regression-model-testing-error" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
@@ -1766,6 +1789,9 @@ MSE : 19.026988523356625 RMSE : 4.361993640911988
 MSE : 18.860872728792696 RMSE : 4.342910628690475
 </pre></div></div>
 </div>
+</div>
+<div class="section" id="lasso-regression-model-testing-error">
+<h2>lasso regression model testing error<a class="headerlink" href="#lasso-regression-model-testing-error" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
@@ -1785,6 +1811,9 @@ MSE : 18.860872728792696 RMSE : 4.342910628690475
 MSE : 19.086563510343435 RMSE : 4.368817175202395
 </pre></div></div>
 </div>
+</div>
+<div class="section" id="training-data-comparison">
+<h2>training data comparison<a class="headerlink" href="#training-data-comparison" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
@@ -1857,6 +1886,9 @@ MSE : 19.086563510343435 RMSE : 4.368817175202395
 <img alt="../_images/LinearRegression_Explore_64_0.png" src="../_images/LinearRegression_Explore_64_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="testing-data-comparison">
+<h2>testing data comparison<a class="headerlink" href="#testing-data-comparison" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
@@ -1930,6 +1962,9 @@ MSE : 19.086563510343435 RMSE : 4.368817175202395
 <img alt="../_images/LinearRegression_Explore_67_0.png" src="../_images/LinearRegression_Explore_67_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="models-comparison">
+<h2>models comparison<a class="headerlink" href="#models-comparison" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
@@ -1964,6 +1999,7 @@ MSE : 19.086563510343435 RMSE : 4.368817175202395
 </div>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -1973,10 +2009,10 @@ MSE : 19.086563510343435 RMSE : 4.368817175202395
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../MathExploration/SingularValueDecomposition.html" class="btn btn-neutral float-right" title="Singular Value Decomposition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../IrisDataAnalysis/IrisDataExploratoryAnalysis.html" class="btn btn-neutral float-right" title="Iris Data Exploratory Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../PandasExploration/PandasExploration.html" class="btn btn-neutral float-left" title="Pandas Exploration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../MathExploration/PrincipalComponentAnalysis.html" class="btn btn-neutral float-left" title="Principal Component Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

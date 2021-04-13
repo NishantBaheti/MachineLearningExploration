@@ -7,26 +7,24 @@ Welcome to Machine Learning Exploration's documentation!
 ========================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
    PracticalStatistics/Statistics
    PracticalStatistics/z_score
    PracticalStatistics/Hypothesis
    PracticalStatistics/StatisticalModelling
-   MatplotlibExploration/visualization
    PandasExploration/PandasExploration
-   LinearRegression/Explore
+   MatplotlibExploration/visualization
    MathExploration/SingularValueDecomposition
    MathExploration/PrincipalComponentAnalysis
-   BostonDataAnalysis/BostonDataModelling
-   BreastCancerAnalysis/BreastCancerModellingAnalysis
+   LinearRegression/Explore
+   IrisDataAnalysis/IrisDataExploratoryAnalysis
    BreastCancerAnalysis/BreastCancerPreprocessingAnalysis
+   BreastCancerAnalysis/BreastCancerModellingAnalysis
    BreastCancerAnalysis/plot_learning_curve
    ChurnClassification/ChurnClassificationModelling
    DigitsDataAnalysis/DigitsDataModelling
-   IrisDataAnalysis/IrisDataExploratoryAnalysis
-   IrisDataAnalysis/IrisDataModelling
    NaturalLanguageProcessing/NLTK
    SpamDetection/SpamDataAnalytics
 

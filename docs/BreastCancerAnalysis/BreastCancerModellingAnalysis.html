@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Breast Cancer Preprocessing Analysis" href="BreastCancerPreprocessingAnalysis.html" />
-    <link rel="prev" title="Boston Data Modelling" href="../BostonDataAnalysis/BostonDataModelling.html" /> 
+    <link rel="next" title="Plotting Learning Curves" href="plot_learning_curve.html" />
+    <link rel="prev" title="Breast Cancer Preprocessing Analysis" href="BreastCancerPreprocessingAnalysis.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,15 +87,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../PracticalStatistics/z_score.html">Z Score</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PracticalStatistics/Hypothesis.html">Hypothesis Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PracticalStatistics/StatisticalModelling.html">Statistical Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PandasExploration/PandasExploration.html">Pandas Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/PrincipalComponentAnalysis.html">Principal Component Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html">Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Comparing-Linear,-Lasso,-Ridge-Regression">Comparing Linear, Lasso, Ridge Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MathExploration/PrincipalComponentAnalysis.html">Principal Component Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../BostonDataAnalysis/BostonDataModelling.html">Boston Data Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IrisDataAnalysis/IrisDataExploratoryAnalysis.html">Iris Data Exploratory Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BreastCancerPreprocessingAnalysis.html">Breast Cancer Preprocessing Analysis</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Breast Cancer Analytical Modelling</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Classification">Classification</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Ensemble-Methods">Ensemble Methods</a></li>
@@ -109,12 +110,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="BreastCancerPreprocessingAnalysis.html">Breast Cancer Preprocessing Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plot_learning_curve.html">Plotting Learning Curves</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ChurnClassification/ChurnClassificationModelling.html">Churn Classification Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../DigitsDataAnalysis/DigitsDataModelling.html">Digits Data Analysis and Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../IrisDataAnalysis/IrisDataExploratoryAnalysis.html">Iris Data Exploratory Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../IrisDataAnalysis/IrisDataModelling.html">Iris Data Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NaturalLanguageProcessing/NLTK.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SpamDetection/SpamDataAnalytics.html">Spam Data Analytics</a></li>
 </ul>
@@ -467,7 +465,7 @@ div.rendered_html tbody tr:hover {
     <span class="s2">&quot;axes.grid&quot;</span> <span class="p">:</span> <span class="kc">True</span>
 <span class="p">})</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+<span class="c1"># plt.style.use(&#39;dark_background&#39;)</span>
 
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">import</span> <span class="nn">sklearn.preprocessing</span> <span class="k">as</span> <span class="nn">ppUtil</span>
@@ -477,7 +475,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -496,7 +494,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Classification">
 <h2>Classification<a class="headerlink" href="#Classification" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -512,19 +510,26 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Training Accuracy : 0.9342723004694836
 Testing Accuracy : 0.965034965034965
-&amp;lt;ipython-input-14-4d5221d03aa5&amp;gt;:6: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&lt;ipython-input-3-4d5221d03aa5&gt;:6: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
   knnModel = knnClassifier.fit(xTrain,yTrain)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -559,7 +564,7 @@ Testing Accuracy : 0.916083916083916
 <li><p>Boosting Methods: They build base estimators sequentially and try to reduce the bias of the combined estimator. E.g.: Adaboost, Gradient Tree Boosting</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -574,15 +579,22 @@ Testing Accuracy : 0.916083916083916
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-&amp;lt;ipython-input-16-a0c6ba420db7&amp;gt;:5: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+&lt;ipython-input-5-a0c6ba420db7&gt;:5: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
   rfModel = rfClassifier.fit(xTrain,yTrain)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 Training Accuracy : 1.0
-Testing Accuracy : 0.972027972027972
+Testing Accuracy : 0.965034965034965
 </pre></div></div>
 </div>
 </div>
@@ -601,7 +613,7 @@ Testing Accuracy : 0.972027972027972
 <li><p>sigmoid</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -617,19 +629,26 @@ Testing Accuracy : 0.972027972027972
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 [LibSVM]Training Accuracy : 0.9882629107981221
 Testing Accuracy : 0.972027972027972
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
 /home/nishant/anaconda3/lib/python3.8/site-packages/sklearn/utils/validation.py:73: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
   return f(**kwargs)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -638,7 +657,7 @@ Testing Accuracy : 0.972027972027972
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -663,7 +682,7 @@ array([[ 0.32780248,  0.75989417,  0.28979245, ...,  0.15456812,
 <h3>Classification Report<a class="headerlink" href="#Classification-Report" title="Permalink to this headline">¶</a></h3>
 <p>Need to provide both prediction and test data</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -742,7 +761,7 @@ weighted avg       0.97      0.97      0.97       143
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -761,7 +780,7 @@ weighted avg       0.97      0.97      0.97       143
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-&amp;lt;ipython-input-66-4d0c7411996a&amp;gt;:7: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+&lt;ipython-input-9-4d0c7411996a&gt;:7: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
   fig.show()
 </pre></div></div>
 </div>
@@ -769,10 +788,11 @@ weighted avg       0.97      0.97      0.97       143
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_14_1.svg" src="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_14_1.svg" /></div>
+<img alt="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_14_1.png" src="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_14_1.png" />
+</div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -797,7 +817,7 @@ weighted avg       0.97      0.97      0.97       143
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-&amp;lt;ipython-input-72-3e501c397c4c&amp;gt;:13: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+&lt;ipython-input-10-3e501c397c4c&gt;:13: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
   fig.show()
 </pre></div></div>
 </div>
@@ -805,10 +825,11 @@ weighted avg       0.97      0.97      0.97       143
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_15_1.svg" src="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_15_1.svg" /></div>
+<img alt="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_15_1.png" src="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_15_1.png" />
+</div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -832,7 +853,7 @@ weighted avg       0.97      0.97      0.97       143
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-&amp;lt;ipython-input-76-ebbdba8f5bb2&amp;gt;:12: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+&lt;ipython-input-11-ebbdba8f5bb2&gt;:12: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
   fig.show()
 </pre></div></div>
 </div>
@@ -840,10 +861,11 @@ weighted avg       0.97      0.97      0.97       143
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_16_1.svg" src="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_16_1.svg" /></div>
+<img alt="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_16_1.png" src="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_16_1.png" />
+</div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -867,7 +889,7 @@ weighted avg       0.97      0.97      0.97       143
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-&amp;lt;ipython-input-91-e930de93d5f0&amp;gt;:12: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+&lt;ipython-input-12-e930de93d5f0&gt;:12: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
   fig.show()
 </pre></div></div>
 </div>
@@ -875,10 +897,11 @@ weighted avg       0.97      0.97      0.97       143
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_17_1.svg" src="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_17_1.svg" /></div>
+<img alt="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_17_1.png" src="../_images/BreastCancerAnalysis_BreastCancerModellingAnalysis_17_1.png" />
+</div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -900,10 +923,10 @@ weighted avg       0.97      0.97      0.97       143
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="BreastCancerPreprocessingAnalysis.html" class="btn btn-neutral float-right" title="Breast Cancer Preprocessing Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plot_learning_curve.html" class="btn btn-neutral float-right" title="Plotting Learning Curves" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../BostonDataAnalysis/BostonDataModelling.html" class="btn btn-neutral float-left" title="Boston Data Modelling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="BreastCancerPreprocessingAnalysis.html" class="btn btn-neutral float-left" title="Breast Cancer Preprocessing Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
