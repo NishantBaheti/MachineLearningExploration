@@ -117,15 +117,30 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#Comparing-Linear,-Lasso,-Ridge-Regression">Comparing Linear, Lasso, Ridge Regression</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#linear-regression-model-training">linear regression model training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lasso-regression-model-training">lasso regression model training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ridge-regression-model-training">ridge regression model training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#linear-regression-model-testing-error">linear regression model testing error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ridge-regression-model-testing-error">ridge regression model testing error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lasso-regression-model-testing-error">lasso regression model testing error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#training-data-comparison">training data comparison</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#testing-data-comparison">testing data comparison</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#models-comparison">models comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Data-1-model-analysis">Data 1 model analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linear-regression-model-training">linear regression model training</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lasso-regression-model-training">lasso regression model training</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ridge-regression-model-training">ridge regression model training</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-regression-model-testing-error">linear regression model testing error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ridge-regression-model-testing-error">ridge regression model testing error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lasso-regression-model-testing-error">lasso regression model testing error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#training-data-comparison">training data comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-data-comparison">testing data comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#models-comparison">models comparison</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Data-2-models-analysis">Data 2 models analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">linear regression model training</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">lasso regression model training</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">ridge regression model training</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">linear regression model testing error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">ridge regression model testing error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">lasso regression model testing error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">training data comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">testing data comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">models comparison</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../IrisDataAnalysis/IrisDataExploratoryAnalysis.html">Iris Data Exploratory Analysis</a></li>
@@ -671,7 +686,7 @@ div.rendered_html tbody tr:hover {
 <div class="line">choosing LSTAT for feature column X</div>
 </div>
 </li>
-<li><p>setup X_0 (column 0 as 1) for linear regression ( theta_0 * X_0 + theta_1 * X_1 = theta_0 + theta_1 * X_1 )</p></li>
+<li><p>setup X_0 (column 0 as 1) for linear regression ( θ_0 * X_0 + θ_1 * X_1 = θ_0 + θ_1 * X_1 )</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -741,7 +756,7 @@ number of samples (rows) : 506
         <span class="p">(</span><span class="n">hypothesis</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">h(x)</span> <span class="pre">=</span> <span class="pre">theta0</span> <span class="pre">+</span> <span class="pre">theta1</span> <span class="pre">*</span> <span class="pre">X</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">h(x)</span> <span class="pre">=</span> <span class="pre">θ_0</span> <span class="pre">+</span> <span class="pre">θ_1</span> <span class="pre">*</span> <span class="pre">X</span></code></p>
 <p>Affine Function = linear function + a constant</p>
 <p><img alt="linear_reg1" src="../_images/linear_reg1.png" /></p>
 <div class="nbinput nblast docutils container">
@@ -774,7 +789,7 @@ number of samples (rows) : 506
     <span class="n">m</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.0001</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;random initial theta value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;random initial θ value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 
     <span class="n">cost_history</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">theta_history</span> <span class="o">=</span> <span class="p">[]</span>
@@ -784,18 +799,18 @@ number of samples (rows) : 506
         <span class="c1"># calculate y_pred</span>
         <span class="n">y_pred</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">theta</span><span class="o">.</span><span class="n">T</span> <span class="c1"># (m,1) = (m,n) * (n,1)</span>
 
-        <span class="c1"># new theta to replace old theta</span>
+        <span class="c1"># new θ to replace old θ</span>
         <span class="n">new_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 
         <span class="c1"># for linear regression with n = 2</span>
-        <span class="c1"># it will only run for theta at 0 column and theta at 1 column</span>
+        <span class="c1"># it will only run for θ at 0 column and θ at 1 column</span>
         <span class="c1"># simultaneous operation</span>
         <span class="n">new_theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">m</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_theta</span><span class="p">))</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_theta</span><span class="p">)):</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;breaking. found inf or nan.&quot;</span><span class="p">)</span>
             <span class="k">break</span>
-        <span class="c1"># override new theta</span>
+        <span class="c1"># override new θ</span>
         <span class="n">theta</span> <span class="o">=</span> <span class="n">new_theta</span>
 
         <span class="c1"># calculate cost to put in history</span>
@@ -854,13 +869,13 @@ number of samples (rows) : 506
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained theta value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(theta)&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -877,8 +892,8 @@ number of samples (rows) : 506
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(theta)&quot;</span><span class="p">,</span>
-    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;theta&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history</span><span class="p">,</span><span class="n">cost_history</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -891,7 +906,7 @@ number of samples (rows) : 506
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial theta value : [[2.54564332e-05 6.46402334e-05]]
+random initial θ value : [[8.04418506e-05 1.11148706e-05]]
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -912,7 +927,7 @@ random initial theta value : [[2.54564332e-05 6.46402334e-05]]
 <div class="highlight"><pre>
 breaking. found inf or nan.
 MSE : inf RMSE : inf
-trained theta value : [[-1.01794457e+302 -1.69552245e+303]]
+trained θ value : [[-1.01799004e+302 -1.69559818e+303]]
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -932,7 +947,7 @@ trained theta value : [[-1.01794457e+302 -1.69552245e+303]]
 </div>
 </div>
 <ul class="simple">
-<li><p>learning rate is high based on the data, and theta didn’t converge and loss increased</p></li>
+<li><p>learning rate is high based on the data, and θ didn’t converge and loss increased</p></li>
 </ul>
 </div>
 <div class="section" id="learning-rate-0.001">
@@ -951,13 +966,13 @@ trained theta value : [[-1.01794457e+302 -1.69552245e+303]]
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained theta value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(theta)&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -974,8 +989,8 @@ trained theta value : [[-1.01794457e+302 -1.69552245e+303]]
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(theta)&quot;</span><span class="p">,</span>
-    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;theta&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history</span><span class="p">,</span><span class="n">cost_history</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -988,9 +1003,9 @@ trained theta value : [[-1.01794457e+302 -1.69552245e+303]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial theta value : [[2.95570864e-05 4.25401841e-05]]
-MSE : 40.826302401049986 RMSE : 6.389546337655748
-trained theta value : [[31.43697472 -0.76292137]]
+random initial θ value : [[9.24410535e-05 4.08985921e-05]]
+MSE : 40.826293872567156 RMSE : 6.389545670277908
+trained θ value : [[31.43698039 -0.76292171]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1017,13 +1032,13 @@ trained theta value : [[31.43697472 -0.76292137]]
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained theta value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(theta)&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1040,8 +1055,8 @@ trained theta value : [[31.43697472 -0.76292137]]
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(theta)&quot;</span><span class="p">,</span>
-    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;theta&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history</span><span class="p">,</span><span class="n">cost_history</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1054,9 +1069,9 @@ trained theta value : [[31.43697472 -0.76292137]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial theta value : [[2.77082871e-05 7.66886386e-05]]
-MSE : 38.48312304231967 RMSE : 6.203476689915073
-trained theta value : [[34.52842518 -0.94852347]]
+random initial θ value : [[3.05854832e-05 6.43579910e-06]]
+MSE : 38.4831230422558 RMSE : 6.203476689909925
+trained θ value : [[34.52842519 -0.94852347]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1074,7 +1089,33 @@ trained theta value : [[34.52842518 -0.94852347]]
 </div>
 <div class="section" id="Using-Normal-Equation">
 <h2>Using Normal Equation<a class="headerlink" href="#Using-Normal-Equation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>theta = (X^T * X)^-1 * X^T * y
+<p><code class="docutils literal notranslate"><span class="pre">normal</span> <span class="pre">equation</span> <span class="pre">vs</span> <span class="pre">gradient</span> <span class="pre">descent</span></code></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Gradient Descent</p></th>
+<th class="head"><p>Normal Equation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Need to choose learning rate alpha</p></td>
+<td><p>no need to choose alpha</p></td>
+</tr>
+<tr class="row-odd"><td><p>needs iteration</p></td>
+<td><p>doesn’t need iterations</p></td>
+</tr>
+<tr class="row-even"><td><p>large features workds well ( n large )</p></td>
+<td><p>computation increases for large n</p></td>
+</tr>
+<tr class="row-odd"><td><p>feature scaling will help in convergence</p></td>
+<td><p>no need to do feature scaling</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">θ</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">^</span><span class="n">T</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span><span class="o">^-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">X</span><span class="o">^</span><span class="n">T</span> <span class="o">*</span> <span class="n">y</span>
 </pre></div>
 </div>
 <div class="nbinput docutils container">
@@ -1162,6 +1203,17 @@ trained theta value : [[34.52842518 -0.94852347]]
 </div>
 <div class="section" id="Ridge(L2-Regularization)-Regression">
 <h1>Ridge(L2 Regularization) Regression<a class="headerlink" href="#Ridge(L2-Regularization)-Regression" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Regularization</p>
+<ul>
+<li><p>keep all features, but reduce magnitude/ values of paramter θ_j</p></li>
+<li><p>Workes well when we have a lot of features, each of which contributes a bit to predicting y.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="regularization_reg1" src="../_images/regularization_reg1.png" /></p>
+<p><img alt="regularization_reg3" src="../_images/regularization_reg3.png" /></p>
+<p><img alt="regularization_reg_2" src="../_images/regularization_reg2.png" /></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -1174,7 +1226,7 @@ trained theta value : [[34.52842518 -0.94852347]]
     <span class="n">m</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.001</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;random initial theta value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;random initial θ value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 
     <span class="n">cost_history</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">theta_history</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1184,18 +1236,18 @@ trained theta value : [[34.52842518 -0.94852347]]
         <span class="c1"># calculate y_pred</span>
         <span class="n">y_pred</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">theta</span><span class="o">.</span><span class="n">T</span> <span class="c1"># (m,1) = (m,n) * (n,1)</span>
 
-        <span class="c1"># new theta to replace old theta</span>
+        <span class="c1"># new θ to replace old θ</span>
         <span class="n">new_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 
         <span class="c1"># for linear regression with n = 2</span>
-        <span class="c1"># it will only run for theta at 0 column and theta at 1 column</span>
+        <span class="c1"># it will only run for θ at 0 column and θ at 1 column</span>
         <span class="c1"># simultaneous operation</span>
         <span class="n">new_theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">m</span><span class="p">))</span> <span class="o">-</span>  <span class="p">(</span><span class="n">penalty</span> <span class="o">*</span> <span class="n">theta</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_theta</span><span class="p">))</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_theta</span><span class="p">)):</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;breaking. found inf or nan.&quot;</span><span class="p">)</span>
             <span class="k">break</span>
-        <span class="c1"># override new theta</span>
+        <span class="c1"># override new θ</span>
         <span class="n">theta</span> <span class="o">=</span> <span class="n">new_theta</span>
 
         <span class="c1"># calculate cost to put in history</span>
@@ -1224,13 +1276,13 @@ trained theta value : [[34.52842518 -0.94852347]]
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained theta value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(theta)&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1247,8 +1299,8 @@ trained theta value : [[34.52842518 -0.94852347]]
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(theta)&quot;</span><span class="p">,</span>
-    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;theta&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history</span><span class="p">,</span><span class="n">cost_history</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1261,9 +1313,9 @@ trained theta value : [[34.52842518 -0.94852347]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial theta value : [[0.0008258  0.00015862]]
-MSE : 51.76937308514516 RMSE : 7.1950936814710875
-trained theta value : [[27.13210478 -0.50481865]]
+random initial θ value : [[0.00066631 0.00092547]]
+MSE : 51.7693731599088 RMSE : 7.195093686666547
+trained θ value : [[27.13210476 -0.50481865]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1275,7 +1327,7 @@ trained theta value : [[27.13210478 -0.50481865]]
 </div>
 <div class="section" id="id1">
 <h2>Using Normal Equation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-math notranslate"><div class="highlight"><pre><span></span>theta = (X^T * X + lambda * I)^-1 * X^T * y
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">θ</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">^</span><span class="n">T</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="k">lambda</span> <span class="o">*</span> <span class="n">I</span><span class="p">)</span><span class="o">^-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">X</span><span class="o">^</span><span class="n">T</span> <span class="o">*</span> <span class="n">y</span>
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1355,7 +1407,10 @@ trained theta value : [[27.13210478 -0.50481865]]
 </div>
 <div class="section" id="Lasso(L1-Regularization)-Regression">
 <h1>Lasso(L1 Regularization) Regression<a class="headerlink" href="#Lasso(L1-Regularization)-Regression" title="Permalink to this headline">¶</a></h1>
+<p>Ridge regression does have one obvious disadvantage. Unlike best subset,forward stepwise, and backward stepwise selection, which will generallyselect models that involve just a subset of the variables, ridge regressionwill include allppredictors in the final model. The penalty will shrink all of the coefficients towards zero, but it will not set any of themexactly to zero (unlessλ=∞). This may not be a problem for predictionaccuracy, but it can create a challenge in model interpretation in
+settings inwhich the number of variables n is quite large.</p>
 <p>Lasso regression is a type of linear regression that uses shrinkage. Shrinkage is where data values are scost_historyk towards a central point, like the mean. The lasso procedure encourages simple, sparse models (i.e. models with fewer parameters).</p>
+<p><img alt="regularization_reg4" src="../_images/regularization_reg4.png" /></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
@@ -1369,7 +1424,7 @@ trained theta value : [[27.13210478 -0.50481865]]
     <span class="n">m</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.001</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;random initial theta value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;random initial θ value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 
     <span class="n">cost_history</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">theta_history</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1379,25 +1434,25 @@ trained theta value : [[27.13210478 -0.50481865]]
         <span class="c1"># calculate y_pred</span>
         <span class="n">y_pred</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">theta</span><span class="o">.</span><span class="n">T</span> <span class="c1"># (m,1) = (m,n) * (n,1)</span>
 
-        <span class="c1"># new theta to replace old theta</span>
+        <span class="c1"># new θ to replace old θ</span>
         <span class="n">new_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 
         <span class="c1"># for linear regression with n = 2</span>
-        <span class="c1"># it will only run for theta at 0 column and theta at 1 column</span>
+        <span class="c1"># it will only run for θ at 0 column and θ at 1 column</span>
         <span class="c1"># simultaneous operation</span>
         <span class="n">new_theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">m</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="n">penalty</span> <span class="o">/</span> <span class="n">m</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_theta</span><span class="p">))</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_theta</span><span class="p">)):</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;breaking. found inf or nan.&quot;</span><span class="p">)</span>
             <span class="k">break</span>
-        <span class="c1"># override new theta</span>
+        <span class="c1"># override new θ</span>
         <span class="n">theta</span> <span class="o">=</span> <span class="n">new_theta</span>
 
         <span class="c1"># calculate cost to put in history</span>
         <span class="n">cost</span> <span class="o">=</span> <span class="n">regression_cost_func</span><span class="p">(</span> <span class="n">X</span> <span class="o">@</span> <span class="n">theta</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="n">cost_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
 
-        <span class="c1"># calcualted theta in history</span>
+        <span class="c1"># calcualted θ in history</span>
         <span class="n">theta_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
     <span class="n">y_pred</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">theta</span><span class="o">.</span><span class="n">T</span>
@@ -1419,13 +1474,13 @@ trained theta value : [[27.13210478 -0.50481865]]
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained theta value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(theta)&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1442,8 +1497,8 @@ trained theta value : [[27.13210478 -0.50481865]]
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(theta)&quot;</span><span class="p">,</span>
-    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;theta&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history</span><span class="p">,</span><span class="n">cost_history</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1456,9 +1511,9 @@ trained theta value : [[27.13210478 -0.50481865]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial theta value : [[0.00080492 0.00036726]]
-MSE : 38.50216340937797 RMSE : 6.20501115304219
-trained theta value : [[34.27188639 -0.93345136]]
+random initial θ value : [[0.00058883 0.00017421]]
+MSE : 38.50216342980301 RMSE : 6.205011154688041
+trained θ value : [[34.27188624 -0.93345136]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1471,6 +1526,8 @@ trained theta value : [[34.27188639 -0.93345136]]
 </div>
 <div class="section" id="Comparing-Linear,-Lasso,-Ridge-Regression">
 <h1>Comparing Linear, Lasso, Ridge Regression<a class="headerlink" href="#Comparing-Linear,-Lasso,-Ridge-Regression" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Data-1-model-analysis">
+<h2>Data 1 model analysis<a class="headerlink" href="#Data-1-model-analysis" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -1541,7 +1598,7 @@ trained theta value : [[34.27188639 -0.93345136]]
 </pre></div></div>
 </div>
 <div class="section" id="linear-regression-model-training">
-<h2>linear regression model training<a class="headerlink" href="#linear-regression-model-training" title="Permalink to this headline">¶</a></h2>
+<h3>linear regression model training<a class="headerlink" href="#linear-regression-model-training" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
@@ -1558,14 +1615,14 @@ trained theta value : [[34.27188639 -0.93345136]]
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained theta value :&quot;</span><span class="p">,</span><span class="n">theta_linear</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta_linear</span><span class="p">)</span>
 
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(theta)&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history_linear</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1582,8 +1639,8 @@ trained theta value : [[34.27188639 -0.93345136]]
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(theta)&quot;</span><span class="p">,</span>
-    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;theta&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history_linear</span><span class="p">,</span><span class="n">cost_history_linear</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1596,22 +1653,22 @@ trained theta value : [[34.27188639 -0.93345136]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial theta value : [[7.36264350e-05 8.47550852e-05 3.91738248e-05 6.92675615e-05
-  5.17027397e-05]]
-MSE : 30.30458066852098 RMSE : 5.504959642769507
-trained theta value : [[22.69146735  3.53757652 -0.67498011 -1.42074917 -4.91623619]]
+random initial θ value : [[1.25051685e-06 8.89891622e-06 3.71457860e-05 5.12468310e-06
+  4.26050495e-05]]
+MSE : 30.304580245715616 RMSE : 5.5049596043672855
+trained θ value : [[22.69146734  3.53757466 -0.67498203 -1.42075235 -4.91623857]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_51_1.png" src="../_images/LinearRegression_Explore_51_1.png" />
+<img alt="../_images/LinearRegression_Explore_52_1.png" src="../_images/LinearRegression_Explore_52_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="lasso-regression-model-training">
-<h2>lasso regression model training<a class="headerlink" href="#lasso-regression-model-training" title="Permalink to this headline">¶</a></h2>
+<h3>lasso regression model training<a class="headerlink" href="#lasso-regression-model-training" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
@@ -1628,13 +1685,13 @@ trained theta value : [[22.69146735  3.53757652 -0.67498011 -1.42074917 -4.91623
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained theta value :&quot;</span><span class="p">,</span><span class="n">theta_lasso</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta_lasso</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(theta)&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history_lasso</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1650,8 +1707,8 @@ trained theta value : [[22.69146735  3.53757652 -0.67498011 -1.42074917 -4.91623
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(theta)&quot;</span><span class="p">,</span>
-    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;theta&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history_lasso</span><span class="p">,</span><span class="n">cost_history_lasso</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1664,22 +1721,22 @@ trained theta value : [[22.69146735  3.53757652 -0.67498011 -1.42074917 -4.91623
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial theta value : [[4.01936183e-04 3.05106002e-04 6.70376883e-04 1.45538044e-04
-  7.46693908e-05]]
-MSE : 30.301562630547078 RMSE : 5.504685516044225
-trained theta value : [[22.68446533  3.52019216 -0.69449328 -1.44777925 -4.93533609]]
+random initial θ value : [[9.01604597e-05 8.73874101e-05 5.84124297e-04 5.14242166e-04
+  3.45198981e-05]]
+MSE : 30.30156259203043 RMSE : 5.504685512545692
+trained θ value : [[22.6844653   3.5201872  -0.69447383 -1.44776481 -4.93534523]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_53_1.png" src="../_images/LinearRegression_Explore_53_1.png" />
+<img alt="../_images/LinearRegression_Explore_54_1.png" src="../_images/LinearRegression_Explore_54_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="ridge-regression-model-training">
-<h2>ridge regression model training<a class="headerlink" href="#ridge-regression-model-training" title="Permalink to this headline">¶</a></h2>
+<h3>ridge regression model training<a class="headerlink" href="#ridge-regression-model-training" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
@@ -1696,14 +1753,14 @@ trained theta value : [[22.68446533  3.52019216 -0.69449328 -1.44777925 -4.93533
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained theta value :&quot;</span><span class="p">,</span><span class="n">theta_ridge</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta_ridge</span><span class="p">)</span>
 
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(theta)&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history_ridge</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1719,8 +1776,8 @@ trained theta value : [[22.68446533  3.52019216 -0.69449328 -1.44777925 -4.93533
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(theta)&quot;</span><span class="p">,</span>
-    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;theta&quot;</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history_ridge</span><span class="p">,</span><span class="n">cost_history_ridge</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -1733,21 +1790,22 @@ trained theta value : [[22.68446533  3.52019216 -0.69449328 -1.44777925 -4.93533
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial theta value : [[0.00051806 0.00021876 0.00056487 0.000882   0.00081895]]
-MSE : 30.33615129425656 RMSE : 5.507826367475336
-trained theta value : [[22.53382105  3.53191207 -0.67387799 -1.38887304 -4.87236733]]
+random initial θ value : [[1.25960940e-04 5.74222278e-05 7.32830794e-05 8.79498029e-04
+  4.46888326e-04]]
+MSE : 30.33614860350387 RMSE : 5.507826123209035
+trained θ value : [[22.53382101  3.53190596 -0.67389732 -1.38889558 -4.87237357]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_55_1.png" src="../_images/LinearRegression_Explore_55_1.png" />
+<img alt="../_images/LinearRegression_Explore_56_1.png" src="../_images/LinearRegression_Explore_56_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="linear-regression-model-testing-error">
-<h2>linear regression model testing error<a class="headerlink" href="#linear-regression-model-testing-error" title="Permalink to this headline">¶</a></h2>
+<h3>linear regression model testing error<a class="headerlink" href="#linear-regression-model-testing-error" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
@@ -1764,12 +1822,12 @@ trained theta value : [[22.53382105  3.53191207 -0.67387799 -1.38887304 -4.87236
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-MSE : 19.026988523356625 RMSE : 4.361993640911988
+MSE : 19.026996178096468 RMSE : 4.361994518347824
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="ridge-regression-model-testing-error">
-<h2>ridge regression model testing error<a class="headerlink" href="#ridge-regression-model-testing-error" title="Permalink to this headline">¶</a></h2>
+<h3>ridge regression model testing error<a class="headerlink" href="#ridge-regression-model-testing-error" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
@@ -1786,12 +1844,12 @@ MSE : 19.026988523356625 RMSE : 4.361993640911988
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-MSE : 18.860872728792696 RMSE : 4.342910628690475
+MSE : 18.860905179425195 RMSE : 4.342914364735413
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="lasso-regression-model-testing-error">
-<h2>lasso regression model testing error<a class="headerlink" href="#lasso-regression-model-testing-error" title="Permalink to this headline">¶</a></h2>
+<h3>lasso regression model testing error<a class="headerlink" href="#lasso-regression-model-testing-error" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
@@ -1808,18 +1866,18 @@ MSE : 18.860872728792696 RMSE : 4.342910628690475
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-MSE : 19.086563510343435 RMSE : 4.368817175202395
+MSE : 19.08656754781708 RMSE : 4.368817637280947
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="training-data-comparison">
-<h2>training data comparison<a class="headerlink" href="#training-data-comparison" title="Permalink to this headline">¶</a></h2>
+<h3>training data comparison<a class="headerlink" href="#training-data-comparison" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
@@ -1850,15 +1908,15 @@ MSE : 19.086563510343435 RMSE : 4.368817175202395
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_63_0.png" src="../_images/LinearRegression_Explore_63_0.png" />
+<img alt="../_images/LinearRegression_Explore_64_0.png" src="../_images/LinearRegression_Explore_64_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_train&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_pred for linear&quot;</span><span class="p">)</span>
@@ -1883,18 +1941,18 @@ MSE : 19.086563510343435 RMSE : 4.368817175202395
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_64_0.png" src="../_images/LinearRegression_Explore_64_0.png" />
+<img alt="../_images/LinearRegression_Explore_65_0.png" src="../_images/LinearRegression_Explore_65_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="testing-data-comparison">
-<h2>testing data comparison<a class="headerlink" href="#testing-data-comparison" title="Permalink to this headline">¶</a></h2>
+<h3>testing data comparison<a class="headerlink" href="#testing-data-comparison" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
@@ -1926,15 +1984,15 @@ MSE : 19.086563510343435 RMSE : 4.368817175202395
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_66_0.png" src="../_images/LinearRegression_Explore_66_0.png" />
+<img alt="../_images/LinearRegression_Explore_67_0.png" src="../_images/LinearRegression_Explore_67_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_test&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_linear&quot;</span><span class="p">)</span>
@@ -1959,18 +2017,18 @@ MSE : 19.086563510343435 RMSE : 4.368817175202395
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_67_0.png" src="../_images/LinearRegression_Explore_67_0.png" />
+<img alt="../_images/LinearRegression_Explore_68_0.png" src="../_images/LinearRegression_Explore_68_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="models-comparison">
-<h2>models comparison<a class="headerlink" href="#models-comparison" title="Permalink to this headline">¶</a></h2>
+<h3>models comparison<a class="headerlink" href="#models-comparison" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_ridge&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_linear&quot;</span><span class="p">)</span>
@@ -1995,7 +2053,567 @@ MSE : 19.086563510343435 RMSE : 4.368817175202395
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_69_0.png" src="../_images/LinearRegression_Explore_69_0.png" />
+<img alt="../_images/LinearRegression_Explore_70_0.png" src="../_images/LinearRegression_Explore_70_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Data-2-models-analysis">
+<h2>Data 2 models analysis<a class="headerlink" href="#Data-2-models-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Data Set Information:</p>
+<p>The NASA data set comprises different size NACA 0012 airfoils at various wind tunnel speeds and angles of attack. The span of the airfoil and the observer position were the same in all of the experiments.</p>
+<p>Attribute Information:</p>
+<p>This problem has the following inputs:</p>
+<ol class="arabic simple">
+<li><p>Frequency, in Hertzs.</p></li>
+<li><p>Angle of attack, in degrees.</p></li>
+<li><p>Chord length, in meters.</p></li>
+<li><p>Free-stream velocity, in meters per second.</p></li>
+<li><p>Suction side displacement thickness, in meters.</p></li>
+</ol>
+<p>The only output is:</p>
+<ol class="arabic simple" start="6">
+<li><p>Scaled sound pressure level, in decibels.</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="s1">&#39;angle&#39;</span><span class="p">,</span><span class="s1">&#39;chord_length&#39;</span><span class="p">,</span><span class="s1">&#39;free_stream_vel&#39;</span><span class="p">,</span><span class="s1">&#39;disp_thick&#39;</span><span class="p">,</span><span class="s1">&#39;pressure_level&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./datasets/airfoil_self_noise.dat&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X_i</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;freq&quot;</span><span class="p">,</span><span class="s1">&#39;angle&#39;</span><span class="p">,</span><span class="s1">&#39;chord_length&#39;</span><span class="p">,</span><span class="s1">&#39;free_stream_vel&#39;</span><span class="p">,</span><span class="s1">&#39;disp_thick&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pressure_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">X_i</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+((1503, 5), (1503, 1))
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_i</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+((1473, 5), (30, 5), (1473, 1), (30, 1))
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span><span class="n">MinMaxScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="n">X_scaled_test</span> <span class="o">=</span> <span class="n">linear_model_format_X</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+
+<span class="n">X_scaled</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">X_scaled_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+((1473, 5), (30, 6))
+</pre></div></div>
+</div>
+<div class="section" id="id2">
+<h3>linear regression model training<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X_linear</span><span class="p">,</span><span class="n">y_linear</span><span class="p">,</span><span class="n">y_pred_linear</span><span class="p">,</span><span class="n">theta_linear</span><span class="p">,</span><span class="n">theta_history_linear</span><span class="p">,</span><span class="n">cost_history_linear</span> <span class="o">=</span> <span class="n">linear_regression_fit</span><span class="p">(</span>
+    <span class="n">X_scaled</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.03</span><span class="p">,</span>
+    <span class="n">iterations</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="p">)</span>
+
+<span class="n">mse</span><span class="p">,</span><span class="n">rmse</span> <span class="o">=</span> <span class="n">mse_calculation</span><span class="p">(</span><span class="n">y_pred_linear</span><span class="p">,</span><span class="n">y_linear</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta_linear</span><span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history_linear</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_linear</span><span class="p">,</span><span class="n">y_pred_linear</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history_linear</span><span class="p">,</span><span class="n">cost_history_linear</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+random initial θ value : [[6.95632554e-05 9.21834240e-05 1.60509997e-05 9.59367089e-05
+  4.68060188e-05 8.70487065e-06]]
+MSE : 23.004795384131825 RMSE : 4.79633145061221
+trained θ value : [[124.81857711  -3.9912807   -2.154421    -3.20125218   1.48042963
+   -2.19175048]]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LinearRegression_Explore_77_1.png" src="../_images/LinearRegression_Explore_77_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>lasso regression model training<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X_lasso</span><span class="p">,</span><span class="n">y_lasso</span><span class="p">,</span><span class="n">y_pred_lasso</span><span class="p">,</span><span class="n">theta_lasso</span><span class="p">,</span><span class="n">theta_history_lasso</span><span class="p">,</span><span class="n">cost_history_lasso</span> <span class="o">=</span> <span class="n">lasso_regression_fit</span><span class="p">(</span>
+    <span class="n">X_scaled</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.03</span><span class="p">,</span>
+    <span class="n">iterations</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="p">)</span>
+
+<span class="n">mse</span><span class="p">,</span><span class="n">rmse</span> <span class="o">=</span> <span class="n">mse_calculation</span><span class="p">(</span><span class="n">y_pred_lasso</span><span class="p">,</span><span class="n">y_lasso</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta_lasso</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history_lasso</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_lasso</span><span class="p">,</span><span class="n">y_pred_lasso</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history_lasso</span><span class="p">,</span><span class="n">cost_history_lasso</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+random initial θ value : [[5.83380710e-04 1.48193147e-04 5.83287749e-05 9.84483511e-05
+  8.35601735e-04 8.69967886e-04]]
+MSE : 23.003899424322388 RMSE : 4.796238049171704
+trained θ value : [[124.81631446  -3.99483788  -2.1595777   -3.20616594   1.47895748
+   -2.19218206]]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LinearRegression_Explore_79_1.png" src="../_images/LinearRegression_Explore_79_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>ridge regression model training<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X_ridge</span><span class="p">,</span><span class="n">y_ridge</span><span class="p">,</span><span class="n">y_pred_ridge</span><span class="p">,</span><span class="n">theta_ridge</span><span class="p">,</span><span class="n">theta_history_ridge</span><span class="p">,</span><span class="n">cost_history_ridge</span> <span class="o">=</span> <span class="n">ridge_regression_fit</span><span class="p">(</span>
+    <span class="n">X_scaled</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.03</span><span class="p">,</span>
+    <span class="n">iterations</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="p">)</span>
+
+<span class="n">mse</span><span class="p">,</span><span class="n">rmse</span> <span class="o">=</span> <span class="n">mse_calculation</span><span class="p">(</span><span class="n">y_pred_ridge</span><span class="p">,</span><span class="n">y_ridge</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trained θ value :&quot;</span><span class="p">,</span><span class="n">theta_ridge</span><span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history_ridge</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_ridge</span><span class="p">,</span><span class="n">y_pred_ridge</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history_ridge</span><span class="p">,</span><span class="n">cost_history_ridge</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+random initial θ value : [[0.000118   0.00065939 0.00011808 0.00020341 0.00081846 0.00079379]]
+MSE : 23.094598136899272 RMSE : 4.805683940595685
+trained θ value : [[124.53703427  -3.97768387  -2.14182409  -3.18761985   1.47461369
+   -2.18918409]]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LinearRegression_Explore_81_1.png" src="../_images/LinearRegression_Explore_81_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>linear regression model testing error<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_test_pred_linear</span> <span class="o">=</span> <span class="n">X_scaled_test</span> <span class="o">@</span> <span class="n">theta_linear</span><span class="o">.</span><span class="n">T</span>
+<span class="n">mse</span><span class="p">,</span><span class="n">rmse</span> <span class="o">=</span> <span class="n">mse_calculation</span><span class="p">(</span><span class="n">y_test_pred_linear</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MSE : 26.359782410565714 RMSE : 5.1341778709512695
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>ridge regression model testing error<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_test_pred_ridge</span> <span class="o">=</span> <span class="n">X_scaled_test</span> <span class="o">@</span> <span class="n">theta_ridge</span><span class="o">.</span><span class="n">T</span>
+<span class="n">mse</span><span class="p">,</span><span class="n">rmse</span> <span class="o">=</span> <span class="n">mse_calculation</span><span class="p">(</span><span class="n">y_test_pred_ridge</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MSE : 26.32094225894927 RMSE : 5.130393967226032
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>lasso regression model testing error<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_test_pred_lasso</span> <span class="o">=</span> <span class="n">X_scaled_test</span> <span class="o">@</span> <span class="n">theta_lasso</span><span class="o">.</span><span class="n">T</span>
+<span class="n">mse</span><span class="p">,</span><span class="n">rmse</span> <span class="o">=</span> <span class="n">mse_calculation</span><span class="p">(</span><span class="n">y_test_pred_lasso</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE :&quot;</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="s2">&quot;RMSE :&quot;</span><span class="p">,</span><span class="n">rmse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MSE : 26.368545331648598 RMSE : 5.135031190912923
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>training data comparison<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_train&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred_linear</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_pred_linear&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_train&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred_ridge</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_pred_ridge&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_train&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred_lasso</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_pred_lasso&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LinearRegression_Explore_89_0.png" src="../_images/LinearRegression_Explore_89_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_train&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_pred for linear&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_pred_linear</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_train&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_pred for ridge&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_pred_ridge</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_train&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_pred for lasso&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_pred_lasso</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LinearRegression_Explore_90_0.png" src="../_images/LinearRegression_Explore_90_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>testing data comparison<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_test&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test_pred_linear</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_test_pred_linear&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_test&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test_pred_ridge</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_test_pred_ridge&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_test&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test_pred_lasso</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_test_pred_lasso&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LinearRegression_Explore_92_0.png" src="../_images/LinearRegression_Explore_92_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_test&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_linear&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_test_pred_linear</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_test&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_ridge&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_test_pred_ridge</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_test&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_lasso&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_test_pred_lasso</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LinearRegression_Explore_93_0.png" src="../_images/LinearRegression_Explore_93_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>models comparison<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_ridge&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_linear&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test_pred_ridge</span><span class="p">,</span><span class="n">y_test_pred_linear</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_lasso&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_ridge&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test_pred_lasso</span><span class="p">,</span><span class="n">y_test_pred_ridge</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_linear&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y_test_pred_lasso&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test_pred_linear</span><span class="p">,</span><span class="n">y_test_pred_lasso</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/LinearRegression_Explore_95_0.png" src="../_images/LinearRegression_Explore_95_0.png" />
+</div>
 </div>
 </div>
 </div>
