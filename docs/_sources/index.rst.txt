@@ -19,6 +19,7 @@ Welcome to Machine Learning Exploration's documentation!
    MathExploration/SingularValueDecomposition
    MathExploration/PrincipalComponentAnalysis
    LinearRegression/Explore
+   LogisticRegression/Explore
    IrisDataAnalysis/IrisDataExploratoryAnalysis
    BreastCancerAnalysis/BreastCancerPreprocessingAnalysis
    BreastCancerAnalysis/BreastCancerModellingAnalysis
