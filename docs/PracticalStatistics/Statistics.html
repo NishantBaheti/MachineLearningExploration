@@ -116,9 +116,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Discrete-Distribution">Discrete Distribution</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Binomial-Distribution">Binomial Distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Multinomial-Distribution">Multinomial Distribution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Poisson-Distribution">Poisson Distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Hypergeometric-Distribution">Hypergeometric Distribution</a></li>
 </ul>
 </li>
 </ul>
@@ -523,7 +521,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-498.0934
+499.4655
 </pre></div></div>
 </div>
 </div>
@@ -544,7 +542,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-499.0
+498.0
 </pre></div></div>
 </div>
 </div>
@@ -566,7 +564,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-84127.40007644001
+84086.70460975
 </pre></div></div>
 </div>
 </div>
@@ -588,7 +586,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-290.04723766386746
+289.9770760073113
 </pre></div></div>
 </div>
 </div>
@@ -610,7 +608,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(84135.81365780579, 290.06174111351845)
+(84095.11412116211, 289.99157594861634)
 </pre></div></div>
 </div>
 </div>
@@ -631,7 +629,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-ModeResult(mode=array([188]), count=array([20]))
+ModeResult(mode=array([63]), count=array([23]))
 </pre></div></div>
 </div>
 </div>
@@ -695,7 +693,7 @@ ModeResult(mode=array([188]), count=array([20]))
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([243, 499, 753])
+array([248, 498, 750])
 </pre></div></div>
 </div>
 </div>
@@ -718,7 +716,7 @@ array([243, 499, 753])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-510
+502
 </pre></div></div>
 </div>
 </div>
@@ -766,7 +764,7 @@ array([243, 499, 753])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0.014513777063550991
+0.008606864628817969
 </pre></div></div>
 </div>
 </div>
@@ -793,7 +791,7 @@ array([243, 499, 753])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
--1.2180940122091857
+-1.2046304482771037
 </pre></div></div>
 </div>
 </div>
@@ -820,7 +818,7 @@ array([243, 499, 753])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([11, 23])
+array([56, 11])
 </pre></div></div>
 </div>
 </div>
@@ -954,7 +952,6 @@ array([11, 23])
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span><span class="n">uniform</span><span class="p">,</span><span class="n">chi2</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">binom</span><span class="p">,</span><span class="n">multinomial</span><span class="p">,</span><span class="n">poisson</span><span class="p">,</span><span class="n">hypergeom</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
@@ -987,32 +984,30 @@ array([11, 23])
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">norm</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">norm</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">mean</span><span class="p">,</span><span class="n">var</span><span class="p">,</span><span class="n">skew</span><span class="p">,</span><span class="n">kurtosis</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">moments</span><span class="o">=</span><span class="s2">&quot;mvsk&quot;</span><span class="p">)</span>
 <span class="n">mean</span><span class="p">,</span><span class="n">var</span><span class="p">,</span><span class="n">skew</span><span class="p">,</span><span class="n">kurtosis</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">var</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(array(50.), array(25.), array(0.), array(0.))
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean</span><span class="o">-</span><span class="n">std</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean</span><span class="o">+</span><span class="n">std</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1087,7 +1082,9 @@ array([11, 23])
 <span class="n">interval</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">sample_size</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">interval</span><span class="p">:</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">sample_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">t_data</span> <span class="o">=</span> <span class="n">sample_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">t_data</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">t_data</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Distribution for number of samples : </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1146,13 +1143,30 @@ array([11, 23])
 </div>
 <div class="section" id="Uniform-Distribution">
 <h3>Uniform Distribution<a class="headerlink" href="#Uniform-Distribution" title="Permalink to this headline">¶</a></h3>
+<p>A continuous random variable X is said to have a Uniform distribution over the interval [a,b], shown as</p>
+<p><span class="math notranslate nohighlight">\(X\sim U(a,b)\)</span></p>
+<p>if its PDF is given by</p>
+<p><span class="math notranslate nohighlight">\(f(x)=\frac{1}{b-a}\)</span> if a &lt;= x &lt;= b else 0</p>
+<p><span class="math notranslate nohighlight">\(\mu=\frac{a+b}{2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sigma^2=\frac{1}{12}{(b-a)^2}\)</span></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
+
+<span class="n">uniform_dist</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">uniform_dist</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">()</span>
-<span class="n">uniform_dist</span>
+<span></span><span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">uniform_dist</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span>
 </pre></div>
 </div>
 </div>
@@ -1162,7 +1176,7 @@ array([11, 23])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;scipy.stats._distn_infrastructure.rv_frozen at 0x7f8c375ef6a0&gt;
+(array(55.), array(8.33333333), array(0.), array(-1.2))
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1170,160 +1184,14 @@ array([11, 23])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-&lt;ipython-input-26-e4e8057ebbd6&gt;:6: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
-  fig.show()
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/PracticalStatistics_Statistics_51_1.png" src="../_images/PracticalStatistics_Statistics_51_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-&lt;ipython-input-27-0b15cde243fc&gt;:4: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
-  fig.show()
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/PracticalStatistics_Statistics_52_1.png" src="../_images/PracticalStatistics_Statistics_52_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="Chi-squared-Distribution">
-<h3>Chi-squared Distribution<a class="headerlink" href="#Chi-squared-Distribution" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">degree_of_freedom</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">chi2_dist</span> <span class="o">=</span> <span class="n">chi2</span><span class="p">(</span><span class="n">degree_of_freedom</span><span class="p">)</span>
-<span class="n">chi2_dist</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;scipy.stats._distn_infrastructure.rv_frozen at 0x7f8c307f83a0&gt;
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">chi2_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">chi2_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-&lt;ipython-input-29-74f126ac2dd6&gt;:4: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
-  fig.show()
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/PracticalStatistics_Statistics_55_1.png" src="../_images/PracticalStatistics_Statistics_55_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="F-Distribution">
-<h3>F Distribution<a class="headerlink" href="#F-Distribution" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="T-Distribition">
-<h3>T Distribition<a class="headerlink" href="#T-Distribition" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="Discrete-Distribution">
-<h2>Discrete Distribution<a class="headerlink" href="#Discrete-Distribution" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Binomial-Distribution">
-<h3>Binomial Distribution<a class="headerlink" href="#Binomial-Distribution" title="Permalink to this headline">¶</a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## n and p as shape parameters</span>
-<span class="n">binom_dist</span> <span class="o">=</span> <span class="n">binom</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binom_dist</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binom_dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-&lt;ipython-input-30-7b35db4fa428&gt;:7: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
-  fig.show()
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/PracticalStatistics_Statistics_58_1.png" src="../_images/PracticalStatistics_Statistics_58_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">binom_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1332,33 +1200,185 @@ array([11, 23])
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/PracticalStatistics_Statistics_59_0.png" src="../_images/PracticalStatistics_Statistics_59_0.png" />
+<img alt="../_images/PracticalStatistics_Statistics_52_0.png" src="../_images/PracticalStatistics_Statistics_52_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">uniform_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/PracticalStatistics_Statistics_53_0.png" src="../_images/PracticalStatistics_Statistics_53_0.png" />
 </div>
 </div>
 </div>
-<div class="section" id="Multinomial-Distribution">
-<h3>Multinomial Distribution<a class="headerlink" href="#Multinomial-Distribution" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Chi-squared-Distribution">
+<h3>Chi-squared Distribution<a class="headerlink" href="#Chi-squared-Distribution" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>if a random variable <span class="math notranslate nohighlight">\(Z\)</span> has standard normal distribution then <span class="math notranslate nohighlight">\(Z_1^2\)</span> has the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with one degree of freedom</p></li>
+<li><p>if a random variable <span class="math notranslate nohighlight">\(Z\)</span> has standard normal distribution then <span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2\)</span> has the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with two degree of freedom</p></li>
+<li><p>if <span class="math notranslate nohighlight">\(Z_1,Z_2,...,Z_k\)</span> are independent standard normal (distribution) random variables then <span class="math notranslate nohighlight">\(Z_1^2 + Z_2^2 + ... + Z_k^2\)</span> has the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with k degrees of freedom</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(f(x)=\frac{x^{\frac{k}{2} - 1}. e^{\frac{-x}{2}}}{2^{\frac{k}{2}}. \Gamma{(\frac{k}{2})}}\)</span></p>
+<p>for x&gt;0</p>
+<p>k = degree of freedom</p>
+<p><span class="math notranslate nohighlight">\(\Gamma(x)=(x-1)!\)</span> Gamma Function</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">dof</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">chi2_dist</span> <span class="o">=</span> <span class="n">chi2</span><span class="p">(</span><span class="n">dof</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">chi2_dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;degree of freedom : </span><span class="si">{</span><span class="n">dof</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">chi2_dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;degree of freedom : </span><span class="si">{</span><span class="n">dof</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/PracticalStatistics_Statistics_55_0.png" src="../_images/PracticalStatistics_Statistics_55_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">dof</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">chi2_dist</span> <span class="o">=</span> <span class="n">chi2</span><span class="p">(</span><span class="n">dof</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">chi2_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;degree of freedom : </span><span class="si">{</span><span class="n">dof</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/PracticalStatistics_Statistics_56_0.png" src="../_images/PracticalStatistics_Statistics_56_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="F-Distribution">
+<h3>F Distribution<a class="headerlink" href="#F-Distribution" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">suppose <span class="math notranslate nohighlight">\(U_1\)</span> has <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with <span class="math notranslate nohighlight">\(df_1\)</span> degrees of freedom</div>
+<div class="line">and <span class="math notranslate nohighlight">\(U_2\)</span> has <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with <span class="math notranslate nohighlight">\(df_2\)</span> degrees of freedom</div>
+<div class="line">then <span class="math notranslate nohighlight">\(F=\frac{\frac{U_1}{df_1}}{\frac{U_2}{df_2}}\)</span> has an F distribution</div>
+</div>
+<p><span class="math notranslate nohighlight">\(f(x, df_1, df_2) = \frac{df_2^{df_2/2} df_1^{df_1/2} x^{df_1 / 2-1}}{(df_2+df_1 x)^{(df_1+df_2)/2}B(df_1/2, df_2/2)}\)</span></p>
+<p>TODO</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="T-Distribition">
+<h3>T Distribition<a class="headerlink" href="#T-Distribition" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+</div>
+<div class="section" id="Discrete-Distribution">
+<h2>Discrete Distribution<a class="headerlink" href="#Discrete-Distribution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Binomial-Distribution">
+<h3>Binomial Distribution<a class="headerlink" href="#Binomial-Distribution" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>n repeated trials</p></li>
+<li><p>2 outcomes only</p></li>
+<li><p>probability of success = p</p></li>
+<li><p>independent trials</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">success</span> <span class="n">results</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">trials</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">probability</span> <span class="n">of</span> <span class="n">success</span>
+<span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="n">failure</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>The frequency distribution of the possible number of successful outcomes in a given number of trials, where the probability of success is same in each of them.</p>
+<p><span class="math notranslate nohighlight">\(b(x;n,p)=\binom{n}{x}{p^x}{(1-p)}^{(n-x)}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mu=np\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sigma^2=npq\)</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">binom</span>
+<span class="c1">## n and p as shape parameters</span>
+<span class="n">n</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span>
+<span class="n">binom_dist</span> <span class="o">=</span> <span class="n">binom</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span><span class="n">p</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binom_dist</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/PracticalStatistics_Statistics_61_0.png" src="../_images/PracticalStatistics_Statistics_61_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">binom_dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/PracticalStatistics_Statistics_62_0.png" src="../_images/PracticalStatistics_Statistics_62_0.png" />
+</div>
+</div>
 </div>
 <div class="section" id="Poisson-Distribution">
 <h3>Poisson Distribution<a class="headerlink" href="#Poisson-Distribution" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="Hypergeometric-Distribution">
-<h3>Hypergeometric Distribution<a class="headerlink" href="#Hypergeometric-Distribution" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(f(x;\mu) = \exp(-\mu) \frac{\mu^x}{x!}\)</span></p>
+<p>TODO</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
 </pre></div>
 </div>
 </div>
