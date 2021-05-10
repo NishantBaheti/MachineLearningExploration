@@ -486,7 +486,10 @@ regression.This term is distinct from multivariate linear regression, where mult
 <li><p>X - feature matrix (number_of_samples, number_of_features) (independent variable)</p></li>
 <li><p>y - target matrix (number_of_samples,) or (number_of_samples,1) (dependent variable)</p></li>
 </ul>
-<p><img alt="linear_reg1" src="../_images/linear_reg1.png" /></p>
+<p>Hypothesis: <span class="math notranslate nohighlight">\(h_\theta(x)=\theta_0 + \theta_1.x\)</span></p>
+<p>Parameters: <span class="math notranslate nohighlight">\(\theta_0, \theta_1\)</span></p>
+<p>Cost Function: <span class="math notranslate nohighlight">\(J(\theta_0,\theta_1)=\frac{1}{2m}\sum_{i=1}^{m}{h_\theta{(x^{(i)} - y^{(i)})}^2}\)</span></p>
+<p>Goal: <span class="math notranslate nohighlight">\({{minimize}\atop{\theta_0,\theta_1}} J(\theta_0,\theta_1)\)</span></p>
 <ul class="simple">
 <li><p>methods</p>
 <ul>
@@ -692,7 +695,7 @@ regression.This term is distinct from multivariate linear regression, where mult
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_4_0.png" src="../_images/LinearRegression_Explore_4_0.png" />
+<img alt="../_images/LinearRegression_Explore_6_0.png" src="../_images/LinearRegression_Explore_6_0.png" />
 </div>
 </div>
 <ul>
@@ -778,7 +781,7 @@ number of samples (rows) : 506
         <span class="p">(</span><span class="n">hypothesis</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">h(x)</span> <span class="pre">=</span> <span class="pre">θ_0</span> <span class="pre">+</span> <span class="pre">θ_1</span> <span class="pre">*</span> <span class="pre">X</span></code></p>
+<p><span class="math notranslate nohighlight">\(h(x) = \theta_0 + \theta_1 . X\)</span></p>
 <p>Affine Function = linear function + a constant</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -1137,7 +1140,7 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[0.00041255 0.0006084 ]]
+random initial θ value : [[9.91532590e-05 5.51601956e-04]]
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1158,14 +1161,14 @@ random initial θ value : [[0.00041255 0.0006084 ]]
 <div class="highlight"><pre>
 breaking. found inf or nan.
 MSE : inf RMSE : inf
-trained θ value : [[-1.01743125e+302 -1.69466745e+303]]
+trained θ value : [[-1.01749971e+302 -1.69478147e+303]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_30_3.png" src="../_images/LinearRegression_Explore_30_3.png" />
+<img alt="../_images/LinearRegression_Explore_32_3.png" src="../_images/LinearRegression_Explore_32_3.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1199,16 +1202,16 @@ trained θ value : [[-1.01743125e+302 -1.69466745e+303]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[0.00021211 0.00079452]]
-MSE : 40.82628379489543 RMSE : 6.389544881671576
-trained θ value : [[31.4369871  -0.76292211]]
+random initial θ value : [[0.00024953 0.00025936]]
+MSE : 40.82627437725886 RMSE : 6.389544144714775
+trained θ value : [[31.43699336 -0.76292249]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_33_1.png" src="../_images/LinearRegression_Explore_33_1.png" />
+<img alt="../_images/LinearRegression_Explore_35_1.png" src="../_images/LinearRegression_Explore_35_1.png" />
 </div>
 </div>
 </div>
@@ -1239,16 +1242,16 @@ trained θ value : [[31.4369871  -0.76292211]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[0.00082195 0.00062579]]
-MSE : 38.483123035465496 RMSE : 6.203476689362627
-trained θ value : [[34.52842574 -0.9485235 ]]
+random initial θ value : [[0.00064052 0.00034284]]
+MSE : 38.483123036946076 RMSE : 6.2034766894819615
+trained θ value : [[34.52842562 -0.94852349]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_35_1.png" src="../_images/LinearRegression_Explore_35_1.png" />
+<img alt="../_images/LinearRegression_Explore_37_1.png" src="../_images/LinearRegression_Explore_37_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1273,7 +1276,7 @@ trained θ value : [[34.52842574 -0.9485235 ]]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_36_0.png" src="../_images/LinearRegression_Explore_36_0.png" />
+<img alt="../_images/LinearRegression_Explore_38_0.png" src="../_images/LinearRegression_Explore_38_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1316,7 +1319,7 @@ the computational burden, achieving faster iterations in trade for a lower conve
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[0.00031589 0.00012551]]
+random initial θ value : [[0.00084602 0.00018568]]
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1336,14 +1339,14 @@ random initial θ value : [[0.00031589 0.00012551]]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 MSE : inf RMSE : inf
-trained θ value : [[-7.46991253e+276 -1.70497656e+278]]
+trained θ value : [[4.64154591e+255 3.68070839e+256]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_39_3.png" src="../_images/LinearRegression_Explore_39_3.png" />
+<img alt="../_images/LinearRegression_Explore_41_3.png" src="../_images/LinearRegression_Explore_41_3.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1371,16 +1374,16 @@ trained θ value : [[-7.46991253e+276 -1.70497656e+278]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[0.00057582 0.0006117 ]]
-MSE : 38.4879507955829 RMSE : 6.2038657944529145
-trained θ value : [[34.52823862 -0.94373174]]
+random initial θ value : [[0.00045449 0.00036405]]
+MSE : 38.88812697071002 RMSE : 6.236034554964398
+trained θ value : [[34.48278381 -0.98954281]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_40_1.png" src="../_images/LinearRegression_Explore_40_1.png" />
+<img alt="../_images/LinearRegression_Explore_42_1.png" src="../_images/LinearRegression_Explore_42_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1405,7 +1408,7 @@ trained θ value : [[34.52823862 -0.94373174]]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_41_0.png" src="../_images/LinearRegression_Explore_41_0.png" />
+<img alt="../_images/LinearRegression_Explore_43_0.png" src="../_images/LinearRegression_Explore_43_0.png" />
 </div>
 </div>
 </div>
@@ -1438,9 +1441,7 @@ trained θ value : [[34.52823862 -0.94373174]]
 </tr>
 </tbody>
 </table>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">θ</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">^</span><span class="n">T</span> <span class="o">*</span> <span class="n">X</span><span class="p">)</span><span class="o">^-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">X</span><span class="o">^</span><span class="n">T</span> <span class="o">*</span> <span class="n">y</span>
-</pre></div>
-</div>
+<p><span class="math notranslate nohighlight">\(\theta = (X^T * X)^{-1} . X^T . y\)</span></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
@@ -1510,7 +1511,7 @@ trained θ value : [[34.52823862 -0.94373174]]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_46_0.png" src="../_images/LinearRegression_Explore_46_0.png" />
+<img alt="../_images/LinearRegression_Explore_48_0.png" src="../_images/LinearRegression_Explore_48_0.png" />
 </div>
 </div>
 </div>
@@ -1694,16 +1695,16 @@ trained θ value : [[34.52823862 -0.94373174]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[8.05212025e-04 2.33095379e-06]]
-MSE : 51.769373089219556 RMSE : 7.195093681754224
-trained θ value : [[27.13210478 -0.50481865]]
+random initial θ value : [[0.00014915 0.00096573]]
+MSE : 51.769373348915124 RMSE : 7.195093699800936
+trained θ value : [[27.1321047  -0.50481864]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_49_1.png" src="../_images/LinearRegression_Explore_49_1.png" />
+<img alt="../_images/LinearRegression_Explore_51_1.png" src="../_images/LinearRegression_Explore_51_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1731,16 +1732,16 @@ trained θ value : [[27.13210478 -0.50481865]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[0.00019    0.00085768]]
-MSE : 46.15650086476867 RMSE : 6.793857583491772
-trained θ value : [[29.27357797 -0.70043872]]
+random initial θ value : [[0.00064689 0.00043986]]
+MSE : 47.087328862438596 RMSE : 6.862020756485555
+trained θ value : [[29.19657753 -0.71805355]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_50_1.png" src="../_images/LinearRegression_Explore_50_1.png" />
+<img alt="../_images/LinearRegression_Explore_52_1.png" src="../_images/LinearRegression_Explore_52_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1765,7 +1766,7 @@ trained θ value : [[29.27357797 -0.70043872]]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_51_0.png" src="../_images/LinearRegression_Explore_51_0.png" />
+<img alt="../_images/LinearRegression_Explore_53_0.png" src="../_images/LinearRegression_Explore_53_0.png" />
 </div>
 </div>
 <div class="section" id="id1">
@@ -1842,7 +1843,7 @@ trained θ value : [[29.27357797 -0.70043872]]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_56_0.png" src="../_images/LinearRegression_Explore_56_0.png" />
+<img alt="../_images/LinearRegression_Explore_58_0.png" src="../_images/LinearRegression_Explore_58_0.png" />
 </div>
 </div>
 </div>
@@ -2022,16 +2023,16 @@ settings inwhich the number of variables n is quite large.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[0.00040942 0.00058459]]
-MSE : 38.502163450183055 RMSE : 6.205011156330265
-trained θ value : [[34.27188609 -0.93345135]]
+random initial θ value : [[0.00028424 0.00057489]]
+MSE : 38.50216346262735 RMSE : 6.205011157333027
+trained θ value : [[34.271886   -0.93345134]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_59_1.png" src="../_images/LinearRegression_Explore_59_1.png" />
+<img alt="../_images/LinearRegression_Explore_61_1.png" src="../_images/LinearRegression_Explore_61_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2059,16 +2060,16 @@ trained θ value : [[34.27188609 -0.93345135]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[4.56142947e-04 7.02248295e-05]]
-MSE : 39.52348714282612 RMSE : 6.286770804063571
-trained θ value : [[32.60393636 -0.85730019]]
+random initial θ value : [[0.00017235 0.00025617]]
+MSE : 40.42133618322504 RMSE : 6.35777761353958
+trained θ value : [[32.47923457 -0.8909559 ]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_60_1.png" src="../_images/LinearRegression_Explore_60_1.png" />
+<img alt="../_images/LinearRegression_Explore_62_1.png" src="../_images/LinearRegression_Explore_62_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2093,7 +2094,7 @@ trained θ value : [[32.60393636 -0.85730019]]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_61_0.png" src="../_images/LinearRegression_Explore_61_0.png" />
+<img alt="../_images/LinearRegression_Explore_63_0.png" src="../_images/LinearRegression_Explore_63_0.png" />
 </div>
 </div>
 </div>
@@ -2229,17 +2230,17 @@ trained θ value : [[32.60393636 -0.85730019]]
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[2.90433673e-04 8.48808232e-04 1.56421716e-04 4.70593899e-05
-  1.77196973e-04]]
-MSE : 29.04524548187663 RMSE : 5.389364107376363
-trained θ value : [[22.49773966  3.57664343 -0.84608938 -1.08329154 -4.38606624]]
+random initial θ value : [[8.67881770e-05 4.10563733e-04 9.02107405e-04 9.51149910e-04
+  3.71981085e-04]]
+MSE : 28.979418567635154 RMSE : 5.383253529942199
+trained θ value : [[22.60919676  3.59491469 -0.93055874 -1.34123499 -4.59232582]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_68_1.png" src="../_images/LinearRegression_Explore_68_1.png" />
+<img alt="../_images/LinearRegression_Explore_70_1.png" src="../_images/LinearRegression_Explore_70_1.png" />
 </div>
 </div>
 </div>
@@ -2301,17 +2302,17 @@ trained θ value : [[22.49773966  3.57664343 -0.84608938 -1.08329154 -4.38606624
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[2.21804915e-04 4.19265826e-05 4.62962497e-04 9.47748461e-05
-  2.80006570e-04]]
-MSE : 29.114539666046355 RMSE : 5.39578906797202
-trained θ value : [[22.58861881  3.63999733 -0.95349263 -1.49150378 -4.32373396]]
+random initial θ value : [[5.63757322e-04 1.27673023e-04 3.17411968e-04 3.72992042e-05
+  4.13124849e-04]]
+MSE : 29.013975458930794 RMSE : 5.3864622396273045
+trained θ value : [[22.60756799  3.49527751 -0.86853635 -1.19537337 -4.5452336 ]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_70_1.png" src="../_images/LinearRegression_Explore_70_1.png" />
+<img alt="../_images/LinearRegression_Explore_72_1.png" src="../_images/LinearRegression_Explore_72_1.png" />
 </div>
 </div>
 </div>
@@ -2373,16 +2374,16 @@ trained θ value : [[22.58861881  3.63999733 -0.95349263 -1.49150378 -4.32373396
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[0.00042417 0.00059531 0.00073451 0.00075259 0.00021331]]
-MSE : 29.051732311580857 RMSE : 5.389965891504403
-trained θ value : [[22.4339132   3.77439167 -0.74098751 -1.32758415 -4.46594438]]
+random initial θ value : [[0.00069574 0.00036044 0.00066891 0.00044254 0.00055508]]
+MSE : 29.124430887913704 RMSE : 5.396705558756537
+trained θ value : [[22.24899293  3.47162304 -1.04465612 -1.15727657 -4.69184714]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_72_1.png" src="../_images/LinearRegression_Explore_72_1.png" />
+<img alt="../_images/LinearRegression_Explore_74_1.png" src="../_images/LinearRegression_Explore_74_1.png" />
 </div>
 </div>
 </div>
@@ -2406,7 +2407,7 @@ trained θ value : [[22.4339132   3.77439167 -0.74098751 -1.32758415 -4.46594438
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-MSE : 41.9343930042506 RMSE : 6.4756770305699005
+MSE : 41.05954371434854 RMSE : 6.407772133460158
 </pre></div></div>
 </div>
 </div>
@@ -2429,7 +2430,7 @@ MSE : 41.9343930042506 RMSE : 6.4756770305699005
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-MSE : 40.849939847933044 RMSE : 6.391395766805013
+MSE : 42.198706196796316 RMSE : 6.496053124536184
 </pre></div></div>
 </div>
 </div>
@@ -2452,7 +2453,7 @@ MSE : 40.849939847933044 RMSE : 6.391395766805013
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-MSE : 41.1578184868983 RMSE : 6.415435954547306
+MSE : 41.28075746713775 RMSE : 6.425010308718403
 </pre></div></div>
 </div>
 </div>
@@ -2494,7 +2495,7 @@ MSE : 41.1578184868983 RMSE : 6.415435954547306
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_80_0.png" src="../_images/LinearRegression_Explore_80_0.png" />
+<img alt="../_images/LinearRegression_Explore_82_0.png" src="../_images/LinearRegression_Explore_82_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2527,7 +2528,7 @@ MSE : 41.1578184868983 RMSE : 6.415435954547306
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_81_0.png" src="../_images/LinearRegression_Explore_81_0.png" />
+<img alt="../_images/LinearRegression_Explore_83_0.png" src="../_images/LinearRegression_Explore_83_0.png" />
 </div>
 </div>
 </div>
@@ -2570,7 +2571,7 @@ MSE : 41.1578184868983 RMSE : 6.415435954547306
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_83_0.png" src="../_images/LinearRegression_Explore_83_0.png" />
+<img alt="../_images/LinearRegression_Explore_85_0.png" src="../_images/LinearRegression_Explore_85_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2603,7 +2604,7 @@ MSE : 41.1578184868983 RMSE : 6.415435954547306
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_84_0.png" src="../_images/LinearRegression_Explore_84_0.png" />
+<img alt="../_images/LinearRegression_Explore_86_0.png" src="../_images/LinearRegression_Explore_86_0.png" />
 </div>
 </div>
 </div>
@@ -2639,7 +2640,7 @@ MSE : 41.1578184868983 RMSE : 6.415435954547306
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/LinearRegression_Explore_86_0.png" src="../_images/LinearRegression_Explore_86_0.png" />
+<img alt="../_images/LinearRegression_Explore_88_0.png" src="../_images/LinearRegression_Explore_88_0.png" />
 </div>
 </div>
 </div>
