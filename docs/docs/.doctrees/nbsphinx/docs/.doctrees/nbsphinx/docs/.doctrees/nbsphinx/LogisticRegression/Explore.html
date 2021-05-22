@@ -1,0 +1,1340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Logistic Regression &mdash; Machine Learning Exploration 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../../../../../" src="../../../../../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../../../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../../../../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../../../../../index.html" class="icon icon-home"> Machine Learning Exploration
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../PracticalStatistics/Statistics.html">Statisitcs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../PracticalStatistics/Statistics.html#Probability-Distributions">Probability Distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../PracticalStatistics/z_score.html">Z Score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../PracticalStatistics/Hypothesis.html">Hypothesis Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../PracticalStatistics/StatisticalModelling.html">Statistical Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../PandasExploration/PandasExploration.html">Pandas Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../MathExploration/PrincipalComponentAnalysis.html">Principal Component Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../LinearRegression/Explore.html">Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../LinearRegression/Explore.html#Comparing-Linear,-Lasso,-Ridge-Regression">Comparing Linear, Lasso, Ridge Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../LogisticRegression/Explore.html">Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../TreeBasedModels/ExploreDecisionTree.html">Decision Tree Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../TreeBasedModels/ExploreRandomForest.html">Random Forest Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../IrisDataAnalysis/IrisDataExploratoryAnalysis.html">Iris Data Exploratory Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../BreastCancerAnalysis/BreastCancerPreprocessingAnalysis.html">Breast Cancer Preprocessing Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../BreastCancerAnalysis/BreastCancerModellingAnalysis.html">Breast Cancer Analytical Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../BreastCancerAnalysis/plot_learning_curve.html">Plotting Learning Curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../ChurnClassification/ChurnClassificationModelling.html">Churn Classification Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../DigitsDataAnalysis/DigitsDataModelling.html">Digits Data Analysis and Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../NaturalLanguageProcessing/NLTK.html">Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../SpamDetection/SpamDataAnalytics.html">Spam Data Analytics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../../../../index.html">Machine Learning Exploration</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Logistic Regression</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../../../../../_sources/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/Explore.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Logistic-Regression">
+<h1>Logistic Regression<a class="headerlink" href="#Logistic-Regression" title="Permalink to this headline">¶</a></h1>
+<p>Logistic regression is a statistical model that in its basic form uses a logistic function to model a binary dependent variable, although many more complex extensions exist. In regression analysis, logistic regression (or logit regression) is estimating the parameters of a logistic model (a form of binary regression).</p>
+<p><img alt="logistic_reg1" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg1.png" /></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">linear_model_format_X</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">tup</span><span class="o">=</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span> <span class="p">,</span> <span class="n">X</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Cost-Function">
+<h2>Cost Function<a class="headerlink" href="#Cost-Function" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="The-cross-entropy-loss-function">
+<h3>The cross-entropy loss function<a class="headerlink" href="#The-cross-entropy-loss-function" title="Permalink to this headline">¶</a></h3>
+<p>We need a loss function that expresses, for an observationx, how close the classifier output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="n">ˆy</span> <span class="o">=</span> <span class="n">σ</span><span class="p">(</span><span class="n">w·x</span><span class="o">+</span><span class="n">b</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>is to the correct output (y, which is 0 or 1). We’ll call this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">(</span><span class="n">ˆy</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span><span class="n">How</span> <span class="n">much</span>  <span class="n">ˆy</span> <span class="n">differs</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">true</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>We do this via a loss function that prefers the correct class labels of the train-ing examples to bemore likely. This is called conditional maximum likelihood estimation: we choose the parametersw,b thatmaximize the log probability ofthe true y labels in the training datagiven the observations x. The resulting loss function is the negative log likelihood loss, generally called the cross-entropy loss.</p>
+<p><img alt="logistic_reg_2" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg2.png" /> <img alt="logistic_reg3" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg3.png" /></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">calculate_entropy_cost</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+
+    <span class="n">part_1</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="n">part_2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="n">cost</span> <span class="o">=</span> <span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">part_1</span> <span class="o">+</span> <span class="n">part_2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cost</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Sigmoid-Function">
+<h2>Sigmoid Function<a class="headerlink" href="#Sigmoid-Function" title="Permalink to this headline">¶</a></h2>
+<p><img alt="logistic_reg11" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg11.png" /></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Gradient-Descent-Algorithm">
+<h2>Gradient Descent Algorithm<a class="headerlink" href="#Gradient-Descent-Algorithm" title="Permalink to this headline">¶</a></h2>
+<p><img alt="logistic_reg4" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg4.png" /></p>
+<p><img alt="logistic_reg_9" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg9.png" /></p>
+<div class="section" id="Math-Calculation-for-Gradient-Descent">
+<h3>Math Calculation for Gradient Descent<a class="headerlink" href="#Math-Calculation-for-Gradient-Descent" title="Permalink to this headline">¶</a></h3>
+<p><img alt="logistic_reg5" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg5.png" /></p>
+<p><img alt="logistic_reg6" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg6.png" /></p>
+<p><img alt="logistic_reg7" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg7.png" /></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">LogisticRegression</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="p">,</span><span class="n">iterations</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iterations</span> <span class="o">=</span> <span class="n">iterations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_theta_history</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cost_history</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_format_X_for_theta_0</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X_i</span><span class="p">):</span>
+
+        <span class="n">X_i</span> <span class="o">=</span> <span class="n">X_i</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_i</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">X_i</span> <span class="o">=</span> <span class="n">X_i</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="kc">False</span> <span class="ow">in</span> <span class="p">(</span><span class="n">X_i</span><span class="p">[</span><span class="o">...</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">tup</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">X_i</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span> <span class="p">,</span> <span class="n">X_i</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">X_i</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">X</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">theta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">theta_history</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta_history</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cost_history</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cost_history</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="p">):</span>
+        <span class="n">format_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_X_for_theta_0</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">format_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">format_X</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="p">)</span> <span class="c1"># (m,1) = (m,n) * (n,1)</span>
+            <span class="k">return</span> <span class="n">y_pred</span>
+        <span class="k">elif</span> <span class="n">format_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">format_X</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># (m,1) = (m,n) * (n,1)</span>
+            <span class="k">return</span> <span class="n">y_pred</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Shape is not proper.&quot;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;BGD&quot;</span><span class="p">,</span> <span class="n">theta_precision</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">regularization</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_X_for_theta_0</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y</span>
+
+        <span class="c1"># number of features+1 because of theta_0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_theta_history</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cost_history</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;BGD&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="p">)</span> <span class="o">*</span> <span class="n">theta_precision</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;random initial θ value :&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iterations</span><span class="p">):</span>
+                <span class="c1"># calculate y_pred</span>
+                <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">)</span>
+
+                <span class="c1"># new θ to replace old θ</span>
+                <span class="n">new_theta</span> <span class="o">=</span> <span class="kc">None</span>
+
+                <span class="c1"># simultaneous operation</span>
+
+                <span class="k">if</span> <span class="n">regularization</span><span class="p">:</span>
+                    <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+                    <span class="n">new_theta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">penalty</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span>  <span class="n">gradient</span><span class="p">)</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+                    <span class="n">new_theta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span>  <span class="n">gradient</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_theta</span><span class="p">))</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_theta</span><span class="p">)):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;breaking. found inf or nan.&quot;</span><span class="p">)</span>
+                    <span class="k">break</span>
+                <span class="c1"># override with new θ</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">=</span> <span class="n">new_theta</span>
+
+                <span class="c1"># calculate cost to put in history</span>
+                <span class="n">cost</span> <span class="o">=</span> <span class="n">calculate_entropy_cost</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cost_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+
+                <span class="c1"># calcualted theta in history</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_theta_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;SGD&quot;</span><span class="p">:</span> <span class="c1"># stochastic gradient descent</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="p">)</span> <span class="o">*</span> <span class="n">theta_precision</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;random initial θ value :&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iterations</span><span class="p">):</span>
+
+                <span class="c1"># creating indices for batches</span>
+                <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+
+                <span class="c1"># creating batch for this iteration</span>
+                <span class="n">X_batch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">,</span><span class="n">indices</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">y_batch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="p">,</span><span class="n">indices</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+                <span class="c1"># calculate y_pred</span>
+                <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_batch</span><span class="p">)</span>
+                <span class="c1"># new θ to replace old θ</span>
+                <span class="n">new_theta</span> <span class="o">=</span> <span class="kc">None</span>
+
+                <span class="c1"># simultaneous operation</span>
+                <span class="k">if</span> <span class="n">regularization</span><span class="p">:</span>
+                    <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">y_batch</span> <span class="p">)</span> <span class="o">*</span> <span class="n">X_batch</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+                    <span class="n">new_theta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">penalty</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span>  <span class="n">gradient</span><span class="p">)</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">y_batch</span> <span class="p">)</span> <span class="o">*</span> <span class="n">X_batch</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+                    <span class="n">new_theta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span>  <span class="n">gradient</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_theta</span><span class="p">))</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_theta</span><span class="p">)):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;breaking. found inf or nan.&quot;</span><span class="p">)</span>
+                    <span class="k">break</span>
+                <span class="c1"># override with new θ</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">=</span> <span class="n">new_theta</span>
+
+                <span class="c1"># calculate cost to put in history</span>
+                <span class="n">cost</span> <span class="o">=</span> <span class="n">calculate_entropy_cost</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_batch</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y_batch</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cost_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+
+                <span class="c1"># calcualted theta in history</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_theta_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No Method Defined.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean radius</th>
+      <th>mean texture</th>
+      <th>mean perimeter</th>
+      <th>mean area</th>
+      <th>mean smoothness</th>
+      <th>mean compactness</th>
+      <th>mean concavity</th>
+      <th>mean concave points</th>
+      <th>mean symmetry</th>
+      <th>mean fractal dimension</th>
+      <th>...</th>
+      <th>worst texture</th>
+      <th>worst perimeter</th>
+      <th>worst area</th>
+      <th>worst smoothness</th>
+      <th>worst compactness</th>
+      <th>worst concavity</th>
+      <th>worst concave points</th>
+      <th>worst symmetry</th>
+      <th>worst fractal dimension</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>17.99</td>
+      <td>10.38</td>
+      <td>122.80</td>
+      <td>1001.0</td>
+      <td>0.11840</td>
+      <td>0.27760</td>
+      <td>0.3001</td>
+      <td>0.14710</td>
+      <td>0.2419</td>
+      <td>0.07871</td>
+      <td>...</td>
+      <td>17.33</td>
+      <td>184.60</td>
+      <td>2019.0</td>
+      <td>0.1622</td>
+      <td>0.6656</td>
+      <td>0.7119</td>
+      <td>0.2654</td>
+      <td>0.4601</td>
+      <td>0.11890</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20.57</td>
+      <td>17.77</td>
+      <td>132.90</td>
+      <td>1326.0</td>
+      <td>0.08474</td>
+      <td>0.07864</td>
+      <td>0.0869</td>
+      <td>0.07017</td>
+      <td>0.1812</td>
+      <td>0.05667</td>
+      <td>...</td>
+      <td>23.41</td>
+      <td>158.80</td>
+      <td>1956.0</td>
+      <td>0.1238</td>
+      <td>0.1866</td>
+      <td>0.2416</td>
+      <td>0.1860</td>
+      <td>0.2750</td>
+      <td>0.08902</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>19.69</td>
+      <td>21.25</td>
+      <td>130.00</td>
+      <td>1203.0</td>
+      <td>0.10960</td>
+      <td>0.15990</td>
+      <td>0.1974</td>
+      <td>0.12790</td>
+      <td>0.2069</td>
+      <td>0.05999</td>
+      <td>...</td>
+      <td>25.53</td>
+      <td>152.50</td>
+      <td>1709.0</td>
+      <td>0.1444</td>
+      <td>0.4245</td>
+      <td>0.4504</td>
+      <td>0.2430</td>
+      <td>0.3613</td>
+      <td>0.08758</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11.42</td>
+      <td>20.38</td>
+      <td>77.58</td>
+      <td>386.1</td>
+      <td>0.14250</td>
+      <td>0.28390</td>
+      <td>0.2414</td>
+      <td>0.10520</td>
+      <td>0.2597</td>
+      <td>0.09744</td>
+      <td>...</td>
+      <td>26.50</td>
+      <td>98.87</td>
+      <td>567.7</td>
+      <td>0.2098</td>
+      <td>0.8663</td>
+      <td>0.6869</td>
+      <td>0.2575</td>
+      <td>0.6638</td>
+      <td>0.17300</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20.29</td>
+      <td>14.34</td>
+      <td>135.10</td>
+      <td>1297.0</td>
+      <td>0.10030</td>
+      <td>0.13280</td>
+      <td>0.1980</td>
+      <td>0.10430</td>
+      <td>0.1809</td>
+      <td>0.05883</td>
+      <td>...</td>
+      <td>16.67</td>
+      <td>152.20</td>
+      <td>1575.0</td>
+      <td>0.1374</td>
+      <td>0.2050</td>
+      <td>0.4000</td>
+      <td>0.1625</td>
+      <td>0.2364</td>
+      <td>0.07678</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 31 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">feature_names</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+((569, 30), (569, 1))
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span><span class="n">accuracy_score</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+
+<span class="n">X_i</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">feature_names</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Logitsic-Regression-without-Regression">
+<h2>Logitsic Regression without Regression<a class="headerlink" href="#Logitsic-Regression-without-Regression" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Batch-Gradient-Descent">
+<h3>Batch Gradient Descent<a class="headerlink" href="#Batch-Gradient-Descent" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">logisitc_reg_model1</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">logisitc_reg_model1</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;BGD&quot;</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">logisitc_reg_model1</span><span class="o">.</span><span class="n">y</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logisitc_reg_model1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">logisitc_reg_model1</span><span class="o">.</span><span class="n">theta</span>
+<span class="n">theta_history</span> <span class="o">=</span> <span class="n">logisitc_reg_model1</span><span class="o">.</span><span class="n">theta_history</span>
+<span class="n">cost_history</span> <span class="o">=</span> <span class="n">logisitc_reg_model1</span><span class="o">.</span><span class="n">cost_history</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fit theta :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Confusion Matrix :</span>
+<span class="si">{</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_pred</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">Accuracy Score   :</span>
+<span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_pred</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history</span><span class="p">,</span><span class="n">cost_history</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+random initial θ value : [[5.74703082e-04 4.71032616e-04 5.86195968e-04 5.30677034e-04
+  8.39777848e-04 2.35546055e-04 3.54409727e-04 9.11191843e-04
+  4.46163091e-04 4.54831035e-04 5.13451570e-04 9.70863643e-04
+  6.25466964e-05 4.99212828e-04 5.50661555e-05 8.21687604e-04
+  2.24909707e-04 8.10074729e-04 1.95031438e-04 7.37230152e-04
+  4.74830711e-04 9.84842580e-05 5.86043108e-04 4.20604638e-04
+  4.63348938e-04 8.94856500e-04 1.48944135e-04 1.69959185e-04
+  8.51288513e-04 3.22160174e-04 4.60831408e-04]]
+Fit theta : [[ 0.43168729 -0.48934958 -0.50218823 -0.48005053 -0.49417506 -0.18800103
+  -0.07390946 -0.40855072 -0.52618989 -0.10620778  0.26989227 -0.5251592
+   0.00137944 -0.42197757 -0.45855879 -0.04395563  0.24774104  0.10823787
+  -0.07840602  0.12929622  0.30317484 -0.6283932  -0.64871803 -0.59106473
+  -0.59726574 -0.48655005 -0.21378394 -0.42222993 -0.57293593 -0.43083534
+  -0.13508832]]
+
+Confusion Matrix :
+[[205   7]
+ [  2 355]]
+Accuracy Score   :
+0.984182776801406
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../../../../../../_images/docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_LogisticRegression_Explore_14_1.png" src="../../../../../../../../../../_images/docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_LogisticRegression_Explore_14_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Stochastic-Gradient-Descent">
+<h3>Stochastic Gradient Descent<a class="headerlink" href="#Stochastic-Gradient-Descent" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">logisitc_reg_model2</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">logisitc_reg_model2</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;SGD&quot;</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">logisitc_reg_model2</span><span class="o">.</span><span class="n">y</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logisitc_reg_model2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">logisitc_reg_model2</span><span class="o">.</span><span class="n">theta</span>
+<span class="n">theta_history</span> <span class="o">=</span> <span class="n">logisitc_reg_model2</span><span class="o">.</span><span class="n">theta_history</span>
+<span class="n">cost_history</span> <span class="o">=</span> <span class="n">logisitc_reg_model2</span><span class="o">.</span><span class="n">cost_history</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fit theta :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Confusion Matrix :</span>
+<span class="si">{</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_pred</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">Accuracy Score   :</span>
+<span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_pred</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history</span><span class="p">,</span><span class="n">cost_history</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+random initial θ value : [[1.09912174e-04 8.34680335e-04 2.71425087e-04 4.45312035e-04
+  7.98836140e-04 4.28533054e-04 9.44840875e-04 4.41663604e-04
+  7.38275406e-04 1.05384396e-04 1.42947387e-04 4.71697651e-04
+  2.28755860e-04 9.58246539e-04 6.40545668e-04 7.74913441e-04
+  2.13497419e-04 1.13100122e-05 1.38792113e-04 6.44988918e-04
+  1.60596138e-04 2.69481934e-04 4.50490753e-04 5.60975348e-04
+  1.28496519e-04 8.37004598e-04 4.36847004e-05 8.43982638e-04
+  2.11988089e-04 1.01656750e-04 5.01642477e-04]]
+Fit theta : [[ 0.43116447 -0.49124405 -0.50615353 -0.48268779 -0.49524887 -0.18498763
+  -0.08043675 -0.40902284 -0.52894532 -0.1034032   0.26751382 -0.52051526
+  -0.00129325 -0.41756737 -0.45620155 -0.05173312  0.24446555  0.1165601
+  -0.07753539  0.12333744  0.3039229  -0.62815577 -0.65132667 -0.59082605
+  -0.59673165 -0.48894538 -0.21615393 -0.41888482 -0.575707   -0.43025533
+  -0.13421421]]
+
+Confusion Matrix :
+[[205   7]
+ [  2 355]]
+Accuracy Score   :
+0.984182776801406
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../../../../../../_images/docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_LogisticRegression_Explore_16_1.png" src="../../../../../../../../../../_images/docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_LogisticRegression_Explore_16_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Logistic-Regression-with-Regularization">
+<h2>Logistic Regression with Regularization<a class="headerlink" href="#Logistic-Regression-with-Regularization" title="Permalink to this headline">¶</a></h2>
+<p><img alt="logistic_reg8" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg8.png" /></p>
+<ul class="simple">
+<li><p>Addressing Overfitting</p>
+<ul>
+<li><p>Reduce features</p>
+<ul>
+<li><p>manually select</p></li>
+<li><p>model selection algorithm</p></li>
+</ul>
+</li>
+<li><p>Regularization</p>
+<ul>
+<li><p>Keep all the features but reduce magnitude/values of parameter theta</p></li>
+<li><p>Works well when we have a lot of features and each contributes a bit to predicting y</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="logistic_reg10" src="docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/docs/.doctrees/nbsphinx/LogisticRegression/./images/logistic_reg10.png" /></p>
+<div class="section" id="id1">
+<h3>Stochastic Gradient Descent<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">logisitc_reg_model3</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">logisitc_reg_model3</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;SGD&quot;</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">regularization</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">penalty</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">logisitc_reg_model3</span><span class="o">.</span><span class="n">y</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logisitc_reg_model3</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">logisitc_reg_model3</span><span class="o">.</span><span class="n">theta</span>
+<span class="n">theta_history</span> <span class="o">=</span> <span class="n">logisitc_reg_model3</span><span class="o">.</span><span class="n">theta_history</span>
+<span class="n">cost_history</span> <span class="o">=</span> <span class="n">logisitc_reg_model3</span><span class="o">.</span><span class="n">cost_history</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fit theta :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Confusion Matrix :</span>
+<span class="si">{</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_pred</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">Accuracy Score   :</span>
+<span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_pred</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history</span><span class="p">,</span><span class="n">cost_history</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+random initial θ value : [[9.09252764e-04 1.33500512e-04 5.54522750e-04 2.79117807e-04
+  2.21102293e-04 4.18690358e-04 1.33652330e-04 3.30488273e-04
+  3.98861625e-05 4.33622696e-04 3.19906904e-04 3.83208532e-04
+  1.94834901e-04 6.69813079e-05 8.57053483e-04 5.04738695e-04
+  4.01280860e-04 1.62716551e-04 1.81609888e-05 8.21627484e-04
+  9.62478666e-04 5.45115998e-04 5.87813087e-04 7.82032089e-04
+  7.42309338e-04 6.76258181e-04 5.01840721e-04 8.69243151e-05
+  3.57521379e-04 1.23530714e-04 9.55658748e-04]]
+Fit theta : [[ 0.29201839 -0.30904497 -0.29120307 -0.30488441 -0.3103726  -0.11485783
+  -0.08407961 -0.26210412 -0.33249938 -0.08113727  0.1412598  -0.30813548
+   0.00227193 -0.25413418 -0.27254151 -0.02466528  0.10340029  0.05018421
+  -0.05861405  0.05027491  0.14859014 -0.38346923 -0.36721243 -0.364844
+  -0.36359499 -0.28117426 -0.1604856  -0.26323775 -0.35494232 -0.26339832
+  -0.10134939]]
+
+Confusion Matrix :
+[[205   7]
+ [  2 355]]
+Accuracy Score   :
+0.984182776801406
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../../../../../../_images/docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_LogisticRegression_Explore_19_1.png" src="../../../../../../../../../../_images/docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_LogisticRegression_Explore_19_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Batch Gradient Descent<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">logisitc_reg_model4</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span><span class="n">iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">logisitc_reg_model4</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;BGD&quot;</span><span class="p">,</span><span class="n">regularization</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">penalty</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">logisitc_reg_model4</span><span class="o">.</span><span class="n">y</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logisitc_reg_model4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">logisitc_reg_model4</span><span class="o">.</span><span class="n">theta</span>
+<span class="n">theta_history</span> <span class="o">=</span> <span class="n">logisitc_reg_model4</span><span class="o">.</span><span class="n">theta_history</span>
+<span class="n">cost_history</span> <span class="o">=</span> <span class="n">logisitc_reg_model4</span><span class="o">.</span><span class="n">cost_history</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fit theta :&quot;</span><span class="p">,</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Confusion Matrix :</span>
+<span class="si">{</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_pred</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">Accuracy Score   :</span>
+<span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_pred</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;iterations&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss :j(θ)&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cost_history</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;loss: j(θ)&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;θ&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta_history</span><span class="p">,</span><span class="n">cost_history</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+random initial θ value : [[4.84214942e-04 3.43965556e-04 6.74991399e-04 2.36213023e-04
+  7.40369339e-04 2.54252059e-04 5.64521811e-04 1.28879416e-04
+  9.20826852e-04 6.68703295e-04 2.13196989e-04 3.74964476e-04
+  8.47703767e-05 5.72874402e-04 8.53488606e-04 8.59667376e-04
+  5.80327243e-04 7.14404428e-04 6.62060305e-04 9.02027069e-04
+  2.88731152e-04 6.79939264e-05 1.01639096e-04 2.19541671e-04
+  8.70128319e-04 8.21146551e-04 1.84816517e-04 2.74084145e-04
+  2.52581705e-04 7.72880420e-04 5.21540872e-04]]
+Fit theta : [[ 0.24023623 -0.25672808 -0.22183872 -0.25443321 -0.25472189 -0.0964945
+  -0.09239663 -0.21068833 -0.26976416 -0.07381436  0.10263725 -0.23492013
+   0.00430926 -0.19963025 -0.21149316 -0.00984544  0.05727022  0.0409924
+  -0.05061024  0.03714926  0.10574132 -0.30733318 -0.27443406 -0.29527939
+  -0.28944685 -0.21214485 -0.14643157 -0.20807336 -0.28539244 -0.20169207
+  -0.08572373]]
+
+Confusion Matrix :
+[[202  10]
+ [  3 354]]
+Accuracy Score   :
+0.9771528998242531
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../../../../../../_images/docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_LogisticRegression_Explore_21_1.png" src="../../../../../../../../../../_images/docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_docs_.doctrees_nbsphinx_LogisticRegression_Explore_21_1.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Nishant Baheti
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
