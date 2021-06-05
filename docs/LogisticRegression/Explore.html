@@ -92,7 +92,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../PandasExploration/PandasExploration.html">Pandas Exploration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MathExploration/PrincipalComponentAnalysis.html">Principal Component Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html">Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
@@ -121,6 +120,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../TreeBasedModels/ExploreDecisionTree.html">Decision Tree Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../TreeBasedModels/ExploreRandomForest.html">Random Forest Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SupportVectorMachine/Explore.html">Support Vector Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../IrisDataAnalysis/IrisDataExploratoryAnalysis.html">Iris Data Exploratory Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../BreastCancerAnalysis/BreastCancerPreprocessingAnalysis.html">Breast Cancer Preprocessing Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../BreastCancerAnalysis/BreastCancerModellingAnalysis.html">Breast Cancer Analytical Modelling</a></li>
@@ -468,7 +468,7 @@ div.rendered_html tbody tr:hover {
 <p>Logistic regression is a statistical model that in its basic form uses a logistic function to model a binary dependent variable, although many more complex extensions exist. In regression analysis, logistic regression (or logit regression) is estimating the parameters of a logistic model (a form of binary regression).</p>
 <p><img alt="logistic_reg1" src="../_images/logistic_reg1.png" /></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -482,7 +482,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -509,7 +509,7 @@ div.rendered_html tbody tr:hover {
 <p>We do this via a loss function that prefers the correct class labels of the train-ing examples to bemore likely. This is called conditional maximum likelihood estimation: we choose the parametersw,b thatmaximize the log probability ofthe true y labels in the training datagiven the observations x. The resulting loss function is the negative log likelihood loss, generally called the cross-entropy loss.</p>
 <p><img alt="logistic_reg_2" src="../_images/logistic_reg2.png" /> <img alt="logistic_reg3" src="../_images/logistic_reg3.png" /></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -530,7 +530,7 @@ div.rendered_html tbody tr:hover {
 <h2>Sigmoid Function<a class="headerlink" href="#Sigmoid-Function" title="Permalink to this headline">¶</a></h2>
 <p><img alt="logistic_reg11" src="../_images/logistic_reg11.png" /></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -550,7 +550,7 @@ div.rendered_html tbody tr:hover {
 <p><img alt="logistic_reg6" src="../_images/logistic_reg6.png" /></p>
 <p><img alt="logistic_reg7" src="../_images/logistic_reg7.png" /></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -635,7 +635,9 @@ div.rendered_html tbody tr:hover {
 
                 <span class="k">if</span> <span class="n">regularization</span><span class="p">:</span>
                     <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
-                    <span class="n">new_theta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">penalty</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span>  <span class="n">gradient</span><span class="p">)</span>
+                    <span class="n">new_theta_0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span>  <span class="n">gradient</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">new_theta_rest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="p">[:,</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="p">)]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">penalty</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span>  <span class="n">gradient</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+                    <span class="n">new_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">new_theta_0</span><span class="p">,</span><span class="n">new_theta_rest</span><span class="p">))</span>
 
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
@@ -675,7 +677,10 @@ div.rendered_html tbody tr:hover {
                 <span class="c1"># simultaneous operation</span>
                 <span class="k">if</span> <span class="n">regularization</span><span class="p">:</span>
                     <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">y_batch</span> <span class="p">)</span> <span class="o">*</span> <span class="n">X_batch</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
-                    <span class="n">new_theta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">penalty</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span>  <span class="n">gradient</span><span class="p">)</span>
+                    <span class="n">new_theta_0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span>  <span class="n">gradient</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">new_theta_rest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="p">[:,</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="p">)]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">penalty</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="p">)</span> <span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span>  <span class="n">gradient</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+                    <span class="n">new_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">new_theta_0</span><span class="p">,</span><span class="n">new_theta_rest</span><span class="p">))</span>
+
 
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="p">(</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">y_batch</span> <span class="p">)</span> <span class="o">*</span> <span class="n">X_batch</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
@@ -700,7 +705,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -715,7 +720,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -887,7 +892,7 @@ div.rendered_html tbody tr:hover {
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -899,7 +904,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -908,7 +913,7 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -933,7 +938,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Batch-Gradient-Descent">
 <h3>Batch Gradient Descent<a class="headerlink" href="#Batch-Gradient-Descent" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -990,20 +995,20 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[5.74703082e-04 4.71032616e-04 5.86195968e-04 5.30677034e-04
-  8.39777848e-04 2.35546055e-04 3.54409727e-04 9.11191843e-04
-  4.46163091e-04 4.54831035e-04 5.13451570e-04 9.70863643e-04
-  6.25466964e-05 4.99212828e-04 5.50661555e-05 8.21687604e-04
-  2.24909707e-04 8.10074729e-04 1.95031438e-04 7.37230152e-04
-  4.74830711e-04 9.84842580e-05 5.86043108e-04 4.20604638e-04
-  4.63348938e-04 8.94856500e-04 1.48944135e-04 1.69959185e-04
-  8.51288513e-04 3.22160174e-04 4.60831408e-04]]
-Fit theta : [[ 0.43168729 -0.48934958 -0.50218823 -0.48005053 -0.49417506 -0.18800103
-  -0.07390946 -0.40855072 -0.52618989 -0.10620778  0.26989227 -0.5251592
-   0.00137944 -0.42197757 -0.45855879 -0.04395563  0.24774104  0.10823787
-  -0.07840602  0.12929622  0.30317484 -0.6283932  -0.64871803 -0.59106473
-  -0.59726574 -0.48655005 -0.21378394 -0.42222993 -0.57293593 -0.43083534
-  -0.13508832]]
+random initial θ value : [[3.43820676e-04 2.44234637e-04 8.47725902e-04 9.89584263e-04
+  8.07625081e-05 6.63540762e-04 6.07785027e-04 8.64214692e-04
+  2.32109312e-04 6.14707278e-04 5.80991051e-04 8.49034246e-04
+  5.46092066e-04 9.69119288e-04 7.46816816e-04 3.33439672e-04
+  7.35565522e-04 9.38340924e-04 2.82191206e-04 3.67408286e-04
+  3.58850540e-05 4.87965118e-04 9.74260763e-04 9.14496325e-04
+  6.73616246e-04 3.37368327e-04 4.17933103e-04 6.93937054e-04
+  8.67834883e-04 4.08157926e-04 6.70602416e-04]]
+Fit theta : [[ 0.4315998  -0.48964772 -0.50222963 -0.47967426 -0.49500558 -0.1875647
+  -0.07384953 -0.40875014 -0.5264858  -0.10616663  0.26988978 -0.52549664
+   0.00154857 -0.42177722 -0.45803567 -0.04403054  0.24807097  0.10826863
+  -0.07833925  0.12907899  0.30277893 -0.62812932 -0.64870895 -0.59072385
+  -0.59718205 -0.48696368 -0.21381106 -0.42197195 -0.57304068 -0.43079668
+  -0.13505408]]
 
 Confusion Matrix :
 [[205   7]
@@ -1024,7 +1029,7 @@ Accuracy Score   :
 <div class="section" id="Stochastic-Gradient-Descent">
 <h3>Stochastic Gradient Descent<a class="headerlink" href="#Stochastic-Gradient-Descent" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1081,20 +1086,20 @@ Accuracy Score   :
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[1.09912174e-04 8.34680335e-04 2.71425087e-04 4.45312035e-04
-  7.98836140e-04 4.28533054e-04 9.44840875e-04 4.41663604e-04
-  7.38275406e-04 1.05384396e-04 1.42947387e-04 4.71697651e-04
-  2.28755860e-04 9.58246539e-04 6.40545668e-04 7.74913441e-04
-  2.13497419e-04 1.13100122e-05 1.38792113e-04 6.44988918e-04
-  1.60596138e-04 2.69481934e-04 4.50490753e-04 5.60975348e-04
-  1.28496519e-04 8.37004598e-04 4.36847004e-05 8.43982638e-04
-  2.11988089e-04 1.01656750e-04 5.01642477e-04]]
-Fit theta : [[ 0.43116447 -0.49124405 -0.50615353 -0.48268779 -0.49524887 -0.18498763
-  -0.08043675 -0.40902284 -0.52894532 -0.1034032   0.26751382 -0.52051526
-  -0.00129325 -0.41756737 -0.45620155 -0.05173312  0.24446555  0.1165601
-  -0.07753539  0.12333744  0.3039229  -0.62815577 -0.65132667 -0.59082605
-  -0.59673165 -0.48894538 -0.21615393 -0.41888482 -0.575707   -0.43025533
-  -0.13421421]]
+random initial θ value : [[4.41479798e-04 4.72812804e-04 2.24844495e-04 2.52188226e-04
+  3.74074942e-04 5.70537261e-04 7.85943901e-04 4.72820141e-04
+  4.55924113e-04 4.16492283e-04 3.82408490e-04 9.44135705e-04
+  1.29332729e-04 5.64789391e-04 3.16377631e-04 7.38196916e-04
+  7.43560933e-04 8.61175965e-04 8.70590693e-04 5.06208886e-04
+  7.83172394e-05 1.90136784e-04 6.88824551e-04 7.85230465e-04
+  7.80573678e-04 6.60524224e-04 2.88242723e-05 6.88352550e-04
+  9.24426652e-04 7.85744968e-05 5.37121726e-04]]
+Fit theta : [[ 0.42771334 -0.48810798 -0.50152412 -0.47890263 -0.49333594 -0.1853348
+  -0.07251305 -0.4059144  -0.52516415 -0.1100023   0.26840855 -0.53028862
+   0.0035719  -0.42656492 -0.45947704 -0.0388459   0.25399678  0.1078797
+  -0.08428098  0.12971902  0.30779179 -0.62691221 -0.64391814 -0.58933645
+  -0.59502922 -0.48699982 -0.21652376 -0.42142102 -0.57622444 -0.43416154
+  -0.13581235]]
 
 Confusion Matrix :
 [[205   7]
@@ -1138,7 +1143,7 @@ Accuracy Score   :
 <div class="section" id="id1">
 <h3>Stochastic Gradient Descent<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1195,26 +1200,26 @@ Accuracy Score   :
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[9.09252764e-04 1.33500512e-04 5.54522750e-04 2.79117807e-04
-  2.21102293e-04 4.18690358e-04 1.33652330e-04 3.30488273e-04
-  3.98861625e-05 4.33622696e-04 3.19906904e-04 3.83208532e-04
-  1.94834901e-04 6.69813079e-05 8.57053483e-04 5.04738695e-04
-  4.01280860e-04 1.62716551e-04 1.81609888e-05 8.21627484e-04
-  9.62478666e-04 5.45115998e-04 5.87813087e-04 7.82032089e-04
-  7.42309338e-04 6.76258181e-04 5.01840721e-04 8.69243151e-05
-  3.57521379e-04 1.23530714e-04 9.55658748e-04]]
-Fit theta : [[ 0.29201839 -0.30904497 -0.29120307 -0.30488441 -0.3103726  -0.11485783
-  -0.08407961 -0.26210412 -0.33249938 -0.08113727  0.1412598  -0.30813548
-   0.00227193 -0.25413418 -0.27254151 -0.02466528  0.10340029  0.05018421
-  -0.05861405  0.05027491  0.14859014 -0.38346923 -0.36721243 -0.364844
-  -0.36359499 -0.28117426 -0.1604856  -0.26323775 -0.35494232 -0.26339832
-  -0.10134939]]
+random initial θ value : [[5.19825530e-04 2.56134765e-04 4.91584163e-04 7.50997107e-04
+  8.25121219e-04 4.33021824e-04 4.61548622e-05 4.46434801e-04
+  6.21568202e-04 5.25479258e-04 8.47013069e-04 6.65760723e-04
+  8.02776558e-04 9.45237426e-04 2.90484980e-04 3.18601539e-04
+  2.91675714e-04 4.81967873e-04 9.04864690e-04 8.52410849e-05
+  7.15320373e-04 4.81469781e-04 4.59864590e-04 5.55660238e-04
+  8.94333121e-04 2.45143657e-04 4.17173704e-05 9.46852887e-04
+  3.43192288e-04 7.63738254e-07 3.38543039e-04]]
+Fit theta : [[ 0.51623671 -0.30850679 -0.29438282 -0.30370206 -0.29970758 -0.11393905
+  -0.08213339 -0.2535341  -0.32390646 -0.07544541  0.15096525 -0.28867912
+   0.00931243 -0.23586193 -0.24895518 -0.01071647  0.10312401  0.04529798
+  -0.07163214  0.07115136  0.1479496  -0.37593874 -0.37311871 -0.35729218
+  -0.34501709 -0.27574379 -0.16238925 -0.26571529 -0.35932896 -0.2603452
+  -0.10132424]]
 
 Confusion Matrix :
-[[205   7]
- [  2 355]]
+[[199  13]
+ [  1 356]]
 Accuracy Score   :
-0.984182776801406
+0.9753954305799648
 
 </pre></div></div>
 </div>
@@ -1229,7 +1234,7 @@ Accuracy Score   :
 <div class="section" id="id2">
 <h3>Batch Gradient Descent<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1286,26 +1291,26 @@ Accuracy Score   :
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-random initial θ value : [[4.84214942e-04 3.43965556e-04 6.74991399e-04 2.36213023e-04
-  7.40369339e-04 2.54252059e-04 5.64521811e-04 1.28879416e-04
-  9.20826852e-04 6.68703295e-04 2.13196989e-04 3.74964476e-04
-  8.47703767e-05 5.72874402e-04 8.53488606e-04 8.59667376e-04
-  5.80327243e-04 7.14404428e-04 6.62060305e-04 9.02027069e-04
-  2.88731152e-04 6.79939264e-05 1.01639096e-04 2.19541671e-04
-  8.70128319e-04 8.21146551e-04 1.84816517e-04 2.74084145e-04
-  2.52581705e-04 7.72880420e-04 5.21540872e-04]]
-Fit theta : [[ 0.24023623 -0.25672808 -0.22183872 -0.25443321 -0.25472189 -0.0964945
-  -0.09239663 -0.21068833 -0.26976416 -0.07381436  0.10263725 -0.23492013
-   0.00430926 -0.19963025 -0.21149316 -0.00984544  0.05727022  0.0409924
-  -0.05061024  0.03714926  0.10574132 -0.30733318 -0.27443406 -0.29527939
-  -0.28944685 -0.21214485 -0.14643157 -0.20807336 -0.28539244 -0.20169207
-  -0.08572373]]
+random initial θ value : [[6.46660261e-04 3.88439846e-04 8.70254981e-05 6.49385296e-04
+  2.94954815e-04 6.16950798e-04 7.81887247e-04 6.33693784e-04
+  1.25202741e-04 6.01520289e-04 7.04939567e-04 5.81517466e-04
+  4.60401273e-04 6.31197046e-04 3.69087881e-04 1.08115976e-04
+  1.76891441e-04 4.72463299e-04 2.16930510e-04 4.10883291e-04
+  6.08284943e-04 1.81311793e-04 2.50574954e-04 4.56421679e-04
+  3.39055787e-04 9.51261146e-04 9.30382572e-04 4.20613075e-04
+  9.10470954e-04 2.98184766e-04 3.34037216e-06]]
+Fit theta : [[ 0.56113368 -0.25573136 -0.22787571 -0.25259736 -0.24257025 -0.10101348
+  -0.09227762 -0.20080848 -0.26143928 -0.07107671  0.11375412 -0.21359598
+   0.01085161 -0.17923597 -0.1855201   0.00251606  0.05404883  0.0318219
+  -0.06782272  0.05134941  0.10657932 -0.29963945 -0.28257897 -0.28746323
+  -0.26934137 -0.21298829 -0.14924521 -0.21219736 -0.29231033 -0.20462169
+  -0.08327179]]
 
 Confusion Matrix :
-[[202  10]
- [  3 354]]
+[[196  16]
+ [  1 356]]
 Accuracy Score   :
-0.9771528998242531
+0.9701230228471002
 
 </pre></div></div>
 </div>
