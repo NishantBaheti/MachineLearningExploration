@@ -17,6 +17,7 @@ Welcome to Machine Learning Exploration's documentation!
    PandasExploration/PandasExploration
    MatplotlibExploration/visualization
    MathExploration/SingularValueDecomposition
+   MathExploration/Convolution
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
