@@ -93,6 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/Convolution.html">Understanding Convolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/ImageProcessing.html">Image Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html">Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
@@ -123,6 +124,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../SpamDetection/SpamDataAnalytics.html">Spam Data Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AnomalyDetection/Explore.html">Anomaly Detection using Scikit-Learn</a></li>
 </ul>
 
             
@@ -941,43 +943,43 @@ FreqDist({&#39;,&#39;: 18713, &#39;the&#39;: 13721, &#39;.&#39;: 6862, &#39;of&#
 </div>
 <div class="section" id="Gutenberg-Corpus">
 <h2>Gutenberg Corpus<a class="headerlink" href="#Gutenberg-Corpus" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NLTK</span> <span class="n">includes</span> <span class="n">a</span> <span class="n">small</span> <span class="n">selection</span> <span class="n">of</span> <span class="n">texts</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">Project</span> <span class="n">Gutenberg</span> <span class="n">electronic</span> <span class="n">text</span> <span class="n">archive</span><span class="p">,</span> <span class="n">which</span> <span class="n">contains</span> <span class="n">some</span> <span class="mi">25</span><span class="p">,</span><span class="mi">000</span> <span class="n">free</span> <span class="n">electronic</span> <span class="n">books</span><span class="p">,</span> <span class="n">hosted</span> <span class="n">at</span><span class="o">.</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NLTK includes a small selection of texts from the Project Gutenberg electronic text archive, which contains some 25,000 free electronic books, hosted at.
 </pre></div>
 </div>
 <p><a class="reference external" href="http://www.gutenberg.org/">http://www.gutenberg.org/</a></p>
 </div>
 <div class="section" id="Brown">
 <h2>Brown<a class="headerlink" href="#Brown" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Brown</span> <span class="n">Corpus</span> <span class="n">was</span> <span class="n">the</span> <span class="n">first</span> <span class="n">million</span><span class="o">-</span><span class="n">word</span> <span class="n">electronic</span> <span class="n">corpus</span> <span class="n">of</span> <span class="n">English</span><span class="p">,</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The Brown Corpus was the first million-word electronic corpus of English,
 </pre></div>
 </div>
 </div>
 <div class="section" id="Inaugural">
 <h2>Inaugural<a class="headerlink" href="#Inaugural" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">US</span> <span class="n">presidential</span> <span class="n">speeches</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>US presidential speeches
 </pre></div>
 </div>
 <div class="section" id="Popular-Text-Corpora">
 <h3>Popular Text Corpora<a class="headerlink" href="#Popular-Text-Corpora" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stopwords</span> <span class="p">:</span> <span class="n">Collection</span> <span class="n">of</span> <span class="n">stop</span> <span class="n">words</span><span class="o">.</span>
-<span class="n">reuters</span> <span class="p">:</span> <span class="n">Collection</span> <span class="n">of</span> <span class="n">news</span> <span class="n">articles</span><span class="o">.</span>
-<span class="n">cmudict</span> <span class="p">:</span> <span class="n">Collection</span> <span class="n">of</span> <span class="n">CMU</span> <span class="n">Dictionary</span> <span class="n">words</span><span class="o">.</span>
-<span class="n">movie_reviews</span> <span class="p">:</span> <span class="n">Collection</span> <span class="n">of</span> <span class="n">Movie</span> <span class="n">Reviews</span><span class="o">.</span>
-<span class="n">np_chat</span> <span class="p">:</span> <span class="n">Collection</span> <span class="n">of</span> <span class="n">chat</span> <span class="n">text</span><span class="o">.</span>
-<span class="n">names</span> <span class="p">:</span> <span class="n">Collection</span> <span class="n">of</span> <span class="n">names</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">males</span> <span class="ow">and</span> <span class="n">females</span><span class="o">.</span>
-<span class="n">state_union</span> <span class="p">:</span> <span class="n">Collection</span> <span class="n">of</span> <span class="n">state</span> <span class="n">union</span> <span class="n">address</span><span class="o">.</span>
-<span class="n">wordnet</span> <span class="p">:</span> <span class="n">Collection</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">lexical</span> <span class="n">entries</span><span class="o">.</span>
-<span class="n">words</span> <span class="p">:</span> <span class="n">Collection</span> <span class="n">of</span> <span class="n">words</span> <span class="ow">in</span> <span class="n">Wordlist</span> <span class="n">corpus</span><span class="o">.</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stopwords : Collection of stop words.
+reuters : Collection of news articles.
+cmudict : Collection of CMU Dictionary words.
+movie_reviews : Collection of Movie Reviews.
+np_chat : Collection of chat text.
+names : Collection of names associated with males and females.
+state_union : Collection of state union address.
+wordnet : Collection of all lexical entries.
+words : Collection of words in Wordlist corpus.
 </pre></div>
 </div>
 </div>
 <div class="section" id="Text-Corpus-Structure">
 <h3>Text Corpus Structure<a class="headerlink" href="#Text-Corpus-Structure" title="Permalink to this headline">¶</a></h3>
 <p>A text corpus is organized into any of the following four structures.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Isolated</span> <span class="o">-</span> <span class="n">Holds</span> <span class="n">Individual</span> <span class="n">text</span> <span class="n">collections</span><span class="o">.</span>
-<span class="n">Categorized</span> <span class="o">-</span> <span class="n">Each</span> <span class="n">text</span> <span class="n">collection</span> <span class="n">tagged</span> <span class="n">to</span> <span class="n">a</span> <span class="n">category</span><span class="o">.</span>
-<span class="n">Overlapping</span> <span class="o">-</span> <span class="n">Each</span> <span class="n">text</span> <span class="n">collection</span> <span class="n">tagged</span> <span class="n">to</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">categories</span><span class="p">,</span> <span class="ow">and</span>
-<span class="n">Temporal</span> <span class="o">-</span> <span class="n">Each</span> <span class="n">text</span> <span class="n">collection</span> <span class="n">tagged</span> <span class="n">to</span> <span class="n">a</span> <span class="n">period</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Isolated - Holds Individual text collections.
+Categorized - Each text collection tagged to a category.
+Overlapping - Each text collection tagged to one or more categories, and
+Temporal - Each text collection tagged to a period, date, time, etc.
 </pre></div>
 </div>
 <div class="nbinput docutils container">
@@ -1069,9 +1071,9 @@ FreqDist({&#39;,&#39;: 18713, &#39;the&#39;: 13721, &#39;.&#39;: 6862, &#39;of&#
 </div>
 <div class="section" id="Conditional-Frequency">
 <h3>Conditional Frequency<a class="headerlink" href="#Conditional-Frequency" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Conditional</span> <span class="n">Frequency</span> <span class="ow">is</span> <span class="n">Frequency</span> <span class="n">Distribution</span> <span class="n">based</span> <span class="n">on</span> <span class="n">conditions</span><span class="o">.</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Conditional Frequency is Frequency Distribution based on conditions.
 
-<span class="n">CFD</span> <span class="p">:</span> <span class="n">Conditional</span> <span class="n">Frequency</span> <span class="n">Distribution</span>
+CFD : Conditional Frequency Distribution
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">

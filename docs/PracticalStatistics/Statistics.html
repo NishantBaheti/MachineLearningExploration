@@ -128,6 +128,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/Convolution.html">Understanding Convolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/ImageProcessing.html">Image Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html">Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
@@ -144,6 +145,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../DigitsDataAnalysis/DigitsDataModelling.html">Digits Data Analysis and Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NaturalLanguageProcessing/NLTK.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SpamDetection/SpamDataAnalytics.html">Spam Data Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AnomalyDetection/Explore.html">Anomaly Detection using Scikit-Learn</a></li>
 </ul>
 
             
@@ -864,16 +866,16 @@ array([23, 12])
 </div>
 <div class="section" id="Probability-Distributions">
 <h1>Probability Distributions<a class="headerlink" href="#Probability-Distributions" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Discrete</span> <span class="n">Probability</span> <span class="n">Distribution</span>
-            <span class="o">|</span>
-            <span class="n">v</span>
-<span class="n">Probability</span> <span class="n">Mass</span> <span class="n">Function</span>
-            <span class="o">|</span>
-            <span class="n">v</span>
-<span class="n">Continuous</span> <span class="n">form</span>
-            <span class="o">|</span>
-            <span class="n">v</span>
-<span class="n">Probability</span> <span class="n">Density</span> <span class="n">Function</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Discrete Probability Distribution
+            |
+            v
+Probability Mass Function
+            |
+            v
+Continuous form
+            |
+            v
+Probability Density Function
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -943,10 +945,10 @@ array([23, 12])
 </ul>
 </li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fig,ax = plt.subplots(1,2,figsize=(10,5))
+ax[0].plot()
+ax[1].plot()
+fig.show()
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1438,10 +1440,10 @@ array([23, 12])
 <li><p>2 outcomes only</p></li>
 <li><p>probability of success = p</p></li>
 <li><p>independent trials</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">success</span> <span class="n">results</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">trials</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">probability</span> <span class="n">of</span> <span class="n">success</span>
-<span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="n">failure</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = number of success results
+n = number of trials
+p = probability of success
+q = (1 - p) failure
 </pre></div>
 </div>
 </li>

@@ -18,6 +18,7 @@ Welcome to Machine Learning Exploration's documentation!
    MatplotlibExploration/visualization
    MathExploration/SingularValueDecomposition
    MathExploration/Convolution
+   MathExploration/ImageProcessing
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
@@ -31,6 +32,7 @@ Welcome to Machine Learning Exploration's documentation!
    DigitsDataAnalysis/DigitsDataModelling
    NaturalLanguageProcessing/NLTK
    SpamDetection/SpamDataAnalytics
+   AnomalyDetection/Explore
 
 Indices and tables
 ==================

@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Logistic Regression" href="../LogisticRegression/Explore.html" />
-    <link rel="prev" title="Understanding Convolution" href="../MathExploration/Convolution.html" /> 
+    <link rel="prev" title="Image Processing" href="../MathExploration/ImageProcessing.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,6 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/Convolution.html">Understanding Convolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/ImageProcessing.html">Image Processing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linear Regression</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Using-Gradient-Descent">Using Gradient Descent</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Gradient-Descent-Alogrithm">Gradient Descent Alogrithm</a></li>
@@ -146,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../DigitsDataAnalysis/DigitsDataModelling.html">Digits Data Analysis and Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NaturalLanguageProcessing/NLTK.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SpamDetection/SpamDataAnalytics.html">Spam Data Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AnomalyDetection/Explore.html">Anomaly Detection using Scikit-Learn</a></li>
 </ul>
 
             
@@ -703,10 +705,10 @@ regression.This term is distinct from multivariate linear regression, where mult
 </div>
 <ul>
 <li><p>Shape of X</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-<span class="n">where</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">samples</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">features</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>X = (m,n)
+where
+    m = number of samples
+    n = number of features
 </pre></div>
 </div>
 </li>
@@ -774,14 +776,14 @@ number of samples (rows) : 506
 <div class="section" id="Using-Gradient-Descent">
 <h2>Using Gradient Descent<a class="headerlink" href="#Using-Gradient-Descent" title="Permalink to this headline">¶</a></h2>
 <p>m = number of training samples(number of rows) X = input features(matrix) y = output target(matrix)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">training</span><span class="o">-</span><span class="nb">set</span>
-            <span class="o">|</span>
-            <span class="n">V</span>
-        <span class="n">Learning</span> <span class="n">algorithm</span>
-            <span class="o">|</span>
-            <span class="n">V</span>
-<span class="n">test</span> <span class="o">---&gt;</span>   <span class="n">h</span>  <span class="o">---&gt;</span> <span class="n">estimation</span>
-        <span class="p">(</span><span class="n">hypothesis</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>        training-set
+            |
+            V
+        Learning algorithm
+            |
+            V
+test ---&gt;   h  ---&gt; estimation
+        (hypothesis)
 </pre></div>
 </div>
 <p><span class="math notranslate nohighlight">\(h(x) = \theta_0 + \theta_1 . X\)</span></p>
@@ -1786,7 +1788,7 @@ trained θ value : [[32.61291373 -0.79418033]]
 </div>
 <div class="section" id="id1">
 <h2>Using Normal Equation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">θ</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">^</span><span class="n">T</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="k">lambda</span> <span class="o">*</span> <span class="n">I</span><span class="p">)</span><span class="o">^-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">X</span><span class="o">^</span><span class="n">T</span> <span class="o">*</span> <span class="n">y</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>θ = (X^T * X + lambda * I)^-1 * X^T * y
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -2679,7 +2681,7 @@ MSE : 41.69318393338689 RMSE : 6.457025935629103
         <a href="../LogisticRegression/Explore.html" class="btn btn-neutral float-right" title="Logistic Regression" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../MathExploration/Convolution.html" class="btn btn-neutral float-left" title="Understanding Convolution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../MathExploration/ImageProcessing.html" class="btn btn-neutral float-left" title="Image Processing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

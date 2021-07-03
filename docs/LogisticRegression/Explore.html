@@ -93,6 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/Convolution.html">Understanding Convolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/ImageProcessing.html">Image Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html">Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
@@ -130,6 +131,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../DigitsDataAnalysis/DigitsDataModelling.html">Digits Data Analysis and Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NaturalLanguageProcessing/NLTK.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SpamDetection/SpamDataAnalytics.html">Spam Data Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AnomalyDetection/Explore.html">Anomaly Detection using Scikit-Learn</a></li>
 </ul>
 
             
@@ -500,11 +502,11 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="The-cross-entropy-loss-function">
 <h3>The cross-entropy loss function<a class="headerlink" href="#The-cross-entropy-loss-function" title="Permalink to this headline">¶</a></h3>
 <p>We need a loss function that expresses, for an observationx, how close the classifier output</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="n">ˆy</span> <span class="o">=</span> <span class="n">σ</span><span class="p">(</span><span class="n">w·x</span><span class="o">+</span><span class="n">b</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>( ˆy = σ(w·x+b) )
 </pre></div>
 </div>
 <p>is to the correct output (y, which is 0 or 1). We’ll call this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">(</span><span class="n">ˆy</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span><span class="n">How</span> <span class="n">much</span>  <span class="n">ˆy</span> <span class="n">differs</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">true</span> <span class="n">y</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>L(ˆy,y) =How much  ˆy differs from the true y
 </pre></div>
 </div>
 <p>We do this via a loss function that prefers the correct class labels of the train-ing examples to bemore likely. This is called conditional maximum likelihood estimation: we choose the parametersw,b thatmaximize the log probability ofthe true y labels in the training datagiven the observations x. The resulting loss function is the negative log likelihood loss, generally called the cross-entropy loss.</p>

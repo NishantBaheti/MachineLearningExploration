@@ -93,6 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/Convolution.html">Understanding Convolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/ImageProcessing.html">Image Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html">Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
@@ -121,6 +122,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../DigitsDataAnalysis/DigitsDataModelling.html">Digits Data Analysis and Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NaturalLanguageProcessing/NLTK.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SpamDetection/SpamDataAnalytics.html">Spam Data Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AnomalyDetection/Explore.html">Anomaly Detection using Scikit-Learn</a></li>
 </ul>
 
             
@@ -607,9 +609,9 @@ Testing Accuracy : 0.965034965034965
 <div class="section" id="SVM">
 <h3>SVM<a class="headerlink" href="#SVM" title="Permalink to this headline">¶</a></h3>
 <p>Support Vector Machines (SVMs) separates data points based on decision planes, which separates objects belonging to different classes in a higher dimensional space.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SVM</span> <span class="n">algorithm</span> <span class="n">uses</span> <span class="n">the</span> <span class="n">best</span> <span class="n">suitable</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">capable</span> <span class="n">of</span> <span class="n">separating</span> <span class="n">data</span> <span class="n">points</span> <span class="n">into</span> <span class="n">two</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">classes</span><span class="o">.</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SVM algorithm uses the best suitable kernel, which is capable of separating data points into two or more classes.
 
-<span class="n">Commonly</span> <span class="n">used</span> <span class="n">kernels</span> <span class="n">are</span><span class="p">:</span>
+Commonly used kernels are:
 </pre></div>
 </div>
 <ul class="simple">
@@ -720,9 +722,9 @@ weighted avg       0.97      0.97      0.97       143
 <div class="section" id="Clustering">
 <h2>Clustering<a class="headerlink" href="#Clustering" title="Permalink to this headline">¶</a></h2>
 <p>Clustering is one of the unsupervised learning technique.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">technique</span> <span class="ow">is</span> <span class="n">typically</span> <span class="n">used</span> <span class="n">to</span> <span class="n">group</span> <span class="n">data</span> <span class="n">points</span> <span class="n">into</span> <span class="n">clusters</span> <span class="n">based</span> <span class="n">on</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">algorithm</span><span class="o">.</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The technique is typically used to group data points into clusters based on a specific algorithm.
 
-<span class="n">Major</span> <span class="n">clustering</span> <span class="n">algorithms</span> <span class="n">that</span> <span class="n">can</span> <span class="n">be</span> <span class="n">implemented</span> <span class="n">using</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">are</span><span class="p">:</span>
+Major clustering algorithms that can be implemented using scikit-learn are:
 </pre></div>
 </div>
 <ul class="simple">
@@ -757,13 +759,13 @@ weighted avg       0.97      0.97      0.97       143
 <div class="section" id="Evaluation">
 <h3>Evaluation<a class="headerlink" href="#Evaluation" title="Permalink to this headline">¶</a></h3>
 <p>A clustering algorithm is majorly evaluated using the following scores:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Homogeneity</span><span class="p">:</span> <span class="n">Evaluates</span> <span class="k">if</span> <span class="n">each</span> <span class="n">cluster</span> <span class="n">contains</span> <span class="n">only</span> <span class="n">members</span> <span class="n">of</span> <span class="n">a</span> <span class="n">single</span> <span class="n">class</span><span class="o">.</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Homogeneity: Evaluates if each cluster contains only members of a single class.
 
-<span class="n">Completeness</span><span class="p">:</span> <span class="n">All</span> <span class="n">members</span> <span class="n">of</span> <span class="n">a</span> <span class="n">given</span> <span class="k">class</span> <span class="nc">are</span> <span class="n">assigned</span> <span class="n">to</span> <span class="n">the</span> <span class="n">same</span> <span class="n">cluster</span><span class="o">.</span>
+Completeness: All members of a given class are assigned to the same cluster.
 
-<span class="n">V</span><span class="o">-</span><span class="n">measure</span><span class="p">:</span> <span class="n">Harmonic</span> <span class="n">mean</span> <span class="n">of</span> <span class="n">Homogeneity</span> <span class="ow">and</span> <span class="n">Completeness</span><span class="o">.</span>
+V-measure: Harmonic mean of Homogeneity and Completeness.
 
-<span class="n">Adjusted</span> <span class="n">Rand</span> <span class="n">index</span><span class="p">:</span> <span class="n">Measures</span> <span class="n">similarity</span> <span class="n">of</span> <span class="n">two</span> <span class="n">assignments</span><span class="o">.</span>
+Adjusted Rand index: Measures similarity of two assignments.
 </pre></div>
 </div>
 <div class="nbinput docutils container">

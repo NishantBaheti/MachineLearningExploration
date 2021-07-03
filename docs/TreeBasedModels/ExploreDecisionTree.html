@@ -93,6 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/Convolution.html">Understanding Convolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/ImageProcessing.html">Image Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html">Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
@@ -133,6 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../DigitsDataAnalysis/DigitsDataModelling.html">Digits Data Analysis and Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NaturalLanguageProcessing/NLTK.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SpamDetection/SpamDataAnalytics.html">Spam Data Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AnomalyDetection/Explore.html">Anomaly Detection using Scikit-Learn</a></li>
 </ul>
 
             
@@ -507,7 +509,7 @@ structures, leaves represent class labels and branches represent conjunctions of
 <p>This is your binary tree from algorithms and data structures, nothing too fancy. Each root node represents a single input variable (x) and a split point on that variable (assuming the variable is numeric).</p>
 <p>The leaf nodes of the tree contain an output variable (y) which is used to make a prediction.</p>
 <p>Given a dataset with two inputs (x) of height in centimeters and weight in kilograms the output of sex as male or female, below is a crude example of a binary decision tree (completely fictitious for demonstration purposes only).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                         Is diameter &gt;= 3 ?
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                         Is diameter &gt;= 3 ?
                                   |
                      _____________|_____________
                 True|                           |False
@@ -642,7 +644,7 @@ False
 <li><p>partition rows in true side and false side using the Question we have already defined.</p></li>
 <li><p>here fruit is the target and questions are used to divide the values of target</p></li>
 <li><p>first question here ‘is the color red’</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>          [&#39;color&#39;,&#39;diameter&#39;,&#39;fruit&#39;]
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>          [&#39;color&#39;,&#39;diameter&#39;,&#39;fruit&#39;]
 
            [[&#39;Green&#39;, 3, &#39;Apple&#39;],
            [&#39;Red&#39;, 3, &#39;Apple&#39;],
@@ -769,7 +771,7 @@ array([[&#39;Green&#39;, 3, &#39;Apple&#39;],
 </div>
 <div class="section" id="Tree-Node---Leaf-node,-Decision-Node">
 <h2>Tree Node - Leaf node, Decision Node<a class="headerlink" href="#Tree-Node---Leaf-node,-Decision-Node" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                 Decision Node -&gt;     Is diameter &gt;= 3 ?
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                 Decision Node -&gt;     Is diameter &gt;= 3 ?
 
                                               |
                                  _____________|_____________

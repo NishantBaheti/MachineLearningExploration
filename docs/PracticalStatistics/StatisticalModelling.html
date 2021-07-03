@@ -124,6 +124,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/SingularValueDecomposition.html">Singular Value Decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MathExploration/Convolution.html">Understanding Convolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MathExploration/ImageProcessing.html">Image Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html">Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
@@ -140,6 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../DigitsDataAnalysis/DigitsDataModelling.html">Digits Data Analysis and Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NaturalLanguageProcessing/NLTK.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SpamDetection/SpamDataAnalytics.html">Spam Data Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AnomalyDetection/Explore.html">Anomaly Detection using Scikit-Learn</a></li>
 </ul>
 
             
@@ -478,12 +480,12 @@ div.rendered_html tbody tr:hover {
 <h1>Statistical Model<a class="headerlink" href="#Statistical-Model" title="Permalink to this headline">¶</a></h1>
 <ul>
 <li><p>Mathematical equation which explains the relationship between dependent variable (Y) and independent variable(X).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Y = f(X)
 </pre></div>
 </div>
 </li>
 <li><p>Due to uncertainy in result and noise the equation is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">e</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Y = f(X) + e
 </pre></div>
 </div>
 </li>
@@ -498,10 +500,10 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Linear-Regression">
 <h2>Linear Regression<a class="headerlink" href="#Linear-Regression" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">θ0</span> <span class="o">+</span> <span class="n">θ1</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">e</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Y = θ0 + θ1 * X + e
 
-<span class="n">θ0</span><span class="p">,</span> <span class="n">θ1</span> <span class="o">=</span> <span class="n">Coefficient</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">normally</span> <span class="n">distributed</span> <span class="n">residual</span> <span class="n">error</span>
+θ0, θ1 = Coefficient
+e = normally distributed residual error
 </pre></div>
 </div>
 <ul class="simple">
@@ -558,8 +560,8 @@ div.rendered_html tbody tr:hover {
 <li><p>ols</p></li>
 <li><p>glm</p></li>
 <li><p>wls</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Uppercase</span> <span class="n">names</span> <span class="n">take</span> <span class="n">design</span> <span class="n">metrices</span> <span class="k">as</span> <span class="n">args</span>
-<span class="n">Lowercase</span> <span class="n">names</span> <span class="n">take</span> <span class="n">Patsy</span> <span class="n">formulas</span> <span class="ow">and</span> <span class="n">dataframes</span> <span class="k">as</span> <span class="n">args</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Uppercase names take design metrices as args
+Lowercase names take Patsy formulas and dataframes as args
 </pre></div>
 </div>
 </li>
@@ -629,17 +631,17 @@ div.rendered_html tbody tr:hover {
 <li><p>takes a formula in string form as arg and a dictionary like object with data arrays for resoponse variables</p></li>
 </ul>
 <p><img alt="image" src="../_images/low_f_dplot.webp" /></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="o">~</span>
- <span class="o">/</span>    \
-<span class="n">Y</span>     <span class="o">+</span>
-    <span class="o">/</span>   \
-   <span class="mi">1</span>     <span class="o">+</span>
-       <span class="o">/</span>   \
-      <span class="n">x1</span>    <span class="o">+</span>
-          <span class="o">/</span>   \
-        <span class="n">x2</span>     <span class="o">*</span>
-             <span class="o">/</span>   \
-           <span class="n">x1</span>    <span class="n">x2</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    ~
+ /    \
+Y     +
+    /   \
+   1     +
+       /   \
+      x1    +
+          /   \
+        x2     *
+             /   \
+           x1    x2
 </pre></div>
 </div>
 <ul class="simple">
