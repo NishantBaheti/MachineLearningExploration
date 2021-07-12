@@ -1,6 +1,11 @@
 ### pro approach
-python3 -m sphinx . docs/
+# python3 -m sphinx . docs/
 
+make html
+rm -rf ./docs
+mkdir docs
+mv ./_build/html/* ./docs/
+mv ./_build/html/.* ./docs/
 
 ### noob approach
 # curr_dir=$(pwd)
