@@ -22,6 +22,7 @@ Welcome to Machine Learning Exploration's documentation!
    MathExploration/ImageProcessing
    MathExploration/Fourier
    MathExploration/SignalProcessingFFT
+   MathExploration/Correlation
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
