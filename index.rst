@@ -24,6 +24,7 @@ Welcome to Machine Learning Exploration's documentation!
    MathExploration/SignalProcessingFFT
    MathExploration/AudioProcessing
    MathExploration/Correlation
+   MathExploration/distances
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree

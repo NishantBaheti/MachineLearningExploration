@@ -2,4 +2,9 @@
 
 
 ## see the read the docs here -
+
+https://machinelearningexploration.readthedocs.io
+
+or here
+
 https://nishantbaheti.github.io/machineLearningExploration/
