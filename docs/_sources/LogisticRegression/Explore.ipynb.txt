@@ -8,7 +8,7 @@
     "\n",
     "Logistic regression is a statistical model that in its basic form uses a logistic function to model a binary dependent variable, although many more complex extensions exist. In regression analysis, logistic regression (or logit regression) is estimating the parameters of a logistic model (a form of binary regression).\n",
     "\n",
-    "![logistic_reg1](./images/logistic_reg1.png)"
+    "![logistic_reg1](images/logistic_reg1.png)"
    ]
   },
   {
@@ -55,8 +55,8 @@
     "        \n",
     "We do this via a loss function that prefers the correct class labels of the train-ing examples to bemore likely.  This is called conditional maximum likelihood estimation:  we choose the parametersw,b thatmaximize the log probability ofthe true y labels in the training datagiven the observations x.  The resulting loss function is the negative log likelihood loss, generally called the cross-entropy loss.\n",
     "\n",
-    "![logistic_reg_2](./images/logistic_reg2.png)\n",
-    "![logistic_reg3](./images/logistic_reg3.png)"
+    "![logistic_reg_2](images/logistic_reg2.png)\n",
+    "![logistic_reg3](images/logistic_reg3.png)"
    ]
   },
   {
@@ -81,7 +81,7 @@
    "source": [
     "## Sigmoid Function\n",
     "\n",
-    "![logistic_reg11](./images/logistic_reg11.png)"
+    "![logistic_reg11](images/logistic_reg11.png)"
    ]
   },
   {
@@ -100,16 +100,16 @@
    "source": [
     "## Gradient Descent Algorithm\n",
     "\n",
-    "![logistic_reg4](./images/logistic_reg4.png)\n",
+    "![logistic_reg4](images/logistic_reg4.png)\n",
     "\n",
-    "![logistic_reg_9](./images/logistic_reg9.png)\n",
+    "![logistic_reg_9](images/logistic_reg9.png)\n",
     "\n",
     "### Math Calculation for Gradient Descent\n",
-    "![logistic_reg5](./images/logistic_reg5.png)\n",
+    "![logistic_reg5](images/logistic_reg5.png)\n",
     "\n",
-    "![logistic_reg6](./images/logistic_reg6.png)\n",
+    "![logistic_reg6](images/logistic_reg6.png)\n",
     "\n",
-    "![logistic_reg7](./images/logistic_reg7.png)"
+    "![logistic_reg7](images/logistic_reg7.png)"
    ]
   },
   {

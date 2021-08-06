@@ -93,10 +93,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/LiveVisual.html">Live Visual</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Singular Value Decomposition</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#finding-SVD-values-with-easy-way-and-assemble">finding SVD values with easy way and assemble</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Assemble-matrix">Assemble matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Calculating-with-eigen-values-and-vectors">Calculating with eigen values and vectors</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Image-processing-with-SVD">Image processing with SVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Assemble-matrix">Assemble matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Eckart-Young-Theorem-(Low-rank-approximation)">Eckart-Young Theorem (Low rank approximation)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#SVD-and-Correlations">SVD and Correlations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Method-of-Snapshots-(SVD-using-eigen-values-and-vectors)">Method of Snapshots (SVD using eigen values and vectors)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#SVD-and-Image-Compression">SVD and Image Compression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Log-and-Cumulative-plots">Log and Cumulative plots</a></li>
 </ul>
 </li>
 </ul>
@@ -466,106 +468,124 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Singular-Value-Decomposition">
 <h1>Singular Value Decomposition<a class="headerlink" href="#Singular-Value-Decomposition" title="Permalink to this headline">¶</a></h1>
-<p>Singular value decomposition takes a rectangular matrix of gene expression data (defined as A, where A is a n x p matrix) in which the n rows represents the genes, and the p columns represents the experimental conditions. The SVD theorem states:</p>
-<p><img alt="svd_formulae" src="../_images/svd_formulae.png" /></p>
-<p>Where the columns of U are the left singular vectors (gene coefficient vectors); S (the same dimensions as A) has singular values and is diagonal (mode amplitudes); and V^T has rows that are the right singular vectors (expression level vectors). The SVD represents an expansion of the original data in a coordinate system where the covariance matrix is diagonal.</p>
+<p>Singular value decomposition takes a rectangular matrix of gene expression data (defined as X, where X is a n x m matrix) in which the n rows represents the genes, and the p columns represents the experimental conditions. The SVD theorem states:</p>
+<p><span class="math notranslate nohighlight">\(X_{n \times m} = U_{n \times n} \Sigma_{n \times m} V^T_{m \times m}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\  x_1 &amp;&amp; x_2 &amp;&amp; ... &amp;&amp; x_m\\  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\ \end{bmatrix}_{n \times m}\\= \begin{bmatrix}  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\  u_1 &amp;&amp; u_2 &amp;&amp; ... &amp;&amp; u_n\\  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\ \end{bmatrix}_{n \times n} \begin{bmatrix}  \sigma_1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 0 \\  0 &amp;&amp; \sigma_2 &amp;&amp; 0 &amp;&amp; 0 \\  &amp;&amp; ... \\  0 &amp;&amp; 0 &amp;&amp; ... &amp;&amp; \sigma_m \\ \end{bmatrix}_{n \times m} \begin{bmatrix}  -- &amp;&amp; v_1 &amp;&amp; -- \\  -- &amp;&amp; v_2 &amp;&amp; -- \\  &amp;&amp; ... \\  -- &amp;&amp; v_m &amp;&amp; -- \\ \end{bmatrix}_{m \times m}\)</span></p>
+<p><span class="math notranslate nohighlight">\(X = \sigma_1 u_1 v_1^T + \sigma_1 u_1 v_1^T + ... + \sigma_m u_m v_m^T + 0 = \hat{U} \hat{\Sigma} {V}^T\)</span></p>
+<p>So actually here you just need to take m columns from U matrix because rest of them will automatically be multiplied with 0 from <span class="math notranslate nohighlight">\(\Sigma\)</span></p>
+<p>called economy SVD.</p>
+<p><span class="math notranslate nohighlight">\(U^T U = U U^T = I_{n \times n}\)</span></p>
+<p><span class="math notranslate nohighlight">\(V^T V = V V^T = I_{p \times p}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Sigma\)</span> is heirarchically ordered ranks <span class="math notranslate nohighlight">\(\sigma_1 \geq \sigma_2 \geq ... \geq \sigma_p \geq 0\)</span> . Ordered by importance.</p>
+<p>(i.e. U and V are <code class="docutils literal notranslate"><span class="pre">orthogonal</span></code>)</p>
+<ul class="simple">
+<li><p>the columns of U are the Left singular vectors (gene coefficient vectors)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Sigma\)</span> (the same dimensions as A) has singular values and is <code class="docutils literal notranslate"><span class="pre">diagonal</span></code> (mode amplitudes)</p></li>
+<li><p>and <span class="math notranslate nohighlight">\(V^T\)</span> has rows that are the Right singular vectors (expression level vectors). The SVD represents an expansion of the original data in a coordinate system where the covariance matrix is diagonal.</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>_____________________    __________ ______________________
+|                   |    |        ||                     |
+|                   |    |        ||          V^T        |
+|                   |    |        ||_____________________|
+|                   |    |        | \
+|         X         |  = |   U    |  \
+|                   |    |        |   \ Sigma
+|                   |    |        |    \
+|                   |    |        |     \
+|___________________|    |________|      \
+</pre></div>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">svd</span><span class="p">,</span><span class="n">eig</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="finding-SVD-values-with-easy-way-and-assemble">
-<h2>finding SVD values with easy way and assemble<a class="headerlink" href="#finding-SVD-values-with-easy-way-and-assemble" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
 <span class="p">])</span>
-
-<span class="n">U</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">VT</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span></span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">full_matrices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[[1 2 6 8]
- [3 4 7 9]]
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+<span></span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[-0.63398891 -0.77334214]
- [-0.77334214  0.63398891]]
+(array([[ 1,  2,  6,  8],
+        [ 3,  4,  7,  9],
+        [10, 11, 12, 13],
+        [14, 15, 16, 17],
+        [18, 19, 20, 21]]),
+ (5, 4))
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span></span><span class="n">n</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[16.04604275  1.58887135]
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">VT</span><span class="p">)</span>
+<span></span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[-0.18409619 -0.27180199 -0.57443001 -0.74984161]
- [ 0.710331    0.6226252  -0.12721641 -0.30262801]
- [-0.42976161  0.36898254  0.64033436 -0.5187762 ]
- [-0.52615912  0.63428182 -0.49377936  0.27753396]]
+(array([[-1.58141816e-01, -7.70036344e-01,  4.98241737e-01,
+          3.65773654e-01, -5.42474680e-16],
+        [-2.08984500e-01, -5.73839110e-01, -5.06126108e-01,
+         -6.08991394e-01,  9.00305729e-16],
+        [-4.05604099e-01,  5.92809235e-03, -5.58280362e-01,
+          5.97583921e-01,  4.08248290e-01],
+        [-5.45360165e-01,  1.27039223e-01, -6.73767867e-02,
+          1.23438357e-01, -8.16496581e-01],
+        [-6.85116231e-01,  2.48150354e-01,  4.23526789e-01,
+         -3.50707206e-01,  4.08248290e-01]]),
+ (5, 5))
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -573,70 +593,88 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">VT</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span></span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(2, 2) (2,) (4, 4)
+(array([56.97171686,  6.33713594,  0.22186625,  0.12231847]), (4,))
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Assemble-matrix">
-<h2>Assemble matrix<a class="headerlink" href="#Assemble-matrix" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">singular_value_dim</span> <span class="o">=</span> <span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">VT</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">singular_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">singular_value_dim</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">singular_value</span><span class="p">)</span>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[0. 0. 0. 0.]
- [0. 0. 0. 0.]]
+(array([[56.97171686,  0.        ,  0.        ,  0.        ],
+        [ 0.        ,  6.33713594,  0.        ,  0.        ],
+        [ 0.        ,  0.        ,  0.22186625,  0.        ],
+        [ 0.        ,  0.        ,  0.        ,  0.12231847]]),
+ (4, 4))
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">singular_value_dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">singular_value_dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-        <span class="k">if</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-            <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="n">col</span><span class="p">:</span>
-                <span class="n">singular_value</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">row</span><span class="p">]</span>
+<span></span><span class="n">vT</span><span class="p">,</span> <span class="n">vT</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([[-0.43544889, -0.47061031, -0.52143556, -0.56304099],
+        [ 0.60168865,  0.44976548, -0.2477965 , -0.6117832 ],
+        [ 0.34825926, -0.59832332,  0.62970599, -0.35241319],
+        [-0.5719008 ,  0.46716822,  0.51978094, -0.42954755]]),
+ (4, 4))
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span></span><span class="n">u</span> <span class="o">@</span> <span class="n">u</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[16.04604275  1.58887135]
+array([[ 1.00000000e+00, -3.11161294e-17, -1.46465570e-16,
+        -3.18878137e-17, -1.12768819e-16],
+       [-3.11161294e-17,  1.00000000e+00,  1.42540870e-16,
+        -1.24862278e-16,  4.17736431e-17],
+       [-1.46465570e-16,  1.42540870e-16,  1.00000000e+00,
+         1.41947968e-17,  1.56632173e-16],
+       [-3.18878137e-17, -1.24862278e-16,  1.41947968e-17,
+         1.00000000e+00,  8.19505222e-17],
+       [-1.12768819e-16,  4.17736431e-17,  1.56632173e-16,
+         8.19505222e-17,  1.00000000e+00]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -644,34 +682,49 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">singular_value</span><span class="p">)</span>
+<span></span><span class="n">vT</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">vT</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[16.04604275  0.          0.          0.        ]
- [ 0.          1.58887135  0.          0.        ]]
+array([[ 1.00000000e+00,  2.46582831e-17, -1.03857179e-16,
+         9.76353099e-17],
+       [ 2.46582831e-17,  1.00000000e+00, -4.90216227e-17,
+        -3.37667956e-17],
+       [-1.03857179e-16, -4.90216227e-17,  1.00000000e+00,
+        -2.55366884e-16],
+       [ 9.76353099e-17, -3.37667956e-17, -2.55366884e-16,
+         1.00000000e+00]])
 </pre></div></div>
 </div>
+<div class="section" id="Assemble-matrix">
+<h2>Assemble matrix<a class="headerlink" href="#Assemble-matrix" title="Permalink to this headline">¶</a></h2>
+<p>only select m columns from u. reason is explained above.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">singular_value</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">VT</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span></span><span class="n">u</span><span class="p">[:,:</span><span class="n">m</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">@</span> <span class="n">vT</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(2, 2) (2, 4) (4, 4)
+array([[ 1.,  2.,  6.,  8.],
+       [ 3.,  4.,  7.,  9.],
+       [10., 11., 12., 13.],
+       [14., 15., 16., 17.],
+       [18., 19., 20., 21.]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -679,7 +732,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">U</span> <span class="o">@</span> <span class="n">singular_value</span> <span class="o">@</span> <span class="n">VT</span>
+<span></span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">u</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">@</span> <span class="n">vT</span>
 </pre></div>
 </div>
 </div>
@@ -689,51 +744,200 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[1., 2., 6., 8.],
-       [3., 4., 7., 9.]])
+array([[ 1.,  2.,  6.,  8.],
+       [ 3.,  4.,  7.,  9.],
+       [10., 11., 12., 13.],
+       [14., 15., 16., 17.],
+       [18., 19., 20., 21.]])
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Calculating-with-eigen-values-and-vectors">
-<h2>Calculating with eigen values and vectors<a class="headerlink" href="#Calculating-with-eigen-values-and-vectors" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>for U</p>
-<ul>
-<li><p>calculate A * AT</p></li>
-<li><p>calculate eigen values and vectors</p></li>
-<li><p>U = eigen vectors of A * AT</p></li>
-</ul>
-</li>
-<li><p>for V</p>
-<ul>
-<li><p>calculate AT * A</p></li>
-<li><p>calculate eigen values and vectors</p></li>
-<li><p>V = eigen vectors of AT * A</p></li>
-</ul>
-</li>
-</ul>
-<div class="nbinput nblast docutils container">
+<div class="section" id="Eckart-Young-Theorem-(Low-rank-approximation)">
+<h3>Eckart-Young Theorem (Low rank approximation)<a class="headerlink" href="#Eckart-Young-Theorem-(Low-rank-approximation)" title="Permalink to this headline">¶</a></h3>
+<p>Best approximation of X = <span class="math notranslate nohighlight">\(\tilde{X}\)</span> (X tilde)</p>
+<p><span class="math notranslate nohighlight">\({{argmin}\atop{{\tilde{X} such.that. rank(\tilde{X}) = r}}} {|| X - \tilde{X} ||}_F = \tilde{U}\tilde{\Sigma}\tilde{V}^T\)</span></p>
+<p>F = The Frobenius norm, sometimes also called the Euclidean norm (a term unfortunately also used for the vector -norm), is matrix norm of an matrix defined as the square root of the sum of the absolute squares of its elements.</p>
+<p>rank r means selecting only - r columns of u - r rows of <span class="math notranslate nohighlight">\(v^T\)</span> - and <span class="math notranslate nohighlight">\(\sigma\)</span> only till r</p>
+<p><span class="math notranslate nohighlight">\(\tilde{U}^T\tilde{U} = I_{r \times r}\)</span> it is still an (r x r) identity matrix</p>
+<p><span class="math notranslate nohighlight">\(\tilde{U}^T\tilde{U} \ne I_{m \times m}\)</span> but not (m x m)</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">aaT</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">@</span> <span class="n">arr</span><span class="o">.</span><span class="n">T</span>
-<span class="n">aTa</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">arr</span>
+<span></span><span class="n">x</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 1,  2,  6,  8],
+       [ 3,  4,  7,  9],
+       [10, 11, 12, 13],
+       [14, 15, 16, 17],
+       [18, 19, 20, 21]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">U_values</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">aaT</span><span class="p">)</span>
+<span></span><span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">x_tilde</span> <span class="o">=</span> <span class="n">u</span><span class="p">[:,:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)[:</span><span class="n">r</span><span class="p">,:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">vT</span><span class="p">[:</span><span class="n">r</span><span class="p">]</span>
+
+<span class="n">x_tilde</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_tilde</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
-<p>eigen vector for U</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([[ 3.923225  ,  4.24001577,  4.69793141,  5.0727802 ],
+        [ 5.18454406,  5.60318323,  6.20831901,  6.70368189],
+        [10.06233633, 10.87484522, 12.04931296, 13.0107298 ],
+        [13.52944265, 14.62191184, 16.20105742, 17.49374269],
+        [16.99654897, 18.36897847, 20.35280189, 21.97675558]]),
+ 6.342198225330375)
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">r</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">x_tilde</span> <span class="o">=</span> <span class="n">u</span><span class="p">[:,:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)[:</span><span class="n">r</span><span class="p">,:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">vT</span><span class="p">[:</span><span class="n">r</span><span class="p">]</span>
+
+<span class="n">x_tilde</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_tilde</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([[ 0.98708971,  2.04523896,  5.90713494,  8.05817515],
+        [ 2.99650543,  3.96761267,  7.10943008,  8.92842933],
+        [10.08494004, 10.89174162, 12.04000396, 12.98774686],
+        [14.01384101, 14.98400221, 16.00156518, 17.00121755],
+        [17.94274198, 19.0762628 , 19.9631264 , 21.01468825]]),
+ 0.253350433705557)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">r</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">x_tilde</span> <span class="o">=</span> <span class="n">u</span><span class="p">[:,:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)[:</span><span class="n">r</span><span class="p">,:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">vT</span><span class="p">[:</span><span class="n">r</span><span class="p">]</span>
+
+<span class="n">x_tilde</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_tilde</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([[ 1.02558734,  1.97909849,  5.97674455,  8.01921833],
+        [ 2.9573986 ,  4.03479978,  7.03871895,  8.96800262],
+        [10.0418034 , 10.96585208, 11.96200633, 13.03139801],
+        [14.00863501, 14.99294632, 15.99215194, 17.00648565],
+        [17.97546662, 19.02004057, 20.02229755, 20.98157328]]),
+ 0.12231846893897867)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">r</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">x_tilde</span> <span class="o">=</span> <span class="n">u</span><span class="p">[:,:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)[:</span><span class="n">r</span><span class="p">,:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">vT</span><span class="p">[:</span><span class="n">r</span><span class="p">]</span>
+
+<span class="n">x_tilde</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_tilde</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([[ 1.,  2.,  6.,  8.],
+        [ 3.,  4.,  7.,  9.],
+        [10., 11., 12., 13.],
+        [14., 15., 16., 17.],
+        [18., 19., 20., 21.]]),
+ 2.3593480078153382e-14)
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="SVD-and-Correlations">
+<h3>SVD and Correlations<a class="headerlink" href="#SVD-and-Correlations" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">an</span> <span class="pre">interpretation</span> <span class="pre">of</span> <span class="pre">SVD.</span> <span class="pre">Not</span> <span class="pre">a</span> <span class="pre">very</span> <span class="pre">good</span> <span class="pre">computation</span> <span class="pre">method</span></code></p>
+<p><span class="math notranslate nohighlight">\(X^TX= \begin{bmatrix}  -- &amp;&amp; x_1^T &amp;&amp; --\\  -- &amp;&amp; x_2^T &amp;&amp; --\\  &amp;&amp; .\\  &amp;&amp; . \end{bmatrix}_{m \times n} \begin{bmatrix}  | &amp;&amp; | &amp;&amp; \\  x_1 &amp;&amp; x_2 &amp;&amp; ...\\  | &amp;&amp; | &amp;&amp; \\ \end{bmatrix}_{n \times m}= \begin{bmatrix}  x_1^T x_1 &amp;&amp; x_1^T x_2 &amp;&amp; ... &amp;&amp; x_1^T x_m\\  x_2^T x_1 &amp;&amp; x_2^T x_2 &amp;&amp; ... &amp;&amp; x_2^T x_m\\  . &amp;&amp; . &amp;&amp; ... &amp;&amp; .\\  x_m^T x_1 &amp;&amp; x_m^T x_2 &amp;&amp; ... &amp;&amp; x_m^T x_m\\ \end{bmatrix}_{m \times m}\)</span></p>
+<p>if <span class="math notranslate nohighlight">\(X = U \Sigma V^T\)</span> then <span class="math notranslate nohighlight">\(X^T = V \Sigma U^T\)</span></p>
+<p><span class="math notranslate nohighlight">\(X^T X = V \Sigma U^T U \Sigma V^T = V \Sigma^2 V^T\)</span></p>
+<p>multiplying V both sides <span class="math notranslate nohighlight">\(X^T X V = V \Sigma^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(X X^T = U \Sigma V^T V \Sigma U^T = U \Sigma^2 U^T\)</span></p>
+<p>multiplying U both sides <span class="math notranslate nohighlight">\(X^T X U = U \Sigma^2\)</span></p>
+<div class="line-block">
+<div class="line"><span class="math notranslate nohighlight">\(\Sigma^2\)</span> = Eigen Values</div>
+<div class="line">U,V = Eigen Vectors</div>
+</div>
+<p>Now using this explanation to calculate SVD</p>
+</div>
+<div class="section" id="Method-of-Snapshots-(SVD-using-eigen-values-and-vectors)">
+<h3>Method of Snapshots (SVD using eigen values and vectors)<a class="headerlink" href="#Method-of-Snapshots-(SVD-using-eigen-values-and-vectors)" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>for U</p>
+<ul>
+<li><p>calculate X * <span class="math notranslate nohighlight">\(X^T\)</span></p></li>
+<li><p>calculate eigen values and vectors</p></li>
+<li><p>U = eigen vectors of X * <span class="math notranslate nohighlight">\(X^T\)</span></p></li>
+</ul>
+</li>
+<li><p>for V</p>
+<ul>
+<li><p>calculate <span class="math notranslate nohighlight">\(X^T\)</span> * X</p></li>
+<li><p>calculate eigen values and vectors</p></li>
+<li><p>V = eigen vectors of <span class="math notranslate nohighlight">\(X^T\)</span> * X</p></li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x_xT</span> <span class="o">=</span> <span class="n">x</span> <span class="o">@</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span>
+<span class="n">U_values</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">x_xT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>eigen vector for U</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -746,13 +950,23 @@ array([[1., 2., 6., 8.],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[-0.77334214 -0.63398891]
- [ 0.63398891 -0.77334214]]
+[[ 1.58141816e-01 -7.70036344e-01  4.98241737e-01  3.65773654e-01
+   1.66017468e-13]
+ [ 2.08984500e-01 -5.73839110e-01 -5.06126108e-01 -6.08991394e-01
+  -2.51244615e-13]
+ [ 4.05604099e-01  5.92809235e-03 -5.58280362e-01  5.97583921e-01
+   4.08248290e-01]
+ [ 5.45360165e-01  1.27039223e-01 -6.73767867e-02  1.23438357e-01
+  -8.16496581e-01]
+ [ 6.85116231e-01  2.48150354e-01  4.23526789e-01 -3.50707206e-01
+   4.08248290e-01]]
 </pre></div></div>
 </div>
-<p>eigen value of U</p>
+<ul class="simple">
+<li><p>eigen value of U</p></li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -765,21 +979,26 @@ array([[1., 2., 6., 8.],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[  2.52451216+0.j 257.47548784+0.j]
+[3.24577652e+03 4.01592919e+01 4.92246344e-02 1.49618078e-02
+ 5.41176252e-16]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">V_values</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">aTa</span><span class="p">)</span>
+<span></span><span class="n">xT_x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">x</span>
+
+<span class="n">V_values</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">xT_x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>eigen vector of V</p>
+<ul class="simple">
+<li><p>eigen vector of V</p></li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -792,15 +1011,17 @@ array([[1., 2., 6., 8.],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[[-0.18409619 -0.27180199 -0.57443001 -0.74984161]
- [ 0.710331    0.6226252  -0.12721641 -0.30262801]
- [ 0.64780737 -0.6562097  -0.26508738  0.28189204]
- [-0.00734194 -0.10763191  0.80848791 -0.57854021]]
+[[ 0.43544889  0.47061031  0.52143556  0.56304099]
+ [-0.60168865 -0.44976548  0.2477965   0.6117832 ]
+ [ 0.5719008  -0.46716822 -0.51978094  0.42954755]
+ [-0.34825926  0.59832332 -0.62970599  0.35241319]]
 </pre></div></div>
 </div>
-<p>eigen values of V</p>
+<ul class="simple">
+<li><p>eigen value of V</p></li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -813,63 +1034,102 @@ array([[1., 2., 6., 8.],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[ 2.57475488e+02+0.j  2.52451216e+00+0.j -6.70099921e-16+0.j
-  8.89903972e-15+0.j]
+[3.24577652e+03 4.01592919e+01 1.49618078e-02 4.92246344e-02]
 </pre></div></div>
 </div>
 <ul class="simple">
 <li><p>singular value : square root of U values in descending order</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">singular_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">U_values</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+<span></span><span class="n">singular_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">U_values</span><span class="o">.</span><span class="n">real</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">singular_val</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([16.04604275,  1.58887135])
+array([56.97171686,  6.33713594,  0.22186625,  0.12231847])
 </pre></div></div>
 </div>
-<div class="section" id="Image-processing-with-SVD">
-<h3>Image processing with SVD<a class="headerlink" href="#Image-processing-with-SVD" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="SVD-and-Image-Compression">
+<h3>SVD and Image Compression<a class="headerlink" href="#SVD-and-Image-Compression" title="Permalink to this headline">¶</a></h3>
+<p>In simple words choosing lowest rank index(ranks are in descending order) required to generate a close approximation original matrix.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[156]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+    <span class="s2">&quot;axes.grid&quot;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="p">})</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[157]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">colored_arr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;./images/rdj.jpg&quot;</span><span class="p">)</span>
+<span></span><span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;./images/rdj.jpg&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gray_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#2 because I know this is a 3D matrix. I can give -1 to take the last dimension</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[163]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">colored_arr</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gray_img</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.image.AxesImage at 0x7f45251819d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/MathExploration_SingularValueDecomposition_52_1.png" src="../_images/MathExploration_SingularValueDecomposition_52_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gray_img</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[163]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -878,215 +1138,193 @@ array([16.04604275,  1.58887135])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[210]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">colored_arr</span><span class="p">[</span><span class="o">...</span><span class="p">,:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[210]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(550, 550, 3)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[185]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">colored_arr</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;$X . X^T$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gray_img</span> <span class="o">@</span> <span class="n">gray_img</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;$X^T . X$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gray_img</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">gray_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[185]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7f30e4c3bd90&gt;
+&lt;matplotlib.image.AxesImage at 0x7f4524673760&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_37_1.png" src="../_images/MathExploration_SingularValueDecomposition_37_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[187]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">colored_arr</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[187]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7f30e4578a00&gt;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_38_1.png" src="../_images/MathExploration_SingularValueDecomposition_38_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[188]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">colored_arr</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[188]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7f30e45587f0&gt;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_39_1.png" src="../_images/MathExploration_SingularValueDecomposition_39_1.png" />
+<img alt="../_images/MathExploration_SingularValueDecomposition_54_1.png" src="../_images/MathExploration_SingularValueDecomposition_54_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[217]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">vT</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">colored_arr</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[221]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[221]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7f30e50fc310&gt;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_41_1.png" src="../_images/MathExploration_SingularValueDecomposition_41_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[223]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">vT</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[223]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7f30e4522040&gt;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_42_1.png" src="../_images/MathExploration_SingularValueDecomposition_42_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[224]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[224]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7f30e4444130&gt;]
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_43_1.png" src="../_images/MathExploration_SingularValueDecomposition_43_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[225]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sv_dim</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">vT</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">sv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">sv_dim</span><span class="p">)</span>
+<span></span><span class="n">u</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">vT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">gray_img</span><span class="p">,</span><span class="n">full_matrices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sv_dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sv_dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-        <span class="k">if</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-            <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="n">col</span><span class="p">:</span>
-                <span class="n">sv</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">row</span><span class="p">]</span>
+<span class="n">ranks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Log-and-Cumulative-plots">
+<h3>Log and Cumulative plots<a class="headerlink" href="#Log-and-Cumulative-plots" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>log plot will show to keep the first few ranks and throw rest of them as thier rank/ importance is not that much.</p></li>
+<li><p>cumulative plots purpose is to see that at what rank what percentage of the original matrix values(energy) is getting covered.
+on x axis = ranks
+on y axis = <span class="math notranslate nohighlight">\(\frac{\sum_{i=0}^{r}{\sigma_i}}{\sum_{i=0}^{m}{\sigma_i}}\)</span></p></li>
+<li><p>to pick up a rank where we can get maximum energy possible</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">u</span> <span class="o">@</span> <span class="n">sv</span> <span class="o">@</span> <span class="n">vT</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;ranks&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;log($\sigma$)&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">ranks</span><span class="p">:</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="s1">&#39;k.-&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;ranks&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Cumulative energy ($\sigma$)&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">ranks</span><span class="p">:</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="s1">&#39;k.-&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[225]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7f30e4418f10&gt;
+[&lt;matplotlib.lines.Line2D at 0x7f4524089070&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_44_1.png" src="../_images/MathExploration_SingularValueDecomposition_44_1.png" />
+<img alt="../_images/MathExploration_SingularValueDecomposition_57_1.png" src="../_images/MathExploration_SingularValueDecomposition_57_1.png" />
+</div>
+</div>
+<p>we can see around at rank 100, approx 90% original matrix is recovered.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">calc_c_mat</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">u</span><span class="p">[:,:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)[:</span><span class="n">r</span><span class="p">,:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">vT</span><span class="p">[:</span><span class="n">r</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">calc_cum_enery_percentage</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">s</span><span class="p">[:</span><span class="n">r</span><span class="p">])</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">rmse</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x_bar</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_bar</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">ranks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">c_img</span> <span class="o">=</span> <span class="n">calc_c_mat</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">(</span><span class="n">gray_img</span><span class="p">,</span><span class="n">c_img</span><span class="p">)</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="n">calc_cum_enery_percentage</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">till rank </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">coverage </span><span class="si">{</span><span class="n">cov</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">err </span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">c_img</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">ranks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">c_img</span> <span class="o">=</span> <span class="n">calc_c_mat</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">(</span><span class="n">gray_img</span><span class="p">,</span><span class="n">c_img</span><span class="p">)</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="n">calc_cum_enery_percentage</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">till rank </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">coverage </span><span class="si">{</span><span class="n">cov</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">err </span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">c_img</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">ranks</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">c_img</span> <span class="o">=</span> <span class="n">calc_c_mat</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">(</span><span class="n">gray_img</span><span class="p">,</span><span class="n">c_img</span><span class="p">)</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="n">calc_cum_enery_percentage</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">till rank </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">coverage </span><span class="si">{</span><span class="n">cov</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">err </span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">c_img</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">ranks</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">c_img</span> <span class="o">=</span> <span class="n">calc_c_mat</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">(</span><span class="n">gray_img</span><span class="p">,</span><span class="n">c_img</span><span class="p">)</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="n">calc_cum_enery_percentage</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">till rank </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">coverage </span><span class="si">{</span><span class="n">cov</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">err </span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">c_img</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">ranks</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">c_img</span> <span class="o">=</span> <span class="n">calc_c_mat</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">(</span><span class="n">gray_img</span><span class="p">,</span><span class="n">c_img</span><span class="p">)</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="n">calc_cum_enery_percentage</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">till rank </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">coverage </span><span class="si">{</span><span class="n">cov</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">err </span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">c_img</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">ranks</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">c_img</span> <span class="o">=</span> <span class="n">calc_c_mat</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">(</span><span class="n">gray_img</span><span class="p">,</span><span class="n">c_img</span><span class="p">)</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="n">calc_cum_enery_percentage</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">till rank </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">coverage </span><span class="si">{</span><span class="n">cov</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">,</span>
+<span class="s2">err </span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s2">2f</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">c_img</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/MathExploration_SingularValueDecomposition_60_0.png" src="../_images/MathExploration_SingularValueDecomposition_60_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
