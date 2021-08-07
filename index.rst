@@ -14,10 +14,6 @@ Welcome to Machine Learning Exploration's documentation!
    PracticalStatistics/z_score
    PracticalStatistics/Hypothesis
    PracticalStatistics/StatisticalModelling
-   PandasExploration/PandasExploration
-   MatplotlibExploration/visualization
-   MatplotlibExploration/LiveVisual
-   MathExploration/SingularValueDecomposition
    MathExploration/Convolution
    MathExploration/ImageProcessing
    MathExploration/Fourier
@@ -25,10 +21,15 @@ Welcome to Machine Learning Exploration's documentation!
    MathExploration/AudioProcessing
    MathExploration/Correlation
    MathExploration/distances
+   MathExploration/SingularValueDecomposition
+   MathExploration/PrincipalComponentAnalysis
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
    TreeBasedModels/ExploreRandomForest
+   PandasExploration/PandasExploration
+   MatplotlibExploration/visualization
+   MatplotlibExploration/LiveVisual
    SupportVectorMachine/Explore
    IrisDataAnalysis/IrisDataExploratoryAnalysis
    BreastCancerAnalysis/BreastCancerPreprocessingAnalysis

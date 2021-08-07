@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Understanding Convolution" href="Convolution.html" />
-    <link rel="prev" title="Live Visual" href="../MatplotlibExploration/LiveVisual.html" /> 
+    <link rel="next" title="Principal Component Analysis" href="PrincipalComponentAnalysis.html" />
+    <link rel="prev" title="Vector Distances" href="distances.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,20 +89,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../PracticalStatistics/z_score.html">Z Score</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PracticalStatistics/Hypothesis.html">Hypothesis Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PracticalStatistics/StatisticalModelling.html">Statistical Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../PandasExploration/PandasExploration.html">Pandas Exploration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/LiveVisual.html">Live Visual</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Singular Value Decomposition</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Assemble-matrix">Assemble matrix</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Eckart-Young-Theorem-(Low-rank-approximation)">Eckart-Young Theorem (Low rank approximation)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#SVD-and-Correlations">SVD and Correlations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Method-of-Snapshots-(SVD-using-eigen-values-and-vectors)">Method of Snapshots (SVD using eigen values and vectors)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#SVD-and-Image-Compression">SVD and Image Compression</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Log-and-Cumulative-plots">Log and Cumulative plots</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="Convolution.html">Understanding Convolution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ImageProcessing.html">Image Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Fourier.html">Fourier Transform</a></li>
@@ -115,6 +101,28 @@
 <li class="toctree-l1"><a class="reference internal" href="Correlation.html#Kendall-Rank-Correlation-(\tau)">Kendall Rank Correlation (<span class="math notranslate nohighlight">\(\tau\)</span>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Correlation.html#R-Squared-score-/-Coefficient-of-determination">R-Squared score / Coefficient of determination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="distances.html">Vector Distances</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Singular Value Decomposition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Understanding-SVD">Understanding SVD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Full-SVD">Full SVD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Economy-SVD">Economy SVD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Explore-with-numpy">Explore with numpy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Full SVD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Economy SVD</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#U-&amp;-V-orthogonality">U &amp; V orthogonality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Eckart-Young-Theorem-(Low-rank-approximation)">Eckart-Young Theorem (Low rank approximation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#SVD-and-Correlations">SVD and Correlations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Method-of-Snapshots-(SVD-using-eigen-values-and-vectors)">Method of Snapshots (SVD using eigen values and vectors)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Unitary-Trasformations-with-SVD-(Geometric-Interpretation)">Unitary Trasformations with SVD (Geometric Interpretation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#SVD-and-Image-Compression">SVD and Image Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Log-and-Cumulative-plots">Log and Cumulative plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PrincipalComponentAnalysis.html">Principal Component Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html">Linear Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Ridge(L2-Regularization)-Regression">Ridge(L2 Regularization) Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LinearRegression/Explore.html#Lasso(L1-Regularization)-Regression">Lasso(L1 Regularization) Regression</a></li>
@@ -122,6 +130,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../LogisticRegression/Explore.html">Logistic Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../TreeBasedModels/ExploreDecisionTree.html">Decision Tree Algorithm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../TreeBasedModels/ExploreRandomForest.html">Random Forest Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PandasExploration/PandasExploration.html">Pandas Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/visualization.html">Matplotlib Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MatplotlibExploration/LiveVisual.html">Live Visual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SupportVectorMachine/Explore.html">Support Vector Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../IrisDataAnalysis/IrisDataExploratoryAnalysis.html">Iris Data Exploratory Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../BreastCancerAnalysis/BreastCancerPreprocessingAnalysis.html">Breast Cancer Preprocessing Analysis</a></li>
@@ -468,20 +479,33 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Singular-Value-Decomposition">
 <h1>Singular Value Decomposition<a class="headerlink" href="#Singular-Value-Decomposition" title="Permalink to this headline">¶</a></h1>
-<p>Singular value decomposition takes a rectangular matrix of gene expression data (defined as X, where X is a n x m matrix) in which the n rows represents the genes, and the p columns represents the experimental conditions. The SVD theorem states:</p>
-<p><span class="math notranslate nohighlight">\(X_{n \times m} = U_{n \times n} \Sigma_{n \times m} V^T_{m \times m}\)</span></p>
-<p><span class="math notranslate nohighlight">\(\begin{bmatrix}  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\  x_1 &amp;&amp; x_2 &amp;&amp; ... &amp;&amp; x_m\\  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\ \end{bmatrix}_{n \times m}\\= \begin{bmatrix}  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\  u_1 &amp;&amp; u_2 &amp;&amp; ... &amp;&amp; u_n\\  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\ \end{bmatrix}_{n \times n} \begin{bmatrix}  \sigma_1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 0 \\  0 &amp;&amp; \sigma_2 &amp;&amp; 0 &amp;&amp; 0 \\  &amp;&amp; ... \\  0 &amp;&amp; 0 &amp;&amp; ... &amp;&amp; \sigma_m \\ \end{bmatrix}_{n \times m} \begin{bmatrix}  -- &amp;&amp; v_1 &amp;&amp; -- \\  -- &amp;&amp; v_2 &amp;&amp; -- \\  &amp;&amp; ... \\  -- &amp;&amp; v_m &amp;&amp; -- \\ \end{bmatrix}_{m \times m}\)</span></p>
-<p><span class="math notranslate nohighlight">\(X = \sigma_1 u_1 v_1^T + \sigma_1 u_1 v_1^T + ... + \sigma_m u_m v_m^T + 0 = \hat{U} \hat{\Sigma} {V}^T\)</span></p>
-<p>So actually here you just need to take m columns from U matrix because rest of them will automatically be multiplied with 0 from <span class="math notranslate nohighlight">\(\Sigma\)</span></p>
-<p>called economy SVD.</p>
-<p><span class="math notranslate nohighlight">\(U^T U = U U^T = I_{n \times n}\)</span></p>
-<p><span class="math notranslate nohighlight">\(V^T V = V V^T = I_{p \times p}\)</span></p>
-<p><span class="math notranslate nohighlight">\(\Sigma\)</span> is heirarchically ordered ranks <span class="math notranslate nohighlight">\(\sigma_1 \geq \sigma_2 \geq ... \geq \sigma_p \geq 0\)</span> . Ordered by importance.</p>
-<p>(i.e. U and V are <code class="docutils literal notranslate"><span class="pre">orthogonal</span></code>)</p>
+<div class="section" id="Understanding-SVD">
+<h2>Understanding SVD<a class="headerlink" href="#Understanding-SVD" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>the columns of U are the Left singular vectors (gene coefficient vectors)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Sigma\)</span> (the same dimensions as A) has singular values and is <code class="docutils literal notranslate"><span class="pre">diagonal</span></code> (mode amplitudes)</p></li>
-<li><p>and <span class="math notranslate nohighlight">\(V^T\)</span> has rows that are the Right singular vectors (expression level vectors). The SVD represents an expansion of the original data in a coordinate system where the covariance matrix is diagonal.</p></li>
+<li><p>SVD is a matrix factorization method.</p></li>
+<li><p>basically it rotates, streches and rotates the data for various methods.(we’ll see it later)</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(X = U \Sigma V^T\)</span></p>
+<div class="section" id="Full-SVD">
+<h3>Full SVD<a class="headerlink" href="#Full-SVD" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(X_{m \times n} = U_{m \times m} \Sigma_{m \times n} V^T_{n \times n}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\  x_1 &amp;&amp; x_2 &amp;&amp; ... &amp;&amp; x_n\\  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\ \end{bmatrix}_{m \times n}\\= \begin{bmatrix}  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\  u_1 &amp;&amp; u_2 &amp;&amp; .. &amp;&amp; u_m\\  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\ \end{bmatrix}_{m \times m} \begin{bmatrix}  \sigma_1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 0 \\  0 &amp;&amp; \sigma_2 &amp;&amp; 0 &amp;&amp; 0 \\  &amp;&amp; ... \\  0 &amp;&amp; 0 &amp;&amp; ... &amp;&amp; \sigma_n \\  0 &amp;&amp; 0 &amp;&amp; ... &amp;&amp; 0\\  0 &amp;&amp; 0 &amp;&amp; ... &amp;&amp; 0\\ \end{bmatrix}_{m \times n} \begin{bmatrix}  -- &amp;&amp; v_1^T &amp;&amp; -- \\  -- &amp;&amp; v_2^T &amp;&amp; -- \\  &amp;&amp; ... \\  -- &amp;&amp; v_n^T &amp;&amp; -- \\ \end{bmatrix}_{n \times n}\)</span></p>
+</div>
+<div class="section" id="Economy-SVD">
+<h3>Economy SVD<a class="headerlink" href="#Economy-SVD" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(X_{m \times n} = U_{m \times n} \Sigma_{n \times n} V^T_{n \times n}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\  x_1 &amp;&amp; x_2 &amp;&amp; ... &amp;&amp; x_n\\  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\ \end{bmatrix}_{m \times n}\\= \begin{bmatrix}  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\  u_1 &amp;&amp; u_2 &amp;&amp; .. &amp;&amp; u_n\\  | &amp;&amp; | &amp;&amp; &amp;&amp; | \\ \end{bmatrix}_{m \times n} \begin{bmatrix}  \sigma_1 &amp;&amp; 0 &amp;&amp; 0 &amp;&amp; 0 \\  0 &amp;&amp; \sigma_2 &amp;&amp; 0 &amp;&amp; 0 \\  &amp;&amp; ... \\  0 &amp;&amp; 0 &amp;&amp; ... &amp;&amp; \sigma_n \end{bmatrix}_{n \times n} \begin{bmatrix}  -- &amp;&amp; v_1^T &amp;&amp; -- \\  -- &amp;&amp; v_2^T &amp;&amp; -- \\  &amp;&amp; ... \\  -- &amp;&amp; v_n^T &amp;&amp; -- \\ \end{bmatrix}_{n \times n}\)</span></p>
+<p><span class="math notranslate nohighlight">\(X = \sigma_1 u_1 v_1^T + \sigma_1 u_1 v_1^T + ... + \sigma_n u_n v_n^T + 0 = \hat{U} \hat{\Sigma} \hat{V}^T\)</span> [Till m ranks] [So actually here you just need to take m columns from U matrix because rest of them will automatically be multiplied with 0 from <span class="math notranslate nohighlight">\(\Sigma\)</span>. It is called an economy SVD]</p>
+</div>
+<div class="section" id="Properties">
+<h3>Properties<a class="headerlink" href="#Properties" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(U^T U = U U^T = I_{m \times m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(V^T V = V V^T = I_{n \times n}\)</span> (i.e. U and V are <code class="docutils literal notranslate"><span class="pre">orthogonal</span></code>, unitary matrices)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Sigma\)</span> is heirarchically ordered ranks <span class="math notranslate nohighlight">\(\sigma_1 \geq \sigma_2 \geq ... \geq \sigma_n \geq 0\)</span> . Ordered by importance.</p></li>
+<li><p>the columns of U are the Left singular vectors.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Sigma\)</span> (the same dimensions as A) has singular values and is <code class="docutils literal notranslate"><span class="pre">diagonal</span></code>.</p></li>
+<li><p>and <span class="math notranslate nohighlight">\(V^T\)</span> has rows that are the Right singular vectors. The SVD represents an expansion of the original data in a coordinate system where the covariance matrix is diagonal.</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>_____________________    __________ ______________________
 |                   |    |        ||                     |
@@ -495,8 +519,11 @@ div.rendered_html tbody tr:hover {
 |___________________|    |________|      \
 </pre></div>
 </div>
+</div>
+<div class="section" id="Explore-with-numpy">
+<h3>Explore with numpy<a class="headerlink" href="#Explore-with-numpy" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -505,7 +532,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -519,8 +546,10 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="section" id="id1">
+<h4>Full SVD<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -529,7 +558,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -538,7 +567,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -552,25 +581,25 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">n</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+<span></span><span class="n">m</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">shape</span>
+<span></span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># m x m</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -589,16 +618,16 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">shape</span>
+<span></span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># n x 1</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -607,16 +636,16 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># n x n , rest of the rows till m are 0</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -629,16 +658,16 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">vT</span><span class="p">,</span> <span class="n">vT</span><span class="o">.</span><span class="n">shape</span>
+<span></span><span class="n">vT</span><span class="p">,</span> <span class="n">vT</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># n x n</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -650,8 +679,193 @@ div.rendered_html tbody tr:hover {
  (4, 4))
 </pre></div></div>
 </div>
+<div class="section" id="Assemble">
+<h5>Assemble<a class="headerlink" href="#Assemble" title="Permalink to this headline">¶</a></h5>
+<p>only select m columns from u. reason is explained above.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">u</span><span class="p">[:,:</span><span class="n">n</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">@</span> <span class="n">vT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 1.,  2.,  6.,  8.],
+       [ 3.,  4.,  7.,  9.],
+       [10., 11., 12., 13.],
+       [14., 15., 16., 17.],
+       [18., 19., 20., 21.]])
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Economy SVD<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([[ 1,  2,  6,  8],
+        [ 3,  4,  7,  9],
+        [10, 11, 12, 13],
+        [14, 15, 16, 17],
+        [18, 19, 20, 21]]),
+ (5, 4))
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">m</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># m x n , rest are not required as per economy conditions</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([[-0.15814182, -0.77003634,  0.49824174,  0.36577365],
+        [-0.2089845 , -0.57383911, -0.50612611, -0.60899139],
+        [-0.4056041 ,  0.00592809, -0.55828036,  0.59758392],
+        [-0.54536017,  0.12703922, -0.06737679,  0.12343836],
+        [-0.68511623,  0.24815035,  0.42352679, -0.35070721]]),
+ (5, 4))
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># n x 1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([56.97171686,  6.33713594,  0.22186625,  0.12231847]), (4,))
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># n x n</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([[56.97171686,  0.        ,  0.        ,  0.        ],
+        [ 0.        ,  6.33713594,  0.        ,  0.        ],
+        [ 0.        ,  0.        ,  0.22186625,  0.        ],
+        [ 0.        ,  0.        ,  0.        ,  0.12231847]]),
+ (4, 4))
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">vT</span><span class="p">,</span> <span class="n">vT</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># n x n</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([[-0.43544889, -0.47061031, -0.52143556, -0.56304099],
+        [ 0.60168865,  0.44976548, -0.2477965 , -0.6117832 ],
+        [ 0.34825926, -0.59832332,  0.62970599, -0.35241319],
+        [-0.5719008 ,  0.46716822,  0.51978094, -0.42954755]]),
+ (4, 4))
+</pre></div></div>
+</div>
+<div class="section" id="id3">
+<h5>Assemble<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">u</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">@</span> <span class="n">vT</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 1.,  2.,  6.,  8.],
+       [ 3.,  4.,  7.,  9.],
+       [10., 11., 12., 13.],
+       [14., 15., 16., 17.],
+       [18., 19., 20., 21.]])
+</pre></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="U-&amp;-V-orthogonality">
+<h2>U &amp; V orthogonality<a class="headerlink" href="#U-&-V-orthogonality" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -660,7 +874,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -702,65 +916,18 @@ array([[ 1.00000000e+00,  2.46582831e-17, -1.03857179e-16,
          1.00000000e+00]])
 </pre></div></div>
 </div>
-<div class="section" id="Assemble-matrix">
-<h2>Assemble matrix<a class="headerlink" href="#Assemble-matrix" title="Permalink to this headline">¶</a></h2>
-<p>only select m columns from u. reason is explained above.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span><span class="p">[:,:</span><span class="n">m</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">@</span> <span class="n">vT</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[ 1.,  2.,  6.,  8.],
-       [ 3.,  4.,  7.,  9.],
-       [10., 11., 12., 13.],
-       [14., 15., 16., 17.],
-       [18., 19., 20., 21.]])
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">u</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">@</span> <span class="n">vT</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[ 1.,  2.,  6.,  8.],
-       [ 3.,  4.,  7.,  9.],
-       [10., 11., 12., 13.],
-       [14., 15., 16., 17.],
-       [18., 19., 20., 21.]])
-</pre></div></div>
 </div>
 <div class="section" id="Eckart-Young-Theorem-(Low-rank-approximation)">
-<h3>Eckart-Young Theorem (Low rank approximation)<a class="headerlink" href="#Eckart-Young-Theorem-(Low-rank-approximation)" title="Permalink to this headline">¶</a></h3>
+<h2>Eckart-Young Theorem (Low rank approximation)<a class="headerlink" href="#Eckart-Young-Theorem-(Low-rank-approximation)" title="Permalink to this headline">¶</a></h2>
 <p>Best approximation of X = <span class="math notranslate nohighlight">\(\tilde{X}\)</span> (X tilde)</p>
 <p><span class="math notranslate nohighlight">\({{argmin}\atop{{\tilde{X} such.that. rank(\tilde{X}) = r}}} {|| X - \tilde{X} ||}_F = \tilde{U}\tilde{\Sigma}\tilde{V}^T\)</span></p>
 <p>F = The Frobenius norm, sometimes also called the Euclidean norm (a term unfortunately also used for the vector -norm), is matrix norm of an matrix defined as the square root of the sum of the absolute squares of its elements.</p>
 <p>rank r means selecting only - r columns of u - r rows of <span class="math notranslate nohighlight">\(v^T\)</span> - and <span class="math notranslate nohighlight">\(\sigma\)</span> only till r</p>
 <p><span class="math notranslate nohighlight">\(\tilde{U}^T\tilde{U} = I_{r \times r}\)</span> it is still an (r x r) identity matrix</p>
 <p><span class="math notranslate nohighlight">\(\tilde{U}^T\tilde{U} \ne I_{m \times m}\)</span> but not (m x m)</p>
+<p>Below we are calculating approximations with rank r and Frobenius norm(Euclidean distances of the vectors, or as I understood rmse)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -769,7 +936,7 @@ array([[ 1.,  2.,  6.,  8.],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -782,7 +949,7 @@ array([[ 1,  2,  6,  8],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -795,7 +962,7 @@ array([[ 1,  2,  6,  8],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -809,7 +976,7 @@ array([[ 1,  2,  6,  8],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -822,7 +989,7 @@ array([[ 1,  2,  6,  8],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -836,7 +1003,7 @@ array([[ 1,  2,  6,  8],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -849,7 +1016,7 @@ array([[ 1,  2,  6,  8],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -863,7 +1030,7 @@ array([[ 1,  2,  6,  8],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -876,7 +1043,7 @@ array([[ 1,  2,  6,  8],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -891,12 +1058,17 @@ array([[ 1,  2,  6,  8],
 </div>
 </div>
 <div class="section" id="SVD-and-Correlations">
-<h3>SVD and Correlations<a class="headerlink" href="#SVD-and-Correlations" title="Permalink to this headline">¶</a></h3>
+<h2>SVD and Correlations<a class="headerlink" href="#SVD-and-Correlations" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">This</span> <span class="pre">is</span> <span class="pre">an</span> <span class="pre">interpretation</span> <span class="pre">of</span> <span class="pre">SVD.</span> <span class="pre">Not</span> <span class="pre">a</span> <span class="pre">very</span> <span class="pre">good</span> <span class="pre">computation</span> <span class="pre">method</span></code></p>
-<p><span class="math notranslate nohighlight">\(X^TX= \begin{bmatrix}  -- &amp;&amp; x_1^T &amp;&amp; --\\  -- &amp;&amp; x_2^T &amp;&amp; --\\  &amp;&amp; .\\  &amp;&amp; . \end{bmatrix}_{m \times n} \begin{bmatrix}  | &amp;&amp; | &amp;&amp; \\  x_1 &amp;&amp; x_2 &amp;&amp; ...\\  | &amp;&amp; | &amp;&amp; \\ \end{bmatrix}_{n \times m}= \begin{bmatrix}  x_1^T x_1 &amp;&amp; x_1^T x_2 &amp;&amp; ... &amp;&amp; x_1^T x_m\\  x_2^T x_1 &amp;&amp; x_2^T x_2 &amp;&amp; ... &amp;&amp; x_2^T x_m\\  . &amp;&amp; . &amp;&amp; ... &amp;&amp; .\\  x_m^T x_1 &amp;&amp; x_m^T x_2 &amp;&amp; ... &amp;&amp; x_m^T x_m\\ \end{bmatrix}_{m \times m}\)</span></p>
-<p>if <span class="math notranslate nohighlight">\(X = U \Sigma V^T\)</span> then <span class="math notranslate nohighlight">\(X^T = V \Sigma U^T\)</span></p>
+<p><span class="math notranslate nohighlight">\(X^TX= \begin{bmatrix}  -- &amp;&amp; x_1^T &amp;&amp; --\\  -- &amp;&amp; x_2^T &amp;&amp; --\\  &amp;&amp; .\\  &amp;&amp; .\\  -- &amp;&amp; x_n^T &amp;&amp; --\\ \end{bmatrix}_{n \times m} \begin{bmatrix}  | &amp;&amp; | &amp;&amp; &amp;&amp; |\\  x_1 &amp;&amp; x_2 &amp;&amp; ... &amp;&amp; x_n\\  | &amp;&amp; | &amp;&amp; &amp;&amp; |\\ \end{bmatrix}_{m \times n}= \begin{bmatrix}  x_1^T x_1 &amp;&amp; x_1^T x_2 &amp;&amp; ... &amp;&amp; x_1^T x_n\\  x_2^T x_1 &amp;&amp; x_2^T x_2 &amp;&amp; ... &amp;&amp; x_2^T x_n\\  . &amp;&amp; . &amp;&amp; ... &amp;&amp; .\\  x_n^T x_1 &amp;&amp; x_n^T x_2 &amp;&amp; ... &amp;&amp; x_n^T x_n\\ \end{bmatrix}_{n \times n}\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">here</span> <span class="pre">we</span> <span class="pre">are</span> <span class="pre">calculating</span> <span class="pre">product</span> <span class="pre">of</span> <span class="pre">columns</span> <span class="pre">actually.</span> <span class="pre">observe</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">row</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">left</span> <span class="pre">matrix</span> <span class="pre">is</span> <span class="pre">actually</span> <span class="pre">the</span> <span class="pre">column</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">original</span> <span class="pre">matrix</span> <span class="pre">and</span> <span class="pre">by</span> <span class="pre">matrix</span> <span class="pre">multiplication</span> <span class="pre">it</span> <span class="pre">is</span> <span class="pre">getting</span> <span class="pre">multiplied</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">column</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">right</span> <span class="pre">matrix</span></code></p>
+<p>if <span class="math notranslate nohighlight">\(X = U \Sigma V^T\)</span></p>
+<p>then <span class="math notranslate nohighlight">\(X^T = V \Sigma U^T\)</span></p>
 <p><span class="math notranslate nohighlight">\(X^T X = V \Sigma U^T U \Sigma V^T = V \Sigma^2 V^T\)</span></p>
-<p>multiplying V both sides <span class="math notranslate nohighlight">\(X^T X V = V \Sigma^2\)</span></p>
+<p>multiplying V both sides</p>
+<p><span class="math notranslate nohighlight">\(X^T X V = V \Sigma^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(XX^T= \begin{bmatrix}  | &amp;&amp; | &amp;&amp; &amp;&amp; |\\  x_1 &amp;&amp; x_2 &amp;&amp; ... &amp;&amp; x_n\\  | &amp;&amp; | &amp;&amp; &amp;&amp; |\\ \end{bmatrix}_{m \times n} \begin{bmatrix}  -- &amp;&amp; x_1^T &amp;&amp; --\\  -- &amp;&amp; x_2^T &amp;&amp; --\\  &amp;&amp; .\\  &amp;&amp; .\\  -- &amp;&amp; x_n^T &amp;&amp; --\\ \end{bmatrix}_{n \times m}= \begin{bmatrix}  x_1x_1^T &amp;&amp; x_2 x_1^T &amp;&amp; ... &amp;&amp; x_1^T x_m\\  x_2^T x_1 &amp;&amp; x_2 x_2^T &amp;&amp; ... &amp;&amp; x_2^T x_m\\  . &amp;&amp; . &amp;&amp; ... &amp;&amp; .\\  x_m^T x_1 &amp;&amp; x_2 x_m^T &amp;&amp; ... &amp;&amp; x_m^T x_m\\ \end{bmatrix}_{m \times m}\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">here</span> <span class="pre">we</span> <span class="pre">are</span> <span class="pre">calculating</span> <span class="pre">product</span> <span class="pre">of</span> <span class="pre">rows</span></code></p>
 <p><span class="math notranslate nohighlight">\(X X^T = U \Sigma V^T V \Sigma U^T = U \Sigma^2 U^T\)</span></p>
 <p>multiplying U both sides <span class="math notranslate nohighlight">\(X^T X U = U \Sigma^2\)</span></p>
 <div class="line-block">
@@ -906,7 +1078,7 @@ array([[ 1,  2,  6,  8],
 <p>Now using this explanation to calculate SVD</p>
 </div>
 <div class="section" id="Method-of-Snapshots-(SVD-using-eigen-values-and-vectors)">
-<h3>Method of Snapshots (SVD using eigen values and vectors)<a class="headerlink" href="#Method-of-Snapshots-(SVD-using-eigen-values-and-vectors)" title="Permalink to this headline">¶</a></h3>
+<h2>Method of Snapshots (SVD using eigen values and vectors)<a class="headerlink" href="#Method-of-Snapshots-(SVD-using-eigen-values-and-vectors)" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>for U</p>
 <ul>
@@ -924,7 +1096,7 @@ array([[ 1,  2,  6,  8],
 </li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -937,7 +1109,7 @@ array([[ 1,  2,  6,  8],
 <li><p>eigen vector for U</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -966,7 +1138,7 @@ array([[ 1,  2,  6,  8],
 <li><p>eigen value of U</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -984,7 +1156,7 @@ array([[ 1,  2,  6,  8],
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -998,7 +1170,7 @@ array([[ 1,  2,  6,  8],
 <li><p>eigen vector of V</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1021,7 +1193,7 @@ array([[ 1,  2,  6,  8],
 <li><p>eigen value of V</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1041,7 +1213,7 @@ array([[ 1,  2,  6,  8],
 <li><p>singular value : square root of U values in descending order</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1051,7 +1223,7 @@ array([[ 1,  2,  6,  8],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1060,11 +1232,23 @@ array([56.97171686,  6.33713594,  0.22186625,  0.12231847])
 </pre></div></div>
 </div>
 </div>
+<div class="section" id="Unitary-Trasformations-with-SVD-(Geometric-Interpretation)">
+<h2>Unitary Trasformations with SVD (Geometric Interpretation)<a class="headerlink" href="#Unitary-Trasformations-with-SVD-(Geometric-Interpretation)" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="SVD-and-Image-Compression">
-<h3>SVD and Image Compression<a class="headerlink" href="#SVD-and-Image-Compression" title="Permalink to this headline">¶</a></h3>
+<h2>SVD and Image Compression<a class="headerlink" href="#SVD-and-Image-Compression" title="Permalink to this headline">¶</a></h2>
 <p>In simple words choosing lowest rank index(ranks are in descending order) required to generate a close approximation original matrix.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1077,7 +1261,7 @@ array([56.97171686,  6.33713594,  0.22186625,  0.12231847])
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1086,16 +1270,16 @@ array([56.97171686,  6.33713594,  0.22186625,  0.12231847])
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">gray_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#2 because I know this is a 3D matrix. I can give -1 to take the last dimension</span>
+<span></span><span class="n">gray_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#2 because I know this is a 3D matrix. I can give -1 to take the maximum dimension</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1104,23 +1288,23 @@ array([56.97171686,  6.33713594,  0.22186625,  0.12231847])
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7f45251819d0&gt;
+&lt;matplotlib.image.AxesImage at 0x7fecf6df3850&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_52_1.png" src="../_images/MathExploration_SingularValueDecomposition_52_1.png" />
+<img alt="../_images/MathExploration_SingularValueDecomposition_67_1.png" src="../_images/MathExploration_SingularValueDecomposition_67_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1129,7 +1313,7 @@ array([56.97171686,  6.33713594,  0.22186625,  0.12231847])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1138,7 +1322,7 @@ array([56.97171686,  6.33713594,  0.22186625,  0.12231847])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1156,23 +1340,23 @@ array([56.97171686,  6.33713594,  0.22186625,  0.12231847])
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7f4524673760&gt;
+&lt;matplotlib.image.AxesImage at 0x7fecf52dfe50&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_54_1.png" src="../_images/MathExploration_SingularValueDecomposition_54_1.png" />
+<img alt="../_images/MathExploration_SingularValueDecomposition_69_1.png" src="../_images/MathExploration_SingularValueDecomposition_69_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1184,7 +1368,7 @@ array([56.97171686,  6.33713594,  0.22186625,  0.12231847])
 </div>
 </div>
 <div class="section" id="Log-and-Cumulative-plots">
-<h3>Log and Cumulative plots<a class="headerlink" href="#Log-and-Cumulative-plots" title="Permalink to this headline">¶</a></h3>
+<h2>Log and Cumulative plots<a class="headerlink" href="#Log-and-Cumulative-plots" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>log plot will show to keep the first few ranks and throw rest of them as thier rank/ importance is not that much.</p></li>
 <li><p>cumulative plots purpose is to see that at what rank what percentage of the original matrix values(energy) is getting covered.
@@ -1193,7 +1377,7 @@ on y axis = <span class="math notranslate nohighlight">\(\frac{\sum_{i=0}^{r}{\s
 <li><p>to pick up a rank where we can get maximum energy possible</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1214,24 +1398,24 @@ on y axis = <span class="math notranslate nohighlight">\(\frac{\sum_{i=0}^{r}{\s
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7f4524089070&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7fecf5154670&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_57_1.png" src="../_images/MathExploration_SingularValueDecomposition_57_1.png" />
+<img alt="../_images/MathExploration_SingularValueDecomposition_72_1.png" src="../_images/MathExploration_SingularValueDecomposition_72_1.png" />
 </div>
 </div>
 <p>we can see around at rank 100, approx 90% original matrix is recovered.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1247,7 +1431,7 @@ on y axis = <span class="math notranslate nohighlight">\(\frac{\sum_{i=0}^{r}{\s
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1324,17 +1508,7 @@ on y axis = <span class="math notranslate nohighlight">\(\frac{\sum_{i=0}^{r}{\s
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/MathExploration_SingularValueDecomposition_60_0.png" src="../_images/MathExploration_SingularValueDecomposition_60_0.png" />
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
+<img alt="../_images/MathExploration_SingularValueDecomposition_75_0.png" src="../_images/MathExploration_SingularValueDecomposition_75_0.png" />
 </div>
 </div>
 </div>
@@ -1348,10 +1522,10 @@ on y axis = <span class="math notranslate nohighlight">\(\frac{\sum_{i=0}^{r}{\s
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Convolution.html" class="btn btn-neutral float-right" title="Understanding Convolution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="PrincipalComponentAnalysis.html" class="btn btn-neutral float-right" title="Principal Component Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../MatplotlibExploration/LiveVisual.html" class="btn btn-neutral float-left" title="Live Visual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="distances.html" class="btn btn-neutral float-left" title="Vector Distances" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
