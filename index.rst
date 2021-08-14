@@ -11,6 +11,7 @@ Welcome to Machine Learning Exploration's documentation!
    :caption: Contents:
 
    PracticalStatistics/Statistics
+   PracticalStatistics/Distributions
    PracticalStatistics/z_score
    PracticalStatistics/Hypothesis
    PracticalStatistics/StatisticalModelling
@@ -30,6 +31,7 @@ Welcome to Machine Learning Exploration's documentation!
    PandasExploration/PandasExploration
    MatplotlibExploration/visualization
    MatplotlibExploration/LiveVisual
+   MatplotlibExploration/Surface
    SupportVectorMachine/Explore
    IrisDataAnalysis/IrisDataExploratoryAnalysis
    BreastCancerAnalysis/BreastCancerPreprocessingAnalysis
