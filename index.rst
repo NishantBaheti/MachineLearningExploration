@@ -24,6 +24,7 @@ Welcome to Machine Learning Exploration's documentation!
    MathExploration/distances
    MathExploration/SingularValueDecomposition
    MathExploration/PrincipalComponentAnalysis
+   MathExploration/SVDLinearSystems
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
