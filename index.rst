@@ -25,6 +25,8 @@ Welcome to Machine Learning Exploration's documentation!
    MathExploration/SingularValueDecomposition
    MathExploration/PrincipalComponentAnalysis
    MathExploration/SVDLinearSystems
+   MathExploration/ImageSegmentation
+   MathExploration/MovingWindow
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
