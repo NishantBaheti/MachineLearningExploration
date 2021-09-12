@@ -17,6 +17,7 @@ Welcome to Machine Learning Exploration's documentation!
    PracticalStatistics/StatisticalModelling
    MathExploration/Convolution
    MathExploration/ImageProcessing
+   MathExploration/ImageSegmentation
    MathExploration/Fourier
    MathExploration/SignalProcessingFFT
    MathExploration/AudioProcessing
@@ -25,7 +26,6 @@ Welcome to Machine Learning Exploration's documentation!
    MathExploration/SingularValueDecomposition
    MathExploration/PrincipalComponentAnalysis
    MathExploration/SVDLinearSystems
-   MathExploration/ImageSegmentation
    MathExploration/MovingWindow
    LinearRegression/Explore
    LogisticRegression/Explore
@@ -36,19 +36,12 @@ Welcome to Machine Learning Exploration's documentation!
    MatplotlibExploration/LiveVisual
    MatplotlibExploration/Surface
    SupportVectorMachine/Explore
+   NaturalLanguageProcessing/NLTK
    IrisDataAnalysis/IrisDataExploratoryAnalysis
    BreastCancerAnalysis/BreastCancerPreprocessingAnalysis
    BreastCancerAnalysis/BreastCancerModellingAnalysis
    BreastCancerAnalysis/plot_learning_curve
    ChurnClassification/ChurnClassificationModelling
    DigitsDataAnalysis/DigitsDataModelling
-   NaturalLanguageProcessing/NLTK
    SpamDetection/SpamDataAnalytics
    AnomalyDetection/Explore
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
