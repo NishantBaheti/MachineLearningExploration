@@ -5,10 +5,6 @@ Machine Learning Exploration
 .. index:: HOME
 .. include:: ./intro.rst 
 
-
-=================================
-modules
-=================================
 .. index:: MODULES
 .. include:: ./modules.rst
 
