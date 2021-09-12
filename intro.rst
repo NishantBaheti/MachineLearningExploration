@@ -1,6 +1,3 @@
-=================================
-Machine Learning Exploration
-=================================
 
 What is this documentation? What am i going to find here? Is the math, method and logic is correct?
 `Completely valid questions`
