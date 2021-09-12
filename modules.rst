@@ -1,9 +1,5 @@
-
-modules
-============
-
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 6
 
    PracticalStatistics/Statistics
    PracticalStatistics/Distributions

@@ -3,4 +3,4 @@
 
 
 .. index:: 
-   machine learning exploration
+   Machine Learning Exploration
