@@ -1,6 +1,16 @@
+
+.. index:: HOME
+
 .. include:: ./intro.rst 
+
+.. index:: MODULES
+
 .. include:: ./modules.rst
 
 
-.. index:: 
-   Machine Learning Exploration
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
