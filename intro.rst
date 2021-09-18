@@ -3,7 +3,7 @@
     `why am i creating this?` I am learning things at a very slow pace and i tend to forget things/ formulas/ methods. To keep everything at one place so that I can go through a topic quickly. Now just to help other people who are also starting to learn these topics, this doc may be helpful. There are already a lot of content available over internet. This is just another documentation. But this documentation is developed from the perspective of an average person with an enthusiasm for data wonders.
 
 
-`Is the math, method and logic correct?`
+`Is the math, method or logic correct?`
     Validation of the content is done by people who are visiting it or the results are proof sometimes :-D . I usually understand the topic from some course, youtube video and book and apply the same.
     If It is giving results then awesome, if not then try something else.
 

@@ -3,6 +3,7 @@
    :maxdepth: 6
 
    PracticalStatistics/Statistics
+   PracticalStatistics/Correlation
    PracticalStatistics/Distributions
    PracticalStatistics/z_score
    PracticalStatistics/Hypothesis
