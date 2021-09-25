@@ -1,6 +1,6 @@
-=================================
-Machine Learning Exploration
-=================================
+====================================================
+The amateur's guide to explore machine learning
+====================================================
 
 .. index:: HOME
 .. include:: ./intro.rst 
