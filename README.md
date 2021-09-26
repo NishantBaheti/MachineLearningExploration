@@ -1,4 +1,4 @@
-## Machine Learning Exploration for algorithms and techniques with examples and documentation
+## The amateur's guide to explore machine learning
 
 
 ## see the read the docs here -

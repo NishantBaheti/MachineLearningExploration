@@ -17,8 +17,8 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Machine Learning Exploration'
-copyright = '2021, Nishant Baheti'
+project = "The amateur's guide to explore machine learning"
+copyright = 'No copyright, Nishant Baheti'
 author = 'Nishant Baheti'
 
 # The full version, including alpha/beta/rc tags
