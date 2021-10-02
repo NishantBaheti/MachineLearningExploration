@@ -23,7 +23,7 @@
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
-   TreeBasedModels/ExploreRandomForest
+   EnsembleMethods/ExploreRandomForest
    PandasExploration/PandasExploration
    MatplotlibExploration/visualization
    MatplotlibExploration/LiveVisual
