@@ -24,6 +24,7 @@
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
    EnsembleMethods/ExploreRandomForest
+   EnsembleMethods/ExploreBoosting
    PandasExploration/PandasExploration
    MatplotlibExploration/visualization
    MatplotlibExploration/LiveVisual
