@@ -21,6 +21,8 @@ project = "The amateur's guide to explore machine learning"
 copyright = 'No copyright, Nishant Baheti'
 author = 'Nishant Baheti'
 
+html_show_copyright = False
+
 # The full version, including alpha/beta/rc tags
 release = '1.0.0'
 
