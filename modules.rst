@@ -25,12 +25,13 @@
    TreeBasedModels/ExploreDecisionTree
    EnsembleMethods/ExploreRandomForest
    EnsembleMethods/ExploreBoosting
+   SupportVectorMachine/Explore
+   NaturalLanguageProcessing/NLTK
    PandasExploration/PandasExploration
    MatplotlibExploration/visualization
    MatplotlibExploration/LiveVisual
    MatplotlibExploration/Surface
-   SupportVectorMachine/Explore
-   NaturalLanguageProcessing/NLTK
+   MatplotlibExploration/plot_learning_curve
    IrisDataAnalysis/IrisDataExploratoryAnalysis
    BreastCancerAnalysis/BreastCancerPreprocessingAnalysis
    BreastCancerAnalysis/BreastCancerModellingAnalysis
@@ -38,4 +39,4 @@
    ChurnClassification/ChurnClassificationModelling
    DigitsDataAnalysis/DigitsDataModelling
    SpamDetection/SpamDataAnalytics
-   AnomalyDetection/Explore   
+   AnomalyDetection/Explore
