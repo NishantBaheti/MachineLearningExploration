@@ -4,9 +4,8 @@
 
    PracticalStatistics/Statistics
    PracticalStatistics/Correlation
-   PracticalStatistics/Distributions
-   PracticalStatistics/z_score
    PracticalStatistics/Hypothesis
+   PracticalStatistics/Distributions
    PracticalStatistics/StatisticalModelling
    MathExploration/Convolution
    MathExploration/ImageProcessing
@@ -26,6 +25,7 @@
    EnsembleMethods/ExploreRandomForest
    EnsembleMethods/ExploreBoosting
    SupportVectorMachine/Explore
+   AnomalyDetection/Explore
    NaturalLanguageProcessing/NLTK
    PandasExploration/PandasExploration
    MatplotlibExploration/visualization
@@ -39,4 +39,4 @@
    ChurnClassification/ChurnClassificationModelling
    DigitsDataAnalysis/DigitsDataModelling
    SpamDetection/SpamDataAnalytics
-   AnomalyDetection/Explore
+   
