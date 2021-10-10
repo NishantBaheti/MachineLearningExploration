@@ -1,6 +1,6 @@
 
 .. toctree::
-   :maxdepth: 6
+   :maxdepth: 8
 
    PracticalStatistics/Statistics
    PracticalStatistics/Correlation
