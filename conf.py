@@ -55,8 +55,6 @@ exclude_patterns = ['_build', '**.ipynb_checkpoints','docs']
 # a list of builtin themes.
 #
 ## read the docs 
-# html_theme = 'sphinx_rtd_theme'
-
 # html_theme = "groundwork"
 
 html_theme = "sphinx_rtd_theme"
@@ -67,3 +65,7 @@ html_theme = "sphinx_rtd_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
  
+
+html_theme_options = {
+    "page_width": "100%"
+}
