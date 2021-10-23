@@ -58,8 +58,8 @@ exclude_patterns = ['_build', '**.ipynb_checkpoints','docs']
 # html_theme = "groundwork"
 
 # html_theme = "sphinx_rtd_theme"
-html_theme = "sizzle"
-
+# html_theme = "sizzle"
+html_theme = "'sphinx_book_theme'"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
