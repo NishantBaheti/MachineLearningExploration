@@ -67,3 +67,4 @@ traitlets==5.0.5
 urllib3==1.26.6
 wcwidth==0.2.5
 webencodings==0.5.1
+sphinx-sizzle-theme==0.0.9

@@ -57,7 +57,8 @@ exclude_patterns = ['_build', '**.ipynb_checkpoints','docs']
 ## read the docs 
 # html_theme = "groundwork"
 
-html_theme = "sphinx_rtd_theme"
+# html_theme = "sphinx_rtd_theme"
+html_theme = "sizzle"
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
