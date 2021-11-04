@@ -32,6 +32,7 @@
    MatplotlibExploration/LiveVisual
    MatplotlibExploration/Surface
    MatplotlibExploration/plot_learning_curve
+   PlotlyExploration/plotly
    IrisDataAnalysis/IrisDataExploratoryAnalysis
    BreastCancerAnalysis/BreastCancerPreprocessingAnalysis
    BreastCancerAnalysis/BreastCancerModellingAnalysis
