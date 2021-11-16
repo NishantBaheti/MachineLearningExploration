@@ -26,7 +26,6 @@
    EnsembleMethods/ExploreBoosting
    SupportVectorMachine/Explore
    AnomalyDetection/Explore
-   NaturalLanguageProcessing/NLTK
    PandasExploration/PandasExploration
    MatplotlibExploration/visualization
    MatplotlibExploration/LiveVisual
@@ -39,5 +38,5 @@
    BreastCancerAnalysis/plot_learning_curve
    ChurnClassification/ChurnClassificationModelling
    DigitsDataAnalysis/DigitsDataModelling
-   SpamDetection/SpamDataAnalytics
+   
    
