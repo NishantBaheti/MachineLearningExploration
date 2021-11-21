@@ -4,8 +4,8 @@
 
    PracticalStatistics/Statistics
    PracticalStatistics/Correlation
-   PracticalStatistics/Hypothesis
    PracticalStatistics/Distributions
+   PracticalStatistics/Hypothesis
    PracticalStatistics/StatisticalModelling
    MathExploration/Convolution
    MathExploration/ImageProcessing
