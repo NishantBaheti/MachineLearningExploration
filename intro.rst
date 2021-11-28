@@ -1,5 +1,5 @@
 `What is this documentation?`
-    I am Nishant & this documnetation is my notes that i am developing as i am learning. 
+    I am Nishant & this doc is my exploration that i am developing as i am learning. 
     `why am i creating this?` I am learning things at a very slow pace and i tend to forget things/ formulas/ methods. To keep everything at one place so that I can go through a topic quickly. Now just to help other people who are also starting to learn these topics, this doc may be helpful. There are already a lot of content available over internet. This is just another documentation. But this documentation is developed from the perspective of an average person with an enthusiasm for data wonders.
 
 
@@ -21,8 +21,6 @@
     | github    | https://www.github.com/nishantbaheti       |
     +-----------+--------------------------------------------+
     | linkedin  | https://www.linkedin.com/in/nishantbaheti/ |
-    +-----------+--------------------------------------------+
-    | instagram | @_cranky_panda_                            |
     +-----------+--------------------------------------------+
 
 
