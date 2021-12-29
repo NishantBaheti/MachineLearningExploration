@@ -38,5 +38,6 @@
    BreastCancerAnalysis/plot_learning_curve
    ChurnClassification/ChurnClassificationModelling
    DigitsDataAnalysis/DigitsDataModelling
+   https://understandnn.readthedocs.io
    
    
