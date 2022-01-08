@@ -19,6 +19,7 @@
    MathExploration/PrincipalComponentAnalysis
    MathExploration/SVDLinearSystems
    MathExploration/MovingWindow
+   MathExploration/sparse
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
