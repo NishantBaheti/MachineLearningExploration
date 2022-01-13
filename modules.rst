@@ -20,6 +20,7 @@
    MathExploration/SVDLinearSystems
    MathExploration/MovingWindow
    MathExploration/sparse
+   Intuition/class_explore
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
