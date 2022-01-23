@@ -35,11 +35,12 @@
    MatplotlibExploration/plot_learning_curve
    PlotlyExploration/plotly
    IrisDataAnalysis/IrisDataExploratoryAnalysis
-   BreastCancerAnalysis/BreastCancerPreprocessingAnalysis
-   BreastCancerAnalysis/BreastCancerModellingAnalysis
-   BreastCancerAnalysis/plot_learning_curve
+   BreastCancerAnalysis/BreastCancerAnalysis
    ChurnClassification/ChurnClassificationModelling
    DigitsDataAnalysis/DigitsDataModelling
+   BreastCancerAnalysis/plot_learning_curve
    https://understandnn.readthedocs.io
+   https://nlpblog.readthedocs.io
+   https://recommendation-systems.readthedocs.io
    
    
