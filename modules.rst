@@ -36,7 +36,6 @@
    PlotlyExploration/plotly
    IrisDataAnalysis/IrisDataExploratoryAnalysis
    BreastCancerAnalysis/BreastCancerAnalysis
-   ChurnClassification/ChurnClassificationModelling
    DigitsDataAnalysis/DigitsDataModelling
    BreastCancerAnalysis/plot_learning_curve
    https://understandnn.readthedocs.io
