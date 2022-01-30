@@ -33,11 +33,12 @@
    MatplotlibExploration/visualization
    MatplotlibExploration/LiveVisual
    MatplotlibExploration/Surface
-   MatplotlibExploration/plot_learning_curve
    PlotlyExploration/plotly
-   IrisDataAnalysis/IrisDataExploratoryAnalysis
-   BreastCancerAnalysis/BreastCancerAnalysis
-   DigitsDataAnalysis/DigitsDataModelling
+   ClassificationProjects/IrisDataExploratoryAnalysis
+   ClassificationProjects/BreastCancerAnalysis
+   ClassificationProjects/DigitsDataModelling
+   RegressionProjects/CaliforniaHousingPriceRegression
+   RegressionProjects/CarPriceRegression
    BreastCancerAnalysis/plot_learning_curve
    https://understandnn.readthedocs.io
    https://nlpblog.readthedocs.io
