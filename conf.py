@@ -14,6 +14,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
 
+from setuptools_scm import get_version
 
 # -- Project information -----------------------------------------------------
 
@@ -24,7 +25,7 @@ author = 'Nishant Baheti'
 html_show_copyright = False
 
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = get_version(root='.')
 
 
 # -- General configuration ---------------------------------------------------
