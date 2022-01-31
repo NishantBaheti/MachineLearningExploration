@@ -38,8 +38,12 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
-    'sphinx.ext.todo','sphinx.ext.ifconfig'
+    'sphinx.ext.todo',
+    'sphinx.ext.ifconfig',
+    'sphinx_js'
 ]
+
+primary_domain = 'js'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

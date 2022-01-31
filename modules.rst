@@ -13,7 +13,6 @@
    MathExploration/Fourier
    MathExploration/SignalProcessingFFT
    MathExploration/AudioProcessing
-   MathExploration/Correlation
    MathExploration/distances
    MathExploration/SingularValueDecomposition
    MathExploration/PrincipalComponentAnalysis
@@ -39,7 +38,7 @@
    ClassificationProjects/DigitsDataModelling
    RegressionProjects/CaliforniaHousingPriceRegression
    RegressionProjects/CarPriceRegression
-   BreastCancerAnalysis/plot_learning_curve
+   MatplotlibExploration/plot_learning_curve
    https://understandnn.readthedocs.io
    https://nlpblog.readthedocs.io
    https://recommendation-systems.readthedocs.io
