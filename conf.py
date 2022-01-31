@@ -40,7 +40,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
-    'sphinx_js'
+#     'sphinx_js'
 ]
 
 # primary_domain = 'js'
