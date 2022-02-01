@@ -43,10 +43,8 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
-    'sphinx_gallery.gen_gallery'
+#     'sphinx_gallery.gen_gallery'
 ]
-
-# primary_domain = 'js'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -55,6 +53,7 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', '**.ipynb_checkpoints','docs']
+include_patterns = ['.ipynb']
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -77,4 +76,10 @@ html_static_path = ['_static']
 
 html_theme_options = {
     "page_width": "100%"
+}
+
+nbsphinx_requirejs_options = {
+	"src": "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js",
+	"integrity": "sha512-VCK7oF67GXNc+J7zsu5o57jtxhLA75nSMHGaq8Q8TCOxDj4nMDw5dhQZvm9Cd9RN+3zgcodqbKcRc9gyPP8a2w==",
+	"crossorigin": "anonymous"
 }
