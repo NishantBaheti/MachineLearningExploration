@@ -15,6 +15,9 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 
 from setuptools_scm import get_version
+import plotly.io as pio
+
+pio.renderers.default = 'sphinx_gallery'
 
 # -- Project information -----------------------------------------------------
 
@@ -40,7 +43,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
-#     'sphinx_js'
+    'sphinx_gallery.gen_gallery'
 ]
 
 # primary_domain = 'js'
