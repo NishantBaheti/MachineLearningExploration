@@ -1,11 +1,11 @@
 
 .. toctree::
-   :maxdepth: 8
+   :maxdepth: 4
 
    PracticalStatistics/Statistics
    PracticalStatistics/Correlation
-   PracticalStatistics/Distributions
    PracticalStatistics/Sampling
+   PracticalStatistics/Distributions
    PracticalStatistics/Hypothesis
    PracticalStatistics/StatisticalModelling
    MathExploration/Convolution
