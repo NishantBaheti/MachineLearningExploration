@@ -15,9 +15,9 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 
 from setuptools_scm import get_version
-import plotly.io as pio
+# import plotly.io as pio
 
-pio.renderers.default = 'sphinx_gallery'
+# pio.renderers.default = 'sphinx_gallery'
 
 # -- Project information -----------------------------------------------------
 
