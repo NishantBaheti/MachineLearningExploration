@@ -29,6 +29,7 @@
    EnsembleMethods/ExploreBoosting
    SupportVectorMachine/Explore
    AnomalyDetection/Explore
+   TimeSeriesMethods/tsforcasting
    .. PandasExploration/PandasExploration
    MatplotlibExploration/visualization
    MatplotlibExploration/LiveVisual
