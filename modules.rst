@@ -33,7 +33,7 @@
    MatplotlibExploration/visualization
    MatplotlibExploration/LiveVisual
    MatplotlibExploration/Surface
-   .. PlotlyExploration/plotly
+   PlotlyExploration/plotly
    ClassificationProjects/IrisDataExploratoryAnalysis
    ClassificationProjects/BreastCancerAnalysis
    ClassificationProjects/DigitsDataModelling
