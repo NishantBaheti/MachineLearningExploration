@@ -30,6 +30,7 @@
    SupportVectorMachine/Explore
    AnomalyDetection/Explore
    TimeSeriesMethods/tsforcasting
+   GraphNetwork/networkx_exp
    .. PandasExploration/PandasExploration
    MatplotlibExploration/visualization
    MatplotlibExploration/LiveVisual
