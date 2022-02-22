@@ -7,6 +7,7 @@
    PracticalStatistics/Sampling
    PracticalStatistics/Distributions
    PracticalStatistics/Hypothesis
+   PracticalStatistics/HypTestingEx
    PracticalStatistics/StatisticalModelling
    MathExploration/Convolution
    MathExploration/ImageProcessing
