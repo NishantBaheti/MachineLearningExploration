@@ -28,6 +28,7 @@
    TreeBasedModels/ExploreDecisionTree
    EnsembleMethods/ExploreRandomForest
    EnsembleMethods/ExploreBoosting
+   Evaluation/classification
    SupportVectorMachine/Explore
    AnomalyDetection/Explore
    TimeSeriesMethods/tsforcasting
