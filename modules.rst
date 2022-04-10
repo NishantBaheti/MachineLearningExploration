@@ -1,8 +1,11 @@
+=============
+Index
+=============
 
 .. toctree::
    :maxdepth: 4
    :caption: Statistics
-   
+
    PracticalStatistics/Statistics
    PracticalStatistics/Correlation
    PracticalStatistics/Sampling
@@ -13,7 +16,7 @@
    
 .. toctree::
    :maxdepth: 4
-   :caption: Image & Signal Progressing
+   :caption: Image & Signal Procressing
    
    MathExploration/Convolution
    MathExploration/ImageProcessing
@@ -24,17 +27,17 @@
    
 .. toctree::
    :maxdepth: 4
-   :caption: ML Concepts
+   :caption: Vector Insights
    
-   MathExploration/distances
    MathExploration/SingularValueDecomposition
    MathExploration/PrincipalComponentAnalysis
    MathExploration/SVDLinearSystems
    
 .. toctree::
    :maxdepth: 4
-   :caption: Feature Processing a& Engineering
+   :caption: Feature Processing & Engineering
    
+   MathExploration/distances
    MathExploration/MovingWindow
    MathExploration/sparse
    DataPreprocessing/techniques
