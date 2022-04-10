@@ -1,20 +1,19 @@
-
 `What is this documentation?`
-    This doc is my exploration that I am developing this as I am learning.
+    This doc is my exploration that I am developing as I am learning.
 
 
-`why am i creating this?` 
+`Why am i creating this?` 
     I am learning things at a slow pace and I tend to forget methods/ formulas/ code s. 
-    To keep everything at one place so that I can go through the topic quickly for referecence. 
-    Now just to help other people who are also starting to learn these topics, this doc may be helpful. 
+    To keep everything at one place so that I can go through the topic quickly for reference. 
+    Now just to help other people who are also starting to learn these topics, this doc may be helpful.
     
-    There are already a lot of content available over the internet. 
+    There is already a lot of content available over the internet. 
     This is just another doc but it is developed from the perspective of an average person with an enthusiasm for data wonders.
 
 
-`Is the mathematics, method or logic correct?`
+`Is the math, method or logic correct?`
     Validation of the content is done by people who are visiting it.
-    On the other hand results are proof sometimes :-D .
+    On the other hand, sometimes results are proof :-D .
 
     I understand the topic from a course, youtube video, research paper or book and try it.
     If It is giving results then awesome, if not then try something else.
