@@ -1,6 +1,4 @@
-Jinja2<=3.1
-Sphinx==3.4.3
-sphinx-rtd-theme==0.5.2
+Sphinx>=3.4.3
 sphinxcontrib-applehelp==1.0.2
 sphinxcontrib-bibtex==2.3.0
 sphinxcontrib-devhelp==1.0.2
@@ -11,5 +9,5 @@ sphinxcontrib-serializinghtml==1.1.5
 sphinxcontrib-svg2pdfconverter==1.1.1
 webencodings==0.5.1
 sphinx-book-theme>=0.1.6
-nbsphinx==0.8.6
+nbsphinx>=0.8.6
 setuptools_scm
