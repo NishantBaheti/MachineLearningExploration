@@ -1,9 +1,6 @@
-=============
-Index
-=============
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Statistics
 
    PracticalStatistics/Statistics
@@ -15,7 +12,7 @@ Index
    PracticalStatistics/StatisticalModelling
    
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Image & Signal Procressing
    
    MathExploration/Convolution
@@ -26,15 +23,15 @@ Index
    MathExploration/AudioProcessing
    
 .. toctree::
-   :maxdepth: 4
-   :caption: Vector Insights
+   :maxdepth: 2
+   :caption: Data Insights
    
    MathExploration/SingularValueDecomposition
    MathExploration/PrincipalComponentAnalysis
    MathExploration/SVDLinearSystems
    
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Feature Processing & Engineering
    
    MathExploration/distances
@@ -43,14 +40,14 @@ Index
    DataPreprocessing/techniques
    
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Intuition & Evaluation
    
    Intuition/class_explore
    Evaluation/classification 
    
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Algorithms & Implementations
    
    LinearRegression/Explore
@@ -60,14 +57,14 @@ Index
    EnsembleMethods/ExploreBoosting
    
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Graph & Network
    
    GraphNetwork/networkx_exp
    
 .. toctree::
-   :maxdepth: 4
-   :caption: Visualations
+   :maxdepth: 2
+   :caption: Visualizations
    
    MatplotlibExploration/visualization
    MatplotlibExploration/LiveVisual
@@ -75,7 +72,7 @@ Index
    PlotlyExploration/plotly
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Classification Projects
    
    ClassificationProjects/IrisDataExploratoryAnalysis
@@ -83,7 +80,7 @@ Index
    ClassificationProjects/DigitsDataModelling
    
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Regression Projects
    
    RegressionProjects/CaliforniaHousingPriceRegression
@@ -91,7 +88,7 @@ Index
    MatplotlibExploration/plot_learning_curve
    
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Additional Docs
    
    Neural Network Doc <https://understandnn.readthedocs.io>
@@ -99,7 +96,7 @@ Index
    Reco System Doc <https://recommendation-systems.readthedocs.io>
    
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Work In Progress
    
    SupportVectorMachine/Explore
