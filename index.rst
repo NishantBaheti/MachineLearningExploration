@@ -1,7 +1,8 @@
 .. index:: HOME
-.. include:: ./README.rst 
+.. include:: ./README.rst
 
+========================
+MODULES 
+========================
 .. index:: MODULES
-    :name: modules
-    :captions: modules
 .. include:: ./modules.rst
