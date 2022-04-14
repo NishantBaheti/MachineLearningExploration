@@ -1,3 +1,7 @@
+====================================================
+The amateur's guide to explore machine learning
+====================================================
+
 
 HELLO THERE !!!
 
@@ -15,3 +19,4 @@ HELLO THERE !!!
 +-----------+--------------------------------------------+
     
 if I haven't mentioned your work's reference correctly then let me know. I am more than happy to correct the situation.
+

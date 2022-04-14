@@ -1,9 +1,5 @@
-====================================================
-The amateur's guide to explore machine learning
-====================================================
-
 .. index:: HOME
-.. include:: ./intro.rst 
+.. include:: ./README.rst 
 
 .. index:: MODULES
 .. include:: ./modules.rst
