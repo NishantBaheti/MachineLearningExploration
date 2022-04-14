@@ -1,8 +1,6 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Statistics
-   :name: Statistics
 
    PracticalStatistics/Statistics
    PracticalStatistics/Correlation
