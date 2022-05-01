@@ -5,6 +5,7 @@
    PracticalStatistics/Statistics
    PracticalStatistics/Correlation
    PracticalStatistics/Sampling
+   PracticalStatistics/probability
    PracticalStatistics/Distributions
    PracticalStatistics/Hypothesis
    PracticalStatistics/HypTestingEx
