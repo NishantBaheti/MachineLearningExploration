@@ -26,6 +26,7 @@ copyright = 'No copyright, Nishant Baheti'
 author = 'Nishant Baheti'
 
 html_show_copyright = False
+html_logo = "mlelogo.drawio.png"
 
 # The full version, including alpha/beta/rc tags
 release = get_version(root='.')
