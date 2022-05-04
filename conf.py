@@ -27,7 +27,8 @@ author = 'Nishant Baheti'
 
 html_show_copyright = False
 html_logo = "mlelogo.drawio.png"
-
+html_favicon = "mlelogo.drawio.png"
+html_title = False
 # The full version, including alpha/beta/rc tags
 release = get_version(root='.')
 
