@@ -66,7 +66,7 @@
    TreeBasedModels/ExploreDecisionTree
    EnsembleMethods/ExploreRandomForest
    EnsembleMethods/ExploreBoosting
-
+   MathExploration/trend_slope
 
 .. toctree::
    :maxdepth: 2
@@ -114,6 +114,8 @@
    Neural Network Doc <https://understandnn.readthedocs.io>
    NLP Doc <https://nlpblog.readthedocs.io>
    Reco System Doc <https://recommendation-systems.readthedocs.io>
+   mightypy <https://mightypy.readthedocs.io/>
+   graphpkg <https://graphpkg.readthedocs.io/>
 
 .. toctree::
    :maxdepth: 2
