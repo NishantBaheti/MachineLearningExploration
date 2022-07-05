@@ -111,9 +111,9 @@
    :caption: Additional Docs
    :name: Additional Docs
    
+   Recommendation Systems Doc <https://recommendation-systems.readthedocs.io>
    Neural Network Doc <https://understandnn.readthedocs.io>
    NLP Doc <https://nlpblog.readthedocs.io>
-   Reco System Doc <https://recommendation-systems.readthedocs.io>
    mightypy <https://mightypy.readthedocs.io/>
    graphpkg <https://graphpkg.readthedocs.io/>
 
