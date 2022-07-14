@@ -55,6 +55,7 @@
    
    Intuition/class_explore
    Evaluation/classification 
+   MathExploration/matrix_multiplication
 
 .. toctree::
    :maxdepth: 2
