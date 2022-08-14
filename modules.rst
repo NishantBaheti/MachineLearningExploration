@@ -35,7 +35,7 @@
    MathExploration/SingularValueDecomposition
    MathExploration/PrincipalComponentAnalysis
    MathExploration/SVDLinearSystems
-
+   MathExploration/woe_iv
 
 .. toctree::
    :maxdepth: 2
