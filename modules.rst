@@ -62,6 +62,7 @@
    :caption: Algorithms & Implementations
    :name: Algorithms & Implementations
    
+   perceptron/explore
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
