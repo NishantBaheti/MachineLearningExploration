@@ -87,26 +87,18 @@
    MatplotlibExploration/LiveVisual
    MatplotlibExploration/Surface
    PlotlyExploration/plotly
-
+   MatplotlibExploration/plot_learning_curve
 
 .. toctree::
    :maxdepth: 2
-   :caption: Classification Projects
-   :name: Classification Projects
+   :caption: Projects
+   :name: Projects
    
    ClassificationProjects/IrisDataExploratoryAnalysis
    ClassificationProjects/BreastCancerAnalysis
    ClassificationProjects/DigitsDataModelling
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Regression Projects
-   :name: Regression Projects
-   
    RegressionProjects/CaliforniaHousingPriceRegression
    RegressionProjects/CarPriceRegression
-   MatplotlibExploration/plot_learning_curve
 
 .. toctree::
    :maxdepth: 2
