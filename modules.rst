@@ -13,7 +13,6 @@
    PracticalStatistics/Distributions
    PracticalStatistics/Hypothesis
    PracticalStatistics/HypTestingEx
-   PracticalStatistics/StatisticalModelling
 
 .. toctree::
    :maxdepth: 2
@@ -69,7 +68,8 @@
    EnsembleMethods/ExploreRandomForest
    EnsembleMethods/ExploreBoosting
    MathExploration/trend_slope
-
+   PracticalStatistics/StatisticalModelling
+   
 .. toctree::
    :maxdepth: 2
    :caption: Graph & Network
@@ -90,15 +90,15 @@
    MatplotlibExploration/plot_learning_curve
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Projects
-   :name: Projects
+   .. :maxdepth: 2
+   .. :caption: Projects
+   .. :name: Projects
    
-   ClassificationProjects/IrisDataExploratoryAnalysis
-   ClassificationProjects/BreastCancerAnalysis
-   ClassificationProjects/DigitsDataModelling
-   RegressionProjects/CaliforniaHousingPriceRegression
-   RegressionProjects/CarPriceRegression
+   .. ClassificationProjects/IrisDataExploratoryAnalysis
+   .. ClassificationProjects/BreastCancerAnalysis
+   .. ClassificationProjects/DigitsDataModelling
+   .. RegressionProjects/CaliforniaHousingPriceRegression
+   .. RegressionProjects/CarPriceRegression
 
 .. toctree::
    :maxdepth: 2
