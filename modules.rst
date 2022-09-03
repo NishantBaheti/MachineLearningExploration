@@ -62,6 +62,7 @@
    :name: Algorithms & Implementations
    
    perceptron/explore
+   NearestNeighbors/explore
    LinearRegression/Explore
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
