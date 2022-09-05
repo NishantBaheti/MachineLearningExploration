@@ -13,7 +13,9 @@
    PracticalStatistics/Distributions
    PracticalStatistics/Hypothesis
    PracticalStatistics/HypTestingEx
-
+   ProbabilisticModel/bayes
+   ProbabilisticModel/estimation_probability
+   
 .. toctree::
    :maxdepth: 2
    :caption: Image & Signal Procressing
@@ -46,7 +48,6 @@
    MathExploration/sparse
    DataPreprocessing/techniques
 
-   
 .. toctree::
    :maxdepth: 2
    :caption: Intuition & Evaluation
