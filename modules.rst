@@ -13,8 +13,6 @@
    PracticalStatistics/Distributions
    PracticalStatistics/Hypothesis
    PracticalStatistics/HypTestingEx
-   ProbabilisticModel/bayes
-   ProbabilisticModel/estimation_probability
    
 .. toctree::
    :maxdepth: 2
@@ -118,6 +116,8 @@
    :caption: Work In Progress
    :name: Work In Progress
    
+   ProbabilisticModel/bayes
+   ProbabilisticModel/estimation_probability
    SupportVectorMachine/Explore
    AnomalyDetection/Explore
    TimeSeriesMethods/tsforcasting
