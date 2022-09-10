@@ -15,9 +15,7 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 
 from setuptools_scm import get_version
-# import plotly.io as pio
 
-# pio.renderers.default = 'sphinx_gallery'
 
 # -- Project information -----------------------------------------------------
 
@@ -56,7 +54,7 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', '**.ipynb_checkpoints','docs']
 include_patterns = ['.ipynb']
 
-
+master_doc = 'index.rst'
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
