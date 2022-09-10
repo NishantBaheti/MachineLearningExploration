@@ -12,3 +12,4 @@ piccolo-theme==0.11.0
 sphinx-book-theme
 nbsphinx>=0.8.6
 setuptools_scm
+furo
