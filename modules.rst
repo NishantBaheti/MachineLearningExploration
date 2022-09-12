@@ -116,7 +116,6 @@
    :caption: Work In Progress
    :name: Work In Progress
    
-   ProbabilisticModel/bayes
    ProbabilisticModel/estimation_probability
    SupportVectorMachine/Explore
    AnomalyDetection/Explore
