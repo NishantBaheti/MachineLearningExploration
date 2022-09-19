@@ -11,6 +11,7 @@
    PracticalStatistics/Sampling
    PracticalStatistics/probability
    PracticalStatistics/Distributions
+   ProbabilisticModel/estimation_probability
    PracticalStatistics/Hypothesis
    PracticalStatistics/HypTestingEx
    
@@ -116,7 +117,6 @@
    :caption: Work In Progress
    :name: Work In Progress
    
-   ProbabilisticModel/estimation_probability
    SupportVectorMachine/Explore
    AnomalyDetection/Explore
    TimeSeriesMethods/tsforcasting
