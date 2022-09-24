@@ -4,14 +4,20 @@ The amateur's guide to explore machine learning
 
 .. image:: mlelogo.drawio.png
 
+
 HELLO THERE !!!
 
 Welcome. 
 
-This doc is my exploration of machine learning and data science that I am developing as I am learning.
-I am learning things at a slow pace and I tend to forget logics/ methods/ formulas/ codes. To keep everything at one place so that I can go through the topic quickly for reference. Now just to help other people who are also starting to learn these topics, this doc may be helpful.
-Validation of the content is done by people who are visiting it. On the other hand, sometimes results are proof. 
-I understand the topic mostly from a free course, video, research paper or book and try it (most references are mentioned with the topic).
+I started this documentation as my exploration of *machine learning & data science* that I am developing as I am learning.
+
+I usually forget logics, methods, algorihtms and code. Hence to keep everything at one place so that I can go through the topic quickly as referenced. For the people who are visiting it and also starting to learn these topics, this doc might be helpful.
+
+On the validation of the content, It is generally done by the folks who are reading it. On the other hand, sometimes results are the proofs asked.
+
+Source of the content mostly from a free course, video, research paper and book (most of the references are mentioned with the topic).
+
+*If I haven't mentioned your reference correctly then let me know, I'll correct the situation.*
 
 +-----------+--------------------------------------------+
 | email     | nishantbaheti.it19@gmail.com               |
@@ -21,5 +27,4 @@ I understand the topic mostly from a free course, video, research paper or book 
 | linkedin  | https://www.linkedin.com/in/nishantbaheti/ |
 +-----------+--------------------------------------------+
     
-If I haven't mentioned your work's reference correctly then let me know. I am more than happy to correct the situation.
 
