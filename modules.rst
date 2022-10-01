@@ -116,6 +116,7 @@
    :caption: Work In Progress
    :name: Work In Progress
    
+   MathExploration/curse_of_dimensionality
    SupportVectorMachine/Explore
    AnomalyDetection/Explore
    TimeSeriesMethods/tsforcasting
