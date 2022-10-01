@@ -1,6 +1,6 @@
 .. meta::
    :description: This is a guide to explore machine learning and data science methods. Understanding statistics, probability, distribution, data processing, machine learning algorithms, data science methods.
-   :keywords: machine learning exploration, machinelearningexploration, The amateur's guide to explore machine learning, Machine learning, data science, statistics, probability, distribution, data processing, sampling, Hypothesis, Regression, Classification, Linear regression, logisitic regression, neural network
+   :keywords: machine learning exploration, machinelearningexploration, The amateur's guide to explore machine learning, Machine learning, data science, statistics, probability, distribution, data processing, sampling, Hypothesis, Regression, Classification, Linear regression, logisitic regression, neural network, bayesian, frequentist
    
    
 .. toctree::
@@ -12,8 +12,18 @@
    PracticalStatistics/probability
    PracticalStatistics/Distributions
    ProbabilisticModel/estimation_probability
+   ProbabilisticModel/bayes
    PracticalStatistics/Hypothesis
    PracticalStatistics/HypTestingEx
+   perceptron/explore
+   NearestNeighbors/explore
+   LinearRegression/Explore
+   LogisticRegression/Explore
+   TreeBasedModels/ExploreDecisionTree
+   EnsembleMethods/ExploreRandomForest
+   EnsembleMethods/ExploreBoosting
+   MathExploration/trend_slope
+   PracticalStatistics/StatisticalModelling
    
 .. toctree::
    :maxdepth: 2
@@ -27,6 +37,7 @@
    MathExploration/SignalProcessingFFT
    MathExploration/AudioProcessing
 
+
 .. toctree::
    :maxdepth: 2
    :caption: Data Insights
@@ -36,6 +47,7 @@
    MathExploration/PrincipalComponentAnalysis
    MathExploration/SVDLinearSystems
    MathExploration/woe_iv
+
 
 .. toctree::
    :maxdepth: 2
@@ -47,6 +59,7 @@
    MathExploration/sparse
    DataPreprocessing/techniques
 
+
 .. toctree::
    :maxdepth: 2
    :caption: Intuition & Evaluation
@@ -55,21 +68,7 @@
    Intuition/class_explore
    Evaluation/classification 
    MathExploration/matrix_multiplication
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Algorithms & Implementations
-   :name: Algorithms & Implementations
    
-   perceptron/explore
-   NearestNeighbors/explore
-   LinearRegression/Explore
-   LogisticRegression/Explore
-   TreeBasedModels/ExploreDecisionTree
-   EnsembleMethods/ExploreRandomForest
-   EnsembleMethods/ExploreBoosting
-   MathExploration/trend_slope
-   PracticalStatistics/StatisticalModelling
    
 .. toctree::
    :maxdepth: 2
