@@ -12,7 +12,6 @@
    PracticalStatistics/probability
    PracticalStatistics/Distributions
    ProbabilisticModel/estimation_probability
-   ProbabilisticModel/bayes
    PracticalStatistics/Hypothesis
    PracticalStatistics/HypTestingEx
    perceptron/explore
@@ -116,6 +115,7 @@
    :caption: Work In Progress
    :name: Work In Progress
    
+   ProbabilisticModel/bayes
    MathExploration/curse_of_dimensionality
    SupportVectorMachine/Explore
    AnomalyDetection/Explore
