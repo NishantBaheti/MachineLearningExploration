@@ -1,6 +1,6 @@
 .. meta::
    :description: This is a guide to explore machine learning and data science methods. Understanding statistics, probability, distribution, data processing, machine learning algorithms, data science methods.
-   :keywords: machine learning exploration, machinelearningexploration, The amateur's guide to explore machine learning, Machine learning, data science, statistics, probability, distribution, data processing, sampling, Hypothesis, Regression, Classification, Linear regression, logisitic regression, neural network, bayesian, frequentist
+   :keywords: machine learning exploration, machinelearningexploration, The amateur's guide to explore machine learning, Machine learning, data science, statistics, probability, distribution, data processing, sampling, Hypothesis, Regression, Classification, Linear regression, logisitic regression, neural networks, bayesian, frequentist
    
    
 .. toctree::
@@ -17,6 +17,8 @@
    perceptron/explore
    NearestNeighbors/explore
    LinearRegression/Explore
+   LinearRegression/ridge
+   LinearRegression/lasso
    LogisticRegression/Explore
    TreeBasedModels/ExploreDecisionTree
    EnsembleMethods/ExploreRandomForest
