@@ -104,7 +104,7 @@ def regression_plot(X, y, cost_history, theta_history, iterations):
     ax1.plot(cost_history)
     ax2.scatter(X, y)
 
-    y_pred = predict(X, theta_history[-1])
+    y_pred = predict(theta_history[-1], X)
     ax2.plot(X, y_pred, 'k')
 
     ax3.plot(theta_history[:, 0], cost_history, '.-')
