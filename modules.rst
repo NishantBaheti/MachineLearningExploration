@@ -5,26 +5,57 @@
    
 .. toctree::
    :maxdepth: 2
-
+   :caption: Basics
+   :name: Basics
+   
    PracticalStatistics/Statistics
    PracticalStatistics/Correlation
    PracticalStatistics/Sampling
    PracticalStatistics/probability
    PracticalStatistics/Distributions
    ProbabilisticModel/estimation_probability
+   MathExploration/bias_variance_tradeoff
+
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Experimentation
+   :name: Experimentation
+
    PracticalStatistics/Hypothesis
    PracticalStatistics/HypTestingEx
+   
+
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Linear Models
+   :name: Linear Models
+   
    perceptron/explore
-   NearestNeighbors/explore
    LinearRegression/Explore
    LinearRegression/ridge
    LinearRegression/lasso
    LogisticRegression/Explore
+   MathExploration/trend_slope
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Proximity Models
+   :name: Proximity Models
+   
+   MathExploration/distances
+   NearestNeighbors/explore
+   
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Tree Based and Ensemble Models
+   :name: Tree Based and Ensemble Models
+   
    TreeBasedModels/ExploreDecisionTree
    EnsembleMethods/ExploreRandomForest
    EnsembleMethods/ExploreBoosting
-   MathExploration/trend_slope
-   PracticalStatistics/StatisticalModelling
    
 .. toctree::
    :maxdepth: 2
@@ -41,21 +72,20 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Data Insights
-   :name: Data Insights
+   :caption: Unsupervised
+   :name: Unsupervised
    
    MathExploration/SingularValueDecomposition
    MathExploration/PrincipalComponentAnalysis
    MathExploration/SVDLinearSystems
-   MathExploration/woe_iv
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Feature Processing & Engineering
-   :name: Feature Processing & Engineering
+   :caption: Feature Engineering
+   :name: Feature Engineering
    
-   MathExploration/distances
+   MathExploration/woe_iv
    MathExploration/MovingWindow
    MathExploration/sparse
    DataPreprocessing/techniques
@@ -69,14 +99,6 @@
    Intuition/class_explore
    Evaluation/classification 
    MathExploration/matrix_multiplication
-   
-   
-.. toctree::
-   :maxdepth: 2
-   :caption: Graph & Network
-   :name: Graph & Network
-   
-   GraphNetwork/networkx_exp
 
 
 .. toctree::
@@ -88,7 +110,17 @@
    MatplotlibExploration/LiveVisual
    MatplotlibExploration/Surface
    PlotlyExploration/plotly
-   MatplotlibExploration/plot_learning_curve
+   .. MatplotlibExploration/plot_learning_curve
+   
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Miscellaneous
+   :name: Miscellaneous
+   
+   PracticalStatistics/StatisticalModelling
+   GraphNetwork/networkx_exp
+   
 
 .. toctree::
    .. :maxdepth: 2
@@ -100,6 +132,7 @@
    .. ClassificationProjects/DigitsDataModelling
    .. RegressionProjects/CaliforniaHousingPriceRegression
    .. RegressionProjects/CarPriceRegression
+   
 
 .. toctree::
    :maxdepth: 2
