@@ -46,6 +46,7 @@
    
    MathExploration/distances
    NearestNeighbors/explore
+   NearestNeighbors/curse_of_dim
    
    
 .. toctree::
@@ -151,7 +152,6 @@
    :name: Work In Progress
    
    ProbabilisticModel/bayes
-   MathExploration/curse_of_dimensionality
    SupportVectorMachine/Explore
    AnomalyDetection/Explore
    TimeSeriesMethods/tsforcasting
