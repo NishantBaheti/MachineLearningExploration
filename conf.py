@@ -76,7 +76,13 @@ html_theme = 'furo'
  
 
 html_theme_options = {
-    "page_width": "100%",
+    # "page_width": "100%",
     "sidebar_hide_name": True,
+    'sidebarwidth': '100px',
+    # 'extra_css': '''
+    #     #sidebar {
+    #         width: 100px; /* Adjust the width as desired */
+    #     }
+    # ''',
 }
 
