@@ -80,7 +80,7 @@ html_theme_options = {
     "sidebar_hide_name": True,
     'sidebarwidth': '100px',
     "show_navbar_depth": 2,
-    "show_toc_level": 2
+    "show_toc_level": 2,
     'extra_css': '''
         #sidebar {
             width: 100px; /* Adjust the width as desired */
