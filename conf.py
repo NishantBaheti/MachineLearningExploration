@@ -85,6 +85,9 @@ html_theme_options = {
         #sidebar {
             width: 100px; /* Adjust the width as desired */
         }
+        .wy-nav-content {
+            max-width: none;
+        }
     ''',
 }
 
