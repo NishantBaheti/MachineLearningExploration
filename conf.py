@@ -76,13 +76,15 @@ html_theme = "sphinx_book_theme"
  
 
 html_theme_options = {
-    "page_width": "100%",
+    "page_width": "120%",
     "sidebar_hide_name": True,
     'sidebarwidth': '100px',
-    # 'extra_css': '''
-    #     #sidebar {
-    #         width: 100px; /* Adjust the width as desired */
-    #     }
-    # ''',
+    "show_navbar_depth": 2,
+    "show_toc_level": 2
+    'extra_css': '''
+        #sidebar {
+            width: 100px; /* Adjust the width as desired */
+        }
+    ''',
 }
 
