@@ -77,6 +77,8 @@ html_theme = 'furo'
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ['_static']
  
+pygments_style = "sphinx"
+pygments_dark_style = "monokai"
 
 # html_theme_options = {
 #     "show_nav_level": 2,
