@@ -26,7 +26,7 @@ author = 'Nishant Baheti'
 html_show_copyright = False
 html_logo = "mlelogo.drawio.png"
 html_favicon = "mlelogo.drawio.png"
-html_title = False
+html_title = 'ML Guide Book'
 # The full version, including alpha/beta/rc tags
 release = get_version(root='.')
 
@@ -77,19 +77,19 @@ html_theme = "sphinxawesome_theme"
 # html_static_path = ['_static']
  
 
-html_theme_options = {
-    # "page_width": "120%",
-    "sidebar_hide_name": True,
-    # 'sidebarwidth': '100px',
-    "show_navbar_depth": 2,
-    "show_toc_level": 2,
-    # 'extra_css': '''
-    #     #sidebar {
-    #         width: 100px; /* Adjust the width as desired */
-    #     }
-    #     .wy-nav-content {
-    #         max-width: none;
-    #     }
-    # ''',
-}
+# html_theme_options = {
+#     # "page_width": "120%",
+#     "sidebar_hide_name": True,
+#     # 'sidebarwidth': '100px',
+#     "show_navbar_depth": 2,
+#     "show_toc_level": 2,
+#     # 'extra_css': '''
+#     #     #sidebar {
+#     #         width: 100px; /* Adjust the width as desired */
+#     #     }
+#     #     .wy-nav-content {
+#     #         max-width: none;
+#     #     }
+#     # ''',
+# }
 
