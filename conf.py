@@ -76,18 +76,18 @@ html_theme = "sphinx_book_theme"
  
 
 html_theme_options = {
-    "page_width": "120%",
+    # "page_width": "120%",
     "sidebar_hide_name": True,
-    'sidebarwidth': '100px',
+    # 'sidebarwidth': '100px',
     "show_navbar_depth": 2,
     "show_toc_level": 2,
-    'extra_css': '''
-        #sidebar {
-            width: 100px; /* Adjust the width as desired */
-        }
-        .wy-nav-content {
-            max-width: none;
-        }
-    ''',
+    # 'extra_css': '''
+    #     #sidebar {
+    #         width: 100px; /* Adjust the width as desired */
+    #     }
+    #     .wy-nav-content {
+    #         max-width: none;
+    #     }
+    # ''',
 }
 
