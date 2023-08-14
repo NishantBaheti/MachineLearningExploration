@@ -69,7 +69,8 @@ master_doc = 'index'
 # html_theme = 'piccolo_theme'
 # html_theme = 'furo'
 # html_theme = 'sphinx-material'
-html_theme = "sphinxawesome_theme"
+# html_theme = "sphinxawesome_theme"
+html_theme = "pydata_sphinx_theme"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -77,19 +78,13 @@ html_theme = "sphinxawesome_theme"
 # html_static_path = ['_static']
  
 
-# html_theme_options = {
-#     # "page_width": "120%",
-#     "sidebar_hide_name": True,
-#     # 'sidebarwidth': '100px',
-#     "show_navbar_depth": 2,
-#     "show_toc_level": 2,
-#     # 'extra_css': '''
-#     #     #sidebar {
-#     #         width: 100px; /* Adjust the width as desired */
-#     #     }
-#     #     .wy-nav-content {
-#     #         max-width: none;
-#     #     }
-#     # ''',
-# }
+html_theme_options = {
+    "show_nav_level": 2,
+    "navigation_depth": 2,
+    "collapse_navigation": True,
+    "show_toc_level": 2,
+    "pygment_light_style": "tango",
+    "pygment_dark_style": "github-dark",
+    "default_mode": "auto"
+}
 
