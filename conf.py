@@ -26,7 +26,7 @@ author = 'Nishant Baheti'
 html_show_copyright = False
 html_logo = "mlelogo.drawio.png"
 html_favicon = "mlelogo.drawio.png"
-html_title = False
+html_title = 'ML Guide Book'
 # The full version, including alpha/beta/rc tags
 release = get_version(root='.')
 
@@ -68,21 +68,25 @@ master_doc = 'index'
 # html_theme = "sphinx_book_theme"
 # html_theme = 'piccolo_theme'
 html_theme = 'furo'
+# html_theme = 'sphinx-material'
+# html_theme = "sphinxawesome_theme"
+# html_theme = "pydata_sphinx_theme"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ['_static']
  
+pygments_style = "sphinx"
+pygments_dark_style = "monokai"
 
-html_theme_options = {
-    # "page_width": "100%",
-    "sidebar_hide_name": True,
-    'sidebarwidth': '100px',
-    # 'extra_css': '''
-    #     #sidebar {
-    #         width: 100px; /* Adjust the width as desired */
-    #     }
-    # ''',
-}
+# html_theme_options = {
+#     "show_nav_level": 2,
+#     "navigation_depth": 2,
+#     "collapse_navigation": True,
+#     "show_toc_level": 2,
+#     "pygment_light_style": "tango",
+#     "pygment_dark_style": "github-dark",
+#     "default_mode": "auto"
+# }
 
