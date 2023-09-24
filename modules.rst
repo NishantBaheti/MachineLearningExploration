@@ -38,6 +38,7 @@
    LinearRegression/lasso
    LogisticRegression/Explore
    MathExploration/trend_slope
+   SupportVectorMachine/Explore
    
 .. toctree::
    :maxdepth: 2
@@ -97,8 +98,9 @@
    :caption: Intuition & Evaluation
    :name: Intuition & Evaluation
    
+   SupportVectorMachine/Explore
    Intuition/class_explore
-   Evaluation/classification 
+   Evaluation/classification
    MathExploration/matrix_multiplication
 
 
@@ -152,7 +154,6 @@
    :name: Work In Progress
    
    ProbabilisticModel/bayes
-   SupportVectorMachine/Explore
    AnomalyDetection/Explore
    TimeSeriesMethods/tsforcasting
    ProbabilisticModel/markov_chain
