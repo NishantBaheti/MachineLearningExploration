@@ -49,6 +49,10 @@ extensions = [
 templates_path = ['_templates']
 html_static_path = ['_static']
 
+html_css_files = [
+    'css/custom_sidebar.css',
+]
+
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
@@ -82,7 +86,5 @@ pygments_style = "sphinx"
 pygments_dark_style = "monokai"
 
 html_theme_options = {
-    "prefers-color-scheme": "light",
-    "sidebar-collapse": True,
+    'sidebar-collapse': True,
 }
-
