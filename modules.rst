@@ -98,7 +98,7 @@
    :caption: Intuition & Evaluation
    :name: Intuition & Evaluation
    
-   SupportVectorMachine/Explore
+   SupportVectorMachine/vectors
    Intuition/class_explore
    Evaluation/classification
    MathExploration/matrix_multiplication
