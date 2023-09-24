@@ -1,0 +1,49 @@
+.wy-side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  background-color: #ffffff;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.wy-side-nav .wy-side-nav-search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 11;
+}
+
+.wy-side-nav .wy-side-nav-search .wy-search-input {
+  width: 100%;
+}
+
+.wy-side-nav .wy-side-nav-toggle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  z-index: 12;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.wy-side-nav .wy-side-nav-toggle:hover {
+  background-color: #f2f2f2;
+}
+
+.wy-side-nav.collapsed {
+  width: 0;
+}
+
+.wy-side-nav.collapsed .wy-side-nav-search {
+  width: 0;
+}
+
+.wy-side-nav.collapsed .wy-side-nav-toggle {
+  right: -40px;
+}

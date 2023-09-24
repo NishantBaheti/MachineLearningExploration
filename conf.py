@@ -47,6 +47,7 @@ extensions = [
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
+html_static_path = ['_static']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -80,13 +81,8 @@ html_theme = 'furo'
 pygments_style = "sphinx"
 pygments_dark_style = "monokai"
 
-# html_theme_options = {
-#     "show_nav_level": 2,
-#     "navigation_depth": 2,
-#     "collapse_navigation": True,
-#     "show_toc_level": 2,
-#     "pygment_light_style": "tango",
-#     "pygment_dark_style": "github-dark",
-#     "default_mode": "auto"
-# }
+html_theme_options = {
+    "prefers-color-scheme": "light",
+    "sidebar-collapse": True,
+}
 
