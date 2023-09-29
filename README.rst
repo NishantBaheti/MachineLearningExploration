@@ -2,7 +2,7 @@
 The amateur's guide to explore machine learning
 ====================================================
 
-.. image:: mlelogo.drawio.png
+.. image:: mlguidebooklogo.png
 
 
 

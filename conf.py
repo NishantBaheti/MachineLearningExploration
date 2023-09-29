@@ -24,8 +24,8 @@ copyright = 'No copyright, Nishant Baheti'
 author = 'Nishant Baheti'
 
 html_show_copyright = False
-html_logo = "mlelogo.drawio.png"
-html_favicon = "mlelogo.drawio.png"
+html_logo = "mlguidebooklogo.png"
+html_favicon = "mlguidebooklogo.png"
 html_title = 'ML Guide Book'
 # The full version, including alpha/beta/rc tags
 release = get_version(root='.')
