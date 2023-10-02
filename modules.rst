@@ -24,7 +24,6 @@
 
    PracticalStatistics/Hypothesis
    PracticalStatistics/HypTestingEx
-   
 
    
 .. toctree::
@@ -42,8 +41,8 @@
    
 .. toctree::
    :maxdepth: 2
-   :caption: Proximity Models
-   :name: Proximity Models
+   :caption: Proximity Models & Methods
+   :name: Proximity Models & Methods
    
    MathExploration/distances
    NearestNeighbors/explore
@@ -101,6 +100,7 @@
    SupportVectorMachine/vectors
    Intuition/class_explore
    Evaluation/classification
+   MathExploration/loss
    MathExploration/matrix_multiplication
 
 
