@@ -3,7 +3,9 @@ The amateur's guide to explore machine learning
 ====================================================
 
 .. image:: mlguidebooklogo.png
-
+  :width: 400
+  :alt: Alternative text
+  
 
 
 Welcome.
