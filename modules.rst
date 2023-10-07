@@ -37,7 +37,15 @@
    LinearRegression/lasso
    LogisticRegression/Explore
    MathExploration/trend_slope
+   
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: SVM
+   :name: SVM
+
    SupportVectorMachine/Explore
+   SupportVectorMachine/Kernels
    
 .. toctree::
    :maxdepth: 2
