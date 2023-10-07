@@ -49,9 +49,6 @@ extensions = [
 templates_path = ['_templates']
 html_static_path = ['_static']
 
-html_css_files = [
-    'css/custom_sidebar.css',
-]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -70,7 +67,6 @@ master_doc = 'index'
 
 # html_theme = "sphinx_rtd_theme"
 # html_theme = "sizzle"
-html_theme = "sphinx_book_theme"
 # html_theme = 'piccolo_theme'
 # html_theme = 'furo'
 # html_theme = 'sphinx-material'
@@ -80,6 +76,14 @@ html_theme = "sphinx_book_theme"
 # pygments_style = "sphinx"
 # pygments_dark_style = "monokai"
 
+
+html_theme = "sphinx_book_theme"
 html_theme_options = {
-    'sidebar-collapse': True,
+    "show_toc_level": 4,
+    "show_navbar_depth" : 2,
+    "use_sidenotes": True
 }
+
+html_css_files = [
+    'css/custom_sidebar.css',
+]
