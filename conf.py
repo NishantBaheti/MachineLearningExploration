@@ -82,7 +82,7 @@ html_theme_options = {
     "show_toc_level" : 4,
     "show_navbar_depth" : 2,
     "use_sidenotes" : True,
-    "announcement" : : (
+    "announcement" : (
         "This doc works better with desktop in both themes, "
         "for mobile devices please change to light theme."
     ),
