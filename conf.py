@@ -79,9 +79,13 @@ master_doc = 'index'
 
 html_theme = "sphinx_book_theme"
 html_theme_options = {
-    "show_toc_level": 4,
+    "show_toc_level" : 4,
     "show_navbar_depth" : 2,
-    "use_sidenotes": True
+    "use_sidenotes" : True,
+    "announcement" : : (
+        "This doc works better with desktop in both themes, "
+        "for mobile devices please change to light theme."
+    ),
 }
 
 html_css_files = [
