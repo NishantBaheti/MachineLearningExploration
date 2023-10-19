@@ -3,20 +3,29 @@ The amateur's guide to explore machine learning
 ====================================================
 
 .. image:: mlguidebooklogo.png
-  :width: 400
+  :width: 300
   :alt: Alternative text
   
 
+Hey there!
 
-Welcome.
+Welcome aboard!
 
-I created this documentation as my exploration of **machine learning & data science**.
+So, here's the scoop: I put together this documentation while embarking on my epic journey through the realms of machine learning and data science.
 
-I usually forget logics, methods, algorithms and code. Hence to keep everything at one place so that I can go through the topic quickly as referenced. 
+But, here's the thing: I've got a bit of a scatterbrain, and I tend to misplace my logic, methods, algorithms, and, oh, the endless lines of code. 🤯
 
-Source of the content mostly from a free course, video, research paper and book (most of the references are mentioned with the topic).
+So, to keep all the genius stuff in one handy place, I've crafted this treasure trove. It's like my own personal cheat sheet to quickly dive into topics when I need 'em. 📚
 
-**If I haven't mentioned your reference correctly then let me know, I'll add it asap.**
+Now, let me spill the beans on my secret sauce. Most of the content in here comes from a bunch of free courses, juicy videos, brainy research papers, and some good old dusty books. 📖
+
+And, just in case I've messed up the credits, don't be shy – give me a holler. I'll make things right ASAP! 🧐
+
+Let's dive into the wonderful world of ML and data science together, shall we? 🚀🤖📈
+
+
+Contact Me
+-----------
 
 +-----------+--------------------------------------------+
 | email     | nishantbaheti.it19@gmail.com               |
