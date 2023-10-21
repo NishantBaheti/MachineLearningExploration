@@ -1,6 +1,6 @@
 .. meta::
-   :description: A guide to explore machine learning & data science. Understanding statistics, probability & distributions, data processing, machine learning algorithms and various data science methods.
-   :keywords: machine learning exploration, machinelearningexploration, The amateur's guide to explore machine learning, Machine learning, data science, statistics, probability, distribution, data processing, Hypothesis, Regression, Classification, Linear regression, logisitic regression, neural networks, mlguidebook, ml guide book, ml guide, machine learning guide book, artifical intelligence, deep learning, help book, guide book, starter pack, seo first
+   :description: This is a guide to explore machine learning and data science methods. Understanding statistics, probability, distribution, data processing, machine learning algorithms, data science methods.
+   :keywords: machine learning exploration, machinelearningexploration, The amateur's guide to explore machine learning, Machine learning, data science, statistics, probability, distribution, data processing, sampling, Hypothesis, Regression, Classification, Linear regression, logistic regression, neural networks, bayesian, frequentist, ML, ML Book, ml book, book, machine learning book, deep learning book, python machine learning, machine learning from scratch, ml from scratch, ml from scratch in python, jupyter machine learning, jupyter, jupyter notebook, jupyter lab, support vector machine, ml interview, machine learning interview, interview preparation.
 
 .. index:: HOME
 .. include:: ./README.rst
