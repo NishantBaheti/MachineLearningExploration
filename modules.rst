@@ -103,9 +103,9 @@
    :name: Intuition & Evaluation
    
    SupportVectorMachine/vectors
-   Intuition/class_explore
+   Intuition/classification_boundaries
    Evaluation/classification
-   MathExploration/loss
+   Intuition/loss
    MathExploration/matrix_multiplication
 
 
