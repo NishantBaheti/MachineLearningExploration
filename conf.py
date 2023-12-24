@@ -85,6 +85,6 @@ html_theme_options = {
     "announcement" : "This website works better with desktop in both themes, for mobile devices please change to light theme."
 }
 
-html_css_files = [
-    'css/custom_sidebar.css',
-]
+# html_css_files = [
+#     'css/custom_sidebar.css',
+# ]
