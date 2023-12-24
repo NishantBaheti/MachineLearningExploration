@@ -68,9 +68,9 @@
    :caption: Image & Signal Procressing
    :name: Image & Signal Procressing
    
-   MathExploration/Convolution
-   MathExploration/ImageProcessing
-   MathExploration/ImageSegmentation
+   ComputerVision/Convolution
+   ComputerVision/ImageProcessing
+   ComputerVision/ImageSegmentation
    MathExploration/Fourier
    MathExploration/SignalProcessingFFT
    MathExploration/AudioProcessing
