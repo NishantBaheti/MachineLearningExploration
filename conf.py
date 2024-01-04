@@ -20,7 +20,7 @@ from setuptools_scm import get_version
 # -- Project information -----------------------------------------------------
 
 project = "The amateur's guide to explore machine learning"
-copyright = 'No copyright, Nishant Baheti'
+# copyright = 'No copyright, Nishant Baheti'
 author = 'Nishant Baheti'
 
 html_show_copyright = False

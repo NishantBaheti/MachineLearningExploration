@@ -8,11 +8,17 @@
    PracticalStatistics/Statistics
    PracticalStatistics/Correlation
    PracticalStatistics/Sampling
-   PracticalStatistics/probability
-   PracticalStatistics/Distributions
-   ProbabilisticModel/estimation_probability
    MathExploration/bias_variance_tradeoff
+   Intuition/loss
 
+.. toctree::
+   :maxdepth: 2
+   :caption: probability
+   :name: probability
+
+   Probability/basics
+   Probability/Distributions
+   Probability/estimation_probability
    
 .. toctree::
    :maxdepth: 2
@@ -105,7 +111,6 @@
    SupportVectorMachine/vectors
    Intuition/classification_boundaries
    Evaluation/classification
-   Intuition/loss
    MathExploration/matrix_multiplication
 
 
@@ -127,29 +132,16 @@
    :name: Miscellaneous
    
    PracticalStatistics/StatisticalModelling
-   GraphNetwork/networkx_exp
-   
-
-.. toctree::
-   .. :maxdepth: 2
-   .. :caption: Projects
-   .. :name: Projects
-   
-   .. ClassificationProjects/IrisDataExploratoryAnalysis
-   .. ClassificationProjects/BreastCancerAnalysis
-   .. ClassificationProjects/DigitsDataModelling
-   .. RegressionProjects/CaliforniaHousingPriceRegression
-   .. RegressionProjects/CarPriceRegression
-   
+   GraphNetwork/networkx_exp   
 
 .. toctree::
    :maxdepth: 2
    :caption: Additional Docs
    :name: Additional Docs
    
-   Recommendation Systems Doc <https://recommendation-systems.readthedocs.io>
-   Neural Network Doc <https://understandnn.readthedocs.io>
-   NLP Doc <https://nlpblog.readthedocs.io>
+   Reco Guide Book <https://reco.mlguidebook.com>
+   Deep Learning Guide Book <https://dl.mlguidebook.com>
+   NLP Guide Book <https://nlp.mlguidebook.com>
    mightypy <https://mightypy.readthedocs.io/>
    graphpkg <https://graphpkg.readthedocs.io/>
 
