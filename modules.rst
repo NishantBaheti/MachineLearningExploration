@@ -13,8 +13,8 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: probability
-   :name: probability
+   :caption: Probability
+   :name: Probability
 
    Probability/basics
    Probability/Distributions
