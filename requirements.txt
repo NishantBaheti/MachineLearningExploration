@@ -1,5 +1,5 @@
 IPython
-Sphinx
+Sphinx==7.2.0
 sphinxcontrib-applehelp>=1.0.2
 sphinxcontrib-bibtex>=2.3.0
 sphinxcontrib-devhelp>=1.0.2
