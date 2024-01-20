@@ -7,3 +7,5 @@ datasets
 data
 
 .virtual_documents
+.venv
+*venv*
