@@ -63,19 +63,6 @@ master_doc = 'index'
 # a list of builtin themes.
 #
 ## read the docs 
-# html_theme = "groundwork"
-
-# html_theme = "sphinx_rtd_theme"
-# html_theme = "sizzle"
-# html_theme = 'piccolo_theme'
-# html_theme = 'furo'
-# html_theme = 'sphinx-material'
-# html_theme = "sphinxawesome_theme"
-# html_theme = "pydata_sphinx_theme"
- 
-# pygments_style = "sphinx"
-# pygments_dark_style = "monokai"
-
 
 html_theme = "sphinx_book_theme"
 html_theme_options = {
