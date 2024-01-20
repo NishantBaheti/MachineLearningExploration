@@ -55,7 +55,7 @@ html_static_path = ['_static']
 # This pattern also affects html_static_path and html_extra_path.
 
 # include_patterns = [ "*.rst" ]
-exclude_patterns = ['_build', '**.ipynb_checkpoints','docs']
+exclude_patterns = ['_build', '**.ipynb_checkpoints','docs', '.venv']
 
 master_doc = 'index'
 # -- Options for HTML output -------------------------------------------------
