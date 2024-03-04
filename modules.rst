@@ -75,6 +75,13 @@
 
 .. toctree::
     :maxdepth: 2
+    :caption: RL
+    :name: RL
+
+    RL/mab
+
+.. toctree::
+    :maxdepth: 2
     :caption: Image & Signal Procressing
     :name: Image & Signal Procressing
     
