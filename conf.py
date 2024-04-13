@@ -19,7 +19,7 @@ from setuptools_scm import get_version
 
 # -- Project information -----------------------------------------------------
 
-project = "The amateur's guide to explore machine learning"
+project = "MLGuideBook"
 # copyright = 'No copyright, Nishant Baheti'
 author = 'Nishant Baheti'
 
@@ -38,11 +38,16 @@ release = get_version(root='.')
 # ones.
 extensions = [
     'nbsphinx',
+    "nbsphinx",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.ifconfig",
     'sphinx.ext.mathjax',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
-    'sphinx.ext.ifconfig',
+    "sphinxcontrib.cairosvgconverter"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
