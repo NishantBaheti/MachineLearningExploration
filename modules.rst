@@ -64,6 +64,7 @@
     MathExploration/SingularValueDecomposition
     MathExploration/PrincipalComponentAnalysis
     MathExploration/SVDLinearSystems
+    Clustering/kmeans
 
 .. toctree::
     :maxdepth: 1
