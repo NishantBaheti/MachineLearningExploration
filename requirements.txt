@@ -11,5 +11,5 @@ sphinxcontrib-svg2pdfconverter>=1.1.1
 webencodings>=0.5.1
 nbsphinx>=0.8.6
 setuptools_scm
-sphinx-book-theme
+sphinx-book-theme==1.1.2
 sphinxcontrib-svg2pdfconverter[CairoSVG]==1.2.2

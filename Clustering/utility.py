@@ -1,9 +1,6 @@
 import matplotlib.pyplot as plt
-from matplotlib import colors
 from matplotlib import animation
-import seaborn as sns
 from IPython import display
-import numpy as np
 
 
 def cluster_animation(
