@@ -7,32 +7,39 @@ import numpy as np
 
 
 def cluster_animation(
-    X, cluster_id_history, cluster_centroids_history, iterations, interval=20
+    X, cluster_id_history, cluster_centroids_history, wcss_history, iterations, interval=20
 ):
-    fig = plt.figure(figsize=(5, 5))
+    fig, ax = plt.subplots(1, 2, figsize=(8, 4))
 
-    ax = fig.add_subplot(1, 1, 1)
     cmap = dict(enumerate(['blue','yellow','green','red','purple']))
 
-    scat1 = ax.scatter(X[:, 0], X[:, 1], color=[cmap[i] for i in cluster_id_history[0]])
-    scat2 = ax.scatter(
+    scat1 = ax[0].scatter(X[:, 0], X[:, 1], color=[cmap[i] for i in cluster_id_history[0]], label="observations")
+    scat2 = ax[0].scatter(
         x=cluster_centroids_history[0][:, 0],
         y=cluster_centroids_history[0][:, 1],
         color="black",
         marker="o",
         s=200,
         edgecolors="yellow",
+        label="centroids"
     )
+    ax[0].set_title("clusters")
+    ax[0].set_title("wcss")
+
+    wcss_line, = ax[1].plot(wcss_history, "o-", label="score")
+
+    ax[0].legend()
+    ax[1].legend()
 
     fig.tight_layout()
 
     def draw_frame(n):
-
+        wcss_line.set_data(list(range(n)), wcss_history[:n])
         scat1.set_color([cmap[i] for i in cluster_id_history[n]])
         scat2.set_offsets(
             cluster_centroids_history[n]
         )
-        return (scat1, scat2)
+        return (wcss_line, scat1, scat2, )
 
     anim = animation.FuncAnimation(
         fig, draw_frame, frames=iterations, interval=interval, blit=False
