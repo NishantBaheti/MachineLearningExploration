@@ -7,11 +7,13 @@ import numpy as np
 
 
 def cluster_animation(
-    X, cluster_id_history, cluster_centroids_history, wcss_history, iterations, interval=20
+    X, cluster_id_history, cluster_centroids_history, wcss_history, interval=20
 ):
     fig, ax = plt.subplots(1, 2, figsize=(8, 4))
 
-    cmap = dict(enumerate(['blue','yellow','green','red','purple']))
+    cmap = dict(enumerate(['blue','yellow','green','red','purple'] * 10))
+
+    iterations = min(len(cluster_id_history), len(cluster_centroids_history), len(wcss_history))
 
     scat1 = ax[0].scatter(X[:, 0], X[:, 1], color=[cmap[i] for i in cluster_id_history[0]], label="observations")
     scat2 = ax[0].scatter(
