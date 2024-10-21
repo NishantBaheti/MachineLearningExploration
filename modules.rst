@@ -128,6 +128,7 @@
     Reco Guide Book <https://reco.mlguidebook.com>
     Deep Learning Guide Book <https://dl.mlguidebook.com>
     NLP Guide Book <https://nlp.mlguidebook.com>
+    Python Guide Book <https://python.mlguidebook.com>
     mightypy <https://mightypy.readthedocs.io/>
     graphpkg <https://graphpkg.readthedocs.io/>
 
