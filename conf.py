@@ -38,7 +38,6 @@ release = get_version(root='.')
 # ones.
 extensions = [
     'nbsphinx',
-    "nbsphinx",
     "sphinx.ext.autodoc",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
