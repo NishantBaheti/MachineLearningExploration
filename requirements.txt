@@ -13,4 +13,4 @@ nbsphinx>=0.8.6
 setuptools_scm
 sphinx-book-theme==1.1.3
 sphinxcontrib-svg2pdfconverter[CairoSVG]==1.2.2
-sphinx-pdj-theme
+furo
