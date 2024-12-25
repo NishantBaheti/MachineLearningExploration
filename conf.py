@@ -70,7 +70,10 @@ master_doc = 'index'
 #
 ## read the docs 
 
-html_theme = "sphinx_book_theme"
+import sphinx_theme_pd
+html_theme = 'sphinx_theme_pd'
+html_theme_path = [sphinx_theme_pd.get_html_theme_path()]
+
 html_theme_options = {
     "show_toc_level" : 4,
     "show_navbar_depth" : 2,
