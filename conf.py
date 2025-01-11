@@ -79,7 +79,7 @@ html_theme_options = {
     "show_toc_level" : 4,
     "show_navbar_depth" : 2,
     "use_sidenotes" : True,
-    "announcement" : "This website works better with desktop in both themes, for mobile devices please change to light theme."
+    "announcement" : "Understand Any Topic From Me For Free -> <https://topmate.io/nishantbaheti/474284>"
 }
 
 # html_css_files = [
